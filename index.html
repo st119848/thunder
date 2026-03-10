@@ -223,6 +223,45 @@
             box-shadow: 0 0 100px rgba(0,0,0,0.8);
             transform: scale(0.9);
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            user-select: none;
+        }
+
+        .lightbox-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            z-index: 10001;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        #prev-btn { left: 30px; }
+        #next-btn { right: 30px; }
+
+        @media (max-width: 768px) {
+            .lightbox-btn {
+                width: 50px;
+                height: 50px;
+                background: rgba(255, 255, 255, 0.2);
+            }
+            #prev-btn { left: 10px; }
+            #next-btn { right: 10px; }
         }
 
         #lightbox.active { display: flex; }
@@ -515,7 +554,9 @@
     </footer>
 
     <div id="lightbox">
+        <div id="prev-btn" class="lightbox-btn">&lsaquo;</div>
         <img src="" alt="Full Screen Preview">
+        <div id="next-btn" class="lightbox-btn">&rsaquo;</div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -538,20 +579,49 @@
         // Lightbox Logic
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = lightbox.querySelector('img');
-        const cards = document.querySelectorAll('.card');
+        const cards = Array.from(document.querySelectorAll('.card'));
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        let currentIndex = 0;
 
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                const imgSrc = card.querySelector('img').src;
-                lightboxImg.src = imgSrc;
+        function updateLightboxImage() {
+            const imgSrc = cards[currentIndex].querySelector('img').src;
+            lightboxImg.src = imgSrc;
+        }
+
+        cards.forEach((card, index) => {
+            card.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = index;
+                updateLightboxImage();
                 lightbox.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
         });
 
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : cards.length - 1;
+            updateLightboxImage();
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex < cards.length - 1) ? currentIndex + 1 : 0;
+            updateLightboxImage();
+        });
+
         lightbox.addEventListener('click', () => {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') prevBtn.click();
+            if (e.key === 'ArrowRight') nextBtn.click();
+            if (e.key === 'Escape') lightbox.click();
         });
     </script>
 </body>
