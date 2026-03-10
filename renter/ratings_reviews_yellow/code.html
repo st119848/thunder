@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rate Your Trip - Car Rental</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FAC638",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#231e0f",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-slate-900 shadow-xl overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<div class="flex items-center bg-white dark:bg-slate-900 p-4 pb-2 justify-between border-b border-slate-100 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Rate your trip</h2>
+</div>
+<!-- Trip Summary Header -->
+<div class="flex p-6 @container">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 border-4 border-primary shadow-lg" data-alt="Professional car owner profile photo smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCi0JGNOD4mixVX6HOnA50Tz17y2hIeayJNTwQTnTkSqu4mlHf24YvCCzm9wsAMYXNnSJP9OAHDctdlY3PrW6335T_AQkwb_oRdrZsEkdb64GhGMejSNz9sczWp6r03tF6YkSphhGkm5YS2n71QxBhE6xez-qi7LqNlpiqyxWnqQDOmzzbEL-nbDuSrF6AzECU6kXmzcHM7jE15ysr8kJ4qC5WSDF1XedON7RgbsXSs3MBLul1WAbUOUxqbWBASYXOS0Qfa9TtQ-w");'></div>
+<div class="absolute bottom-0 right-0 bg-primary text-slate-900 p-1.5 rounded-full border-2 border-white dark:border-slate-900">
+<span class="material-symbols-outlined text-sm block">verified_user</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-slate-900 dark:text-slate-100 text-[22px] font-bold leading-tight tracking-tight text-center">How was your trip with Alex?</p>
+<p class="text-slate-500 dark:text-slate-400 text-base font-medium leading-normal text-center mt-1">2022 Tesla Model 3 • San Francisco</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 space-y-8">
+<!-- Star Rating Interaction -->
+<div class="flex flex-col items-center gap-4 py-4 bg-primary/5 dark:bg-primary/10 rounded-2xl border border-primary/20">
+<h4 class="text-slate-800 dark:text-slate-200 text-sm font-bold leading-normal uppercase tracking-wider">Overall Experience</h4>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-4xl text-primary fill cursor-pointer">star</span>
+<span class="material-symbols-outlined text-4xl text-primary fill cursor-pointer">star</span>
+<span class="material-symbols-outlined text-4xl text-primary fill cursor-pointer">star</span>
+<span class="material-symbols-outlined text-4xl text-primary fill cursor-pointer">star</span>
+<span class="material-symbols-outlined text-4xl text-slate-300 dark:text-slate-700 cursor-pointer">star</span>
+</div>
+<p class="text-primary font-bold text-lg">4.0 - Very Good</p>
+</div>
+<!-- Specific Ratings -->
+<div class="space-y-4">
+<h4 class="text-slate-900 dark:text-slate-100 text-base font-bold">Details</h4>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex items-center justify-between p-3 rounded-xl border border-slate-100 dark:border-slate-800">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Cleanliness</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl border border-slate-100 dark:border-slate-800">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Communication</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-700 text-xl">star</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl border border-slate-100 dark:border-slate-800">
+<span class="text-slate-700 dark:text-slate-300 font-medium">Car Accuracy</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+<span class="material-symbols-outlined text-primary text-xl fill">star</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Feedback TextArea -->
+<div class="flex flex-col gap-2">
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold leading-normal">Your feedback</p>
+<textarea class="w-full rounded-xl text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary focus:border-primary border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 min-h-36 placeholder:text-slate-400 dark:placeholder:text-slate-500 p-4 text-base font-normal leading-relaxed transition-all" placeholder="Tell us about the car condition, cleanliness, and the owner's communication..."></textarea>
+<div class="flex items-center gap-2 mt-1">
+<input class="rounded border-slate-300 dark:border-slate-700 text-primary focus:ring-primary bg-white dark:bg-slate-800" id="anonymous" type="checkbox"/>
+<label class="text-sm text-slate-500 dark:text-slate-400" for="anonymous">Post review anonymously</label>
+</div>
+</div>
+</div>
+<!-- Footer / Action Area -->
+<div class="mt-auto p-6 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 sticky bottom-0">
+<button class="w-full bg-primary hover:bg-primary/90 text-slate-900 font-bold py-4 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2">
+                Submit Review
+                <span class="material-symbols-outlined">send</span>
+</button>
+<button class="w-full mt-3 text-slate-500 dark:text-slate-400 font-medium py-2 text-sm hover:underline">
+                Skip for now
+            </button>
+</div>
+<!-- Previous Reviews Insight (Summary component inspired) -->
+<div class="px-6 py-8 bg-slate-50 dark:bg-slate-800/50">
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-bold uppercase tracking-wider mb-4">Trip Rating Stats</h3>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-center">
+<p class="text-slate-900 dark:text-slate-100 text-4xl font-black leading-tight">4.9</p>
+<div class="flex gap-0.5 text-primary">
+<span class="material-symbols-outlined text-xs fill">star</span>
+<span class="material-symbols-outlined text-xs fill">star</span>
+<span class="material-symbols-outlined text-xs fill">star</span>
+<span class="material-symbols-outlined text-xs fill">star</span>
+<span class="material-symbols-outlined text-xs fill">star</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-1">128 reviews</p>
+</div>
+<div class="flex-1 space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="text-slate-600 dark:text-slate-400 text-xs w-2">5</span>
+<div class="flex h-1.5 flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<div class="rounded-full bg-primary" style="width: 92%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-slate-600 dark:text-slate-400 text-xs w-2">4</span>
+<div class="flex h-1.5 flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<div class="rounded-full bg-primary" style="width: 6%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-slate-600 dark:text-slate-400 text-xs w-2">3</span>
+<div class="flex h-1.5 flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<div class="rounded-full bg-primary" style="width: 1%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-slate-600 dark:text-slate-400 text-xs w-2">2</span>
+<div class="flex h-1.5 flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<div class="rounded-full bg-primary" style="width: 0.5%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-slate-600 dark:text-slate-400 text-xs w-2">1</span>
+<div class="flex h-1.5 flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<div class="rounded-full bg-primary" style="width: 0.5%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

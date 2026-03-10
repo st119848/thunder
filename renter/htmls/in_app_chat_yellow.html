@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#FAC638",
+                "background-light": "#f8f8f5",
+                "background-dark": "#231e0f",
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+<title>Car Rental Chat</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar: Message List -->
+<aside class="hidden md:flex flex-col w-80 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="p-4 border-b border-slate-200 dark:border-slate-800">
+<h1 class="text-xl font-bold">Messages</h1>
+<div class="mt-4 relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary" placeholder="Search conversations..." type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto">
+<!-- Chat Item Active -->
+<div class="flex items-center gap-3 p-4 bg-primary/10 border-r-4 border-primary cursor-pointer">
+<div class="relative">
+<div class="w-12 h-12 rounded-full bg-cover bg-center" data-alt="Portrait of John the car owner" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAca8rK0gAFrpzPzM2kxc9mswIRPAbSu7PXE9cc7AzHE_qrOVyXeQdnIh_AvhbMZUN3BUosSst63SFjcSd0DUcdts6CSeT2H-rCPkojArT2pv21VwM3Gxfjw71UhV_my56Wtf9DYL6GtsvMFl5hYOJu63V0HDZYvScla-U-aG3BA0iOF5WuKNj5is1S1gmD1eHik_xzkiUVRkVf1_U8slhvawtS5YqUIsxxxSGD4FqVxOrCQjbNwxm2zmOTRN3-_OqGwJ2xt5hVA')"></div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-slate-900 rounded-full"></div>
+</div>
+<div class="flex-1 overflow-hidden">
+<div class="flex justify-between items-baseline">
+<h3 class="font-bold text-sm truncate">John (Owner)</h3>
+<span class="text-[10px] text-slate-500 uppercase">2m ago</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400 truncate">Perfect. I've sent the precise location pin below.</p>
+</div>
+</div>
+<!-- Chat Item -->
+<div class="flex items-center gap-3 p-4 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border-b border-slate-100 dark:border-slate-800">
+<div class="w-12 h-12 rounded-full bg-cover bg-center" data-alt="Portrait of Sarah vehicle support" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFaXBN92T9VEv9rxApVD3QOEJL3AVoiGBHpb7Sik0o_MQC8EfIhWgiUZh48UB-VG5nrdMTjnCMY5NPP5ncIkq6z8GqSvft7oTc3P-vbk2iNlx37hh_QueSOXft-_wEGtiK_vw6iLGLGLCjMtJJqoRujBmTa9pZh9Nlf3dOflYNzVcAmT7liaE90zLCa9gfVS4r_AN2OpveAhyTy8awxviZsYtvBjl57dU_EBmS4d3npcZC97i50NASR0TBOJ4yY_JzbawfgLjqIQ')"></div>
+<div class="flex-1 overflow-hidden">
+<div class="flex justify-between items-baseline">
+<h3 class="font-bold text-sm truncate">Sarah Support</h3>
+<span class="text-[10px] text-slate-500 uppercase">1h ago</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400 truncate">Your rental insurance is now active.</p>
+</div>
+</div>
+<!-- Chat Item -->
+<div class="flex items-center gap-3 p-4 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border-b border-slate-100 dark:border-slate-800">
+<div class="w-12 h-12 rounded-full bg-cover bg-center" data-alt="Portrait of Mike previous owner" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjPG039K1PSIvea7XaLtAOzekAaFoB_N2Rn-Uiz2nEbLI6-qsyzB4izyfZcU7Kigo2aDkqe2AHLiZ1s4p9tCaJrFA4Yg6w5diWIdCd4RZhgMsiXZFR2iKm-dfscD8JSSV7nN7uQx-YzKcCduBKW7C8y6rdqRkuVrIDXPjwTzyHnn7oeKgDxeoLoSXtWNmYrL4d12Pcv_LrKHcFseGl8KrDtLVO3a-9nUxRIrPeX9vKd9_psYvMTmx8kxOE2fkPelBPZqzauCE-5A')"></div>
+<div class="flex-1 overflow-hidden">
+<div class="flex justify-between items-baseline">
+<h3 class="font-bold text-sm truncate">Mike (Tesla Model 3)</h3>
+<span class="text-[10px] text-slate-500 uppercase">Yesterday</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400 truncate">Thanks for the smooth return!</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Chat Area -->
+<main class="flex-1 flex flex-col relative bg-background-light dark:bg-background-dark">
+<!-- Top App Bar -->
+<header class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm z-10">
+<div class="flex items-center gap-3">
+<button class="md:hidden p-2 -ml-2 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-cover bg-center border-2 border-primary" data-alt="John the owner profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDcAFb3GbMG4qyqf-n9cM7P1Byt7jkC3b_mNctvOaaNToLAxfZpklddCYjTv60XUCA4Uaxn2UcADm8-BLQUdNOjHN-_Zepx-Wj9UHVygoluWp_hrxjLI7v59ivpD4LmFnuYlnCsEc-JIYXLO-gk7kcPEoBAEWwu1dOohBmaSOeQ3mGBhUwwQ_mKEF8EyyqceWIIxHJI7_yOk9jMxo9N2uMNd5NTERhEHDphFQADRw1wKCrZL1DnAayP53x2pEcSLO1AJBHUI5eSw')"></div>
+<div>
+<h2 class="font-bold text-base leading-none">John (Owner)</h2>
+<div class="flex items-center gap-1 mt-1">
+<span class="w-2 h-2 bg-green-500 rounded-full"></span>
+<span class="text-[10px] font-medium text-slate-500 uppercase tracking-wider">Online • Tesla Model S</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">call</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">info</span>
+</button>
+</div>
+</header>
+<!-- Chat Content -->
+<div class="flex-1 overflow-y-auto p-4 space-y-6">
+<!-- Date Separator -->
+<div class="flex justify-center">
+<span class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-[10px] font-bold text-slate-500 dark:text-slate-400 rounded-full uppercase tracking-widest">Today</span>
+</div>
+<!-- Received Message -->
+<div class="flex items-end gap-3 max-w-[85%] md:max-w-[70%]">
+<div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0 mb-1" data-alt="Owner avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJQEQHiUeQZHR2T4bIvNd_fXhTZ42zxSAmUbYbPYECzNnjKLcIDHP5HuTCVcSr1LQtp0daDGubs-cxlwTL6CsN1fBctTJu5M1RlVGDbNNx7Td9Ywod5m7HH-FF-HxvJ2xbtgO1fZzn4T526IzMfIDBbZUA0Bm4a2kKhbm7QEgpdyNpynttICSW9ZA9EjBKuHVxOlXnTWn3qPG4F_zePsJo7LhxoATp-jQWsfYjaFGcz4q__qcXvbEaL1Fqg-8dkkQhQlmwZXvijw')"></div>
+<div class="flex flex-col gap-1">
+<div class="bg-white dark:bg-slate-800 p-3 rounded-2xl rounded-bl-none shadow-sm border border-slate-100 dark:border-slate-700">
+<p class="text-sm leading-relaxed">Hi! The car is ready for pickup at the designated spot. It's been fully charged and cleaned for your trip.</p>
+</div>
+<span class="text-[10px] text-slate-500 ml-1">10:45 AM</span>
+</div>
+</div>
+<!-- Sent Message -->
+<div class="flex items-end gap-3 justify-end ml-auto max-w-[85%] md:max-w-[70%]">
+<div class="flex flex-col gap-1 items-end">
+<div class="bg-primary text-slate-900 p-3 rounded-2xl rounded-br-none shadow-sm font-medium">
+<p class="text-sm leading-relaxed">Great, I'm about 10 minutes away. Just getting off the train now. See you soon!</p>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="text-[10px] text-slate-500">10:47 AM</span>
+<span class="material-symbols-outlined text-xs text-primary">done_all</span>
+</div>
+</div>
+</div>
+<!-- Received Message with Image/Map Placeholder -->
+<div class="flex items-end gap-3 max-w-[85%] md:max-w-[70%]">
+<div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0 mb-1" data-alt="Owner avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdpM_LGwVRyD9G3DtaGaraRP69mYHikBEebdWOs6Ze8GgsVEFmtW8Zf5UPNhR0-uR_nddOHiyQ9o143p_SFv7Xwb4ZC6dQJIFzj7NmKK91ncErfEKlyb9_Qh6XF2JZcGwIhOfJwibDSZAjQZSHVfHCi3PtBE2ljD71EtRA7x00y7sivxJFNxJ-UUL3P6PMjnEvuDoidirBKAhF7ZhcQOZjvVxKNYQ1Jbm28wuaPFdLssn2i5WN--RU7zkpMmigVbsWTo1gxRLkzQ')"></div>
+<div class="flex flex-col gap-1 w-full">
+<div class="bg-white dark:bg-slate-800 p-3 rounded-2xl rounded-bl-none shadow-sm border border-slate-100 dark:border-slate-700 space-y-3">
+<p class="text-sm leading-relaxed">Perfect. I've sent the precise location pin below. I'm parked near the Terminal 2 exit.</p>
+<div class="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-600">
+<img class="w-full h-32 object-cover" data-alt="Map location pin at airport terminal" data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm1Zf24HvtY7xcanWg6XKNkiggFLj3Of4-VWPHyJh9WHoN1GdTzOYeR1lIVhOl3mXgfyG7Cg-tyKLmrDP1tPc8-fyBZt9ihOphNe-E31NL1W6oDkpNKmERWDM6nh4s1zqDIBJuaWqNhdq5_pBxO0BgCAmJdUi8oDyBUBexy0kcsWqw2Ul6qquN9l0bk6OIayGu4GkWumzVmySt8rIgByEVdjcyL3MO11arhQYzP1X89fTzZNqmzuY4UG1m3PYPzTfwwMew49JL1A"/>
+<div class="p-2 bg-slate-50 dark:bg-slate-700 flex justify-between items-center">
+<span class="text-xs font-semibold">Terminal 2 Pickup Zone</span>
+<span class="material-symbols-outlined text-primary text-sm">directions</span>
+</div>
+</div>
+</div>
+<span class="text-[10px] text-slate-500 ml-1">10:48 AM</span>
+</div>
+</div>
+<!-- Security Notice -->
+<div class="flex justify-center py-2">
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-slate-400 text-sm">lock</span>
+<p class="text-[10px] text-slate-500 font-medium">Messages are secure and encrypted. <a class="text-primary hover:underline" href="#">Learn more</a></p>
+</div>
+</div>
+</div>
+<!-- Message Input Area -->
+<footer class="p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-2 max-w-5xl mx-auto">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">image</span>
+</button>
+<div class="flex-1 relative">
+<input class="w-full py-3 px-4 bg-slate-100 dark:bg-slate-800 border-none rounded-full text-sm focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-slate-700 transition-all" placeholder="Type a message..." type="text"/>
+<button class="absolute right-3 top-2.5 text-slate-400">
+<span class="material-symbols-outlined">mood</span>
+</button>
+</div>
+<button class="w-11 h-11 flex items-center justify-center bg-primary text-slate-900 rounded-full shadow-lg hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<p class="text-[9px] text-center text-slate-400 mt-2 uppercase tracking-tighter">Powered by SecureDrive Messaging</p>
+</footer>
+</main>
+<!-- Right Sidebar: Details (Desktop) -->
+<aside class="hidden lg:flex flex-col w-72 border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="p-6 text-center border-b border-slate-100 dark:border-slate-800">
+<div class="w-24 h-24 mx-auto rounded-full border-4 border-primary/20 p-1 mb-4">
+<div class="w-full h-full rounded-full bg-cover bg-center" data-alt="John profile picture large" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCOgPNmJdBT4j9-7_xOHKcjgWewAeXuT_BqI2RojI8SVolxBLBGiKVUZMkuU1tZ0NjlrqZzFb5HRVsUW4w3QmDQNo31caiX_PZ6R9-vWvPNvu4rTnr3501Yij8Nj8JU5fq0isCCdjhSuK0Wuaqpcj6VJKBMGiDjJ7YMGVRlesA1TArTMDE4U6RY93k-2JtIC_VrSb1tYnJIyRmpgU_QmyAG_CVGqo0K1sgbTIry5aVBJy4tu1IGLvQEm3HVzPCoNSL3AXIYIdqnCQ')"></div>
+</div>
+<h3 class="font-bold text-lg">John D.</h3>
+<p class="text-xs text-slate-500 flex items-center justify-center gap-1 mt-1">
+<span class="material-symbols-outlined text-xs text-primary">star</span>
+                    4.9 (124 rentals)
+                </p>
+<div class="flex gap-2 mt-4 justify-center">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded text-[10px] font-bold">IDENTITY VERIFIED</span>
+</div>
+</div>
+<div class="p-6 space-y-6 overflow-y-auto">
+<div>
+<h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Active Booking</h4>
+<div class="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="White Tesla Model S side view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNSFnmLScaKTcbvRtxAz3trIHN2RIQe0YMvQAaohCembIX07la6DKoMkk6R4KNKXn5GFwJndZ6YqR1Y9pQ-WNmNcgrPJygrRvVS_XVTA-EPN4qoMrPoBnjeTEqTlQA9xUOCaWl0__mtV3joPZtDT7pHZlpTIWIgp_CV0BavAoWg4fl4-T46Z4iYb1wZtfOzvJ3TrkxIaTa7F4HdI6uKBaKAFLiZ_VIccNKKAPUzsNOhtXHOp69-C_E1--RkeBfTCCH0PeDTt1YcA"/>
+</div>
+<div>
+<h5 class="text-sm font-bold">Tesla Model S</h5>
+<p class="text-[10px] text-slate-500">PNW-2024-EV</p>
+</div>
+</div>
+<div class="space-y-2 pt-2 border-t border-slate-200 dark:border-slate-700">
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Check-in</span>
+<span class="font-semibold">Today, 11:00 AM</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Duration</span>
+<span class="font-semibold">3 Days</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Quick Actions</h4>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex flex-col items-center justify-center p-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-1">key</span>
+<span class="text-[10px] font-bold">Virtual Key</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-1">history</span>
+<span class="text-[10px] font-bold">Extend</span>
+</button>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full py-3 bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-400 text-xs font-bold rounded-lg border border-red-100 dark:border-red-900/40 hover:bg-red-100 transition-colors">
+                        REPORT ISSUE
+                    </button>
+</div>
+</div>
+</aside>
+</div>
+</body></html>

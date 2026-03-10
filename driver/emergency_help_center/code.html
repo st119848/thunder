@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Emergency &amp; Help Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#EA2831", "background-light": "#f8f6f6", "background-dark": "#211111"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="flex items-center px-4 py-4">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold flex-1 text-center pr-10">Emergency &amp; Help</h1>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto">
+<!-- Emergency SOS Section -->
+<div class="px-4 py-6">
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-primary/10 flex flex-col items-center text-center">
+<div class="size-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-red-600 dark:text-red-400 text-4xl fill-icon">e911_emergency</span>
+</div>
+<h2 class="text-xl font-bold mb-2">Need urgent help?</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-6">Tap below to call local emergency services and notify your emergency contacts immediately.</p>
+<button class="w-full bg-primary text-white h-14 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">call</span>
+                    Emergency Assistance
+                </button>
+</div>
+</div>
+<!-- Help Categories -->
+<div class="px-4 py-2">
+<h3 class="text-sm font-semibold uppercase tracking-wider text-primary mb-3">Support &amp; Services</h3>
+<div class="space-y-3">
+<!-- Roadside Assistance -->
+<a class="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/10 hover:border-primary/30 transition-all" href="#">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">car_repair</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold">Roadside Assistance</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Flat tire, battery jump, or towing help</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</a>
+<!-- Accident Reporting -->
+<a class="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/10 hover:border-primary/30 transition-all" href="#">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">report_problem</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold">Accident Reporting</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Guides for what to do after an incident</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</a>
+<!-- Platform Support -->
+<a class="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/10 hover:border-primary/30 transition-all" href="#">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">support_agent</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold">Platform Support</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Chat with our 24/7 care team</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- FAQ Section -->
+<div class="px-4 py-8">
+<h3 class="text-sm font-semibold uppercase tracking-wider text-primary mb-4">Frequently Asked Questions</h3>
+<div class="space-y-4">
+<div class="group border-b border-primary/10 pb-4">
+<div class="flex justify-between items-center cursor-pointer">
+<p class="font-medium text-sm">How long does roadside assistance take?</p>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+<div class="hidden group-hover:block mt-2">
+<p class="text-sm text-slate-500 dark:text-slate-400">Most providers arrive within 30-45 minutes depending on your location and traffic conditions.</p>
+</div>
+</div>
+<div class="group border-b border-primary/10 pb-4">
+<div class="flex justify-between items-center cursor-pointer">
+<p class="font-medium text-sm">Will my emergency contacts be notified?</p>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+</div>
+<div class="group border-b border-primary/10 pb-4">
+<div class="flex justify-between items-center cursor-pointer">
+<p class="font-medium text-sm">Are safety features active during a trip?</p>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Map Reference -->
+<div class="px-4 pb-24">
+<div class="relative w-full h-40 rounded-xl overflow-hidden grayscale opacity-80">
+<img alt="Abstract map background" class="w-full h-full object-cover" data-alt="Modern minimalist city map for context" data-location="New York" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVO_Rts-KwNRUlsBiC99ceAphvi5sjEiyb_FGnH2_v67GwtbrqZ25QfTRSMRl7YGt7lHwiJqIk2d1DOZBJ0enWku0VB-Yrw7c5JmczeGqqFE4vsQ1rCxgUsF0f_SPTrd6ofxDmravL7tmXogaojyPmlVDjD5wu6BflwndawvRsG1eqd-WAc6ZE_IHIOKL-csK92ExEhNEGC9UUQY4WiXOUHEv7h6ypNkcsEPAuNLwzotcfq802gIUtoiInJ4DCJWerr_zoCpUjvg"/>
+<div class="absolute inset-0 bg-primary/10"></div>
+<div class="absolute bottom-3 left-3 bg-white/90 dark:bg-slate-900/90 px-3 py-1.5 rounded-lg backdrop-blur flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm fill-icon">location_on</span>
+<span class="text-xs font-semibold">Your current location is shared</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full bg-white dark:bg-slate-900 border-t border-primary/10 px-4 pb-6 pt-2">
+<div class="flex justify-around items-center">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-medium">Activity</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-icon">shield_with_heart</span>
+<span class="text-[10px] font-medium">Safety</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

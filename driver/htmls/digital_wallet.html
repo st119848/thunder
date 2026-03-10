@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#EA2831", "background-light": "#f8f6f6", "background-dark": "#211111"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<title>Driver Digital Wallet</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-primary/10 shadow-xl bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<div class="flex items-center p-4 pb-2 justify-between sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10">
+<div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center cursor-pointer hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Digital Wallet</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-full size-10 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</div>
+<!-- Balance Overview -->
+<div class="flex flex-col gap-4 p-4">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-primary text-white shadow-lg">
+<div class="flex justify-between items-center">
+<p class="text-white/80 text-sm font-medium leading-normal uppercase tracking-wider">Total Balance</p>
+<span class="material-symbols-outlined text-white/60">account_balance_wallet</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="tracking-tight text-4xl font-bold leading-tight">$1,240.50</p>
+<p class="text-white/90 text-sm font-medium bg-white/20 px-2 py-0.5 rounded-full">+12% this month</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-primary/10 border border-primary/20 dark:bg-primary/5">
+<div class="flex justify-between items-center">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Security Deposit (Held)</p>
+<span class="material-symbols-outlined text-primary text-sm">lock</span>
+</div>
+<p class="text-slate-900 dark:text-slate-100 tracking-tight text-2xl font-bold leading-tight">$500.00</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs leading-normal italic">Refundable after rental completion</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex justify-center px-4 py-2">
+<div class="flex flex-1 gap-3 w-full">
+<button class="flex-1 flex cursor-pointer items-center justify-center rounded-xl h-12 bg-primary text-white text-sm font-bold shadow-md hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined mr-2">add_circle</span>
+<span class="truncate">Top Up</span>
+</button>
+<button class="flex-1 flex cursor-pointer items-center justify-center rounded-xl h-12 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm font-bold hover:bg-slate-300 dark:hover:bg-slate-700 transition-all border border-slate-300 dark:border-slate-700">
+<span class="material-symbols-outlined mr-2">receipt_long</span>
+<span class="truncate">Statements</span>
+</button>
+</div>
+</div>
+<!-- Recent Activity -->
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between px-4 pb-2 pt-6">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em]">Recent Activity</h3>
+<button class="text-primary text-sm font-semibold">See All</button>
+</div>
+<div class="flex flex-col divide-y divide-primary/10 px-4">
+<!-- Transaction Item 1 -->
+<div class="flex items-center py-4 gap-4">
+<div class="size-10 flex items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Insurance Deduction</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Weekly Coverage - Oct 24</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">-$45.00</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-tighter">Completed</p>
+</div>
+</div>
+<!-- Transaction Item 2 -->
+<div class="flex items-center py-4 gap-4">
+<div class="size-10 flex items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Rental Payout</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Trip #94829 - Downtown</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">+$120.00</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-tighter">Oct 23</p>
+</div>
+</div>
+<!-- Transaction Item 3 -->
+<div class="flex items-center py-4 gap-4">
+<div class="size-10 flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Vehicle Rental Fee</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Tesla Model 3 - Daily</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">-$65.00</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-tighter">Oct 22</p>
+</div>
+</div>
+<!-- Transaction Item 4 -->
+<div class="flex items-center py-4 gap-4">
+<div class="size-10 flex items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Top Up via Bank</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">**** 4432</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">+$250.00</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-tighter">Oct 20</p>
+</div>
+</div>
+</div>
+</div>
+<div class="h-20 shrink-0"></div>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-background-light dark:bg-background-dark border-t border-primary/10 px-4 pb-4 pt-2 flex justify-around items-center z-20">
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-medium uppercase tracking-wider">Home</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">wallet</span>
+<p class="text-[10px] font-medium uppercase tracking-wider">Wallet</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">steering_wheel_heat</span>
+<p class="text-[10px] font-medium uppercase tracking-wider">Trips</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-medium uppercase tracking-wider">Profile</p>
+</a>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#EA2831", "background-light": "#f8f6f6", "background-dark": "#211111"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 transition-colors duration-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<!-- Top Navigation -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-50 border-b border-primary/10">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Vehicle Details</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-slate-900 dark:text-slate-100 gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<!-- Image Gallery Hero -->
+<div class="@container">
+<div class="@[480px]:px-4 @[480px]:py-3">
+<div class="bg-cover bg-center flex flex-col justify-end overflow-hidden bg-background-light dark:bg-background-dark @[480px]:rounded-xl min-h-[400px] relative group" data-alt="Sleek modern electric luxury car parked in a green valley" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDw89R3qdxUi6-aOzbsv84UFTytL_wk13J5Zo0jwi9amF_o1U6w4V-D7rEcFaoVMYUrM2EvKvsUlySI0qh9NW3nP4RpUh4vNWN49iLUBCuqad4bX3czu6xEJm7TvBhCz5_cXJwAX6QTACdPqO5tfSyjbA-H8Nwr-JUzuw-LptLa9CDzFHRX6w3qCvAErEi7lnheTMuWqMhuSgtNfjCyGhWF9MM6rmEXHgSpMIvN2-SwAB2yPYKiXu2HZ03ITHbdc-iHat_iNS44nw");'>
+<div class="flex justify-center gap-2 p-5">
+<div class="size-2 rounded-full bg-white"></div>
+<div class="size-2 rounded-full bg-white/50"></div>
+<div class="size-2 rounded-full bg-white/50"></div>
+<div class="size-2 rounded-full bg-white/50"></div>
+<div class="size-2 rounded-full bg-white/50"></div>
+</div>
+<button class="absolute right-4 top-4 bg-white/20 backdrop-blur-md p-2 rounded-full text-white">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Header Info -->
+<div class="px-4 pt-6 pb-2">
+<div class="flex justify-between items-start">
+<div>
+<h1 class="text-slate-900 dark:text-slate-100 text-3xl font-bold leading-tight tracking-tight">Tesla Model 3 Performance</h1>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-primary font-semibold">2023 Edition</span>
+<span class="text-slate-400">•</span>
+<div class="flex items-center text-amber-500">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="text-sm font-bold ml-1">4.9 (128 reviews)</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="text-2xl font-bold text-primary">$89</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">per day</p>
+</div>
+</div>
+</div>
+<!-- Specs Tags -->
+<div class="flex gap-3 p-4 flex-wrap">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-primary/10 px-4">
+<span class="material-symbols-outlined text-primary text-xl">ev_station</span>
+<p class="text-primary text-sm font-semibold leading-normal">350mi Range</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-primary/10 px-4">
+<span class="material-symbols-outlined text-primary text-xl">airline_seat_recline_normal</span>
+<p class="text-primary text-sm font-semibold leading-normal">5 Seats</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-primary/10 px-4">
+<span class="material-symbols-outlined text-primary text-xl">speed</span>
+<p class="text-primary text-sm font-semibold leading-normal">3.1s 0-60</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-primary/10 px-4">
+<span class="material-symbols-outlined text-primary text-xl">settings_input_component</span>
+<p class="text-primary text-sm font-semibold leading-normal">Autopilot</p>
+</div>
+</div>
+<!-- Hosted By -->
+<div class="mx-4 my-4 p-4 rounded-xl border border-primary/10 bg-white dark:bg-slate-800/50 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 ring-2 ring-primary/20" data-alt="Professional portrait of a car owner smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCWIs-5z1bopwVNIAX7_6ups1HBZfWPFJZ-JHHdW1-k5GId8Ue3babMm3VY-SOkR1gG_c5FFvtZ5fSTwqkLbgV7U_yoFYPJW_z438xWxi0TWDdwx0QtiuMTuI_6KJ9_oflacXlQWeo9kejmB064wLww2WkU08JQ-q2iTOfTMDaWnQnGOAnOQ6a5Vu7XrJbF1Dpl9Ts6v5ebyZ8rrhpAkO6lpR_rkpvs4eBogRV0mprBUDSQpG_oE9cZGEbBpUnPscjxvjHOH2i4WA");'></div>
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-1">
+<p class="text-slate-900 dark:text-slate-100 text-lg font-bold">Hosted by Marcus K.</p>
+<span class="material-symbols-outlined text-primary text-sm">verified</span>
+</div>
+<p class="text-primary text-sm font-medium">Superhost · Responds in 5 mins</p>
+</div>
+</div>
+<button class="bg-primary/5 hover:bg-primary/10 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary">chat</span>
+</button>
+</div>
+</div>
+<!-- Insurance & Protection -->
+<div class="px-4 py-6">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold mb-4">Insurance &amp; Protection</h3>
+<div class="space-y-4">
+<div class="flex gap-4 p-4 rounded-xl bg-primary/5 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-2xl">shield</span>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Premium Coverage Included</p>
+<p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Full collision damage waiver and liability protection up to $1M. Roadside assistance 24/7.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Reviews Section -->
+<div class="px-4 py-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Owner Ratings</h3>
+<button class="text-primary font-semibold text-sm">View all</button>
+</div>
+<!-- Review Cards -->
+<div class="flex overflow-x-auto gap-4 pb-4 snap-x no-scrollbar">
+<div class="min-w-[300px] snap-start p-4 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-sm">
+<div class="flex items-center gap-3 mb-3">
+<div class="h-10 w-10 rounded-full bg-slate-200" data-alt="User profile avatar small" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-zO3Y5edBzrqkc2Libz4ZS_jNcMOaz4c3fXvVOY0BsLNOkSRIRs598C8xX2ziRh70tW7k3IMjEKGxZLbIzzK7gvxnUyqDzEb6gtHTYBoNDy5Z--qzU7jcmPPIr_R_wZBOTwJgMVcl7PdcVsbcJX2tT97guhdE0mDqVY7Cn3c5RdA2xJcb8n8keawQ6uTu0BRha28CyueOqknkUgWEFg6mMrDQrG2JK7EVOrj2716bH5WondjKIz0aJeFQ3kXpt56EJjcOHJsllQ'); background-size: cover;"></div>
+<div>
+<p class="font-bold text-sm">Sarah Jenkins</p>
+<div class="flex text-amber-500 text-[10px]">
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+</div>
+</div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 italic">"The car was immaculate and delivered right on time. Marcus made the whole process seamless. Highly recommend this Tesla!"</p>
+</div>
+<div class="min-w-[300px] snap-start p-4 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-sm">
+<div class="flex items-center gap-3 mb-3">
+<div class="h-10 w-10 rounded-full bg-slate-200" data-alt="User profile avatar small" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC9Vhn26e6DVlomy6-2OHXGLUFjr0sN73tIPikcurSNI3pjBUku60s-Laq4CZDL787orBavJ0KdcRw0s6GYy6GO0r4qAum9HVmDeSoWjB9aX6On6N47RWgORBiJF5RHFS-TUuLbIMTD5YHRRJXQ7tY_0dV4jjm23D4i-9j2u4G6YE82PFZ3amuNIzz2kSLeekDDftTTMJ7gIfYrXWn7RusQVW0WqJM30tXD-WENDkApPRHH8dV8WOdZfPP63Un8C0oV5FeildIl6g'); background-size: cover;"></div>
+<div>
+<p class="font-bold text-sm">David Chen</p>
+<div class="flex text-amber-500 text-[10px]">
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+</div>
+</div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 italic">"Great experience. The autopilot was a life saver on my road trip to the mountains. Will definitely rent again."</p>
+</div>
+</div>
+</div>
+<!-- Spacer for Bottom Bar -->
+<div class="h-28"></div>
+<!-- Sticky Bottom Booking Bar -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-white/80 dark:bg-background-dark/80 backdrop-blur-lg border-t border-primary/10 flex items-center justify-between z-50">
+<div>
+<p class="text-2xl font-bold text-slate-900 dark:text-slate-100">$89 <span class="text-sm font-normal text-slate-500">/ day</span></p>
+<p class="text-xs text-primary font-bold">Free cancellation</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-10 py-3.5 rounded-xl font-bold shadow-lg shadow-primary/20 transition-all active:scale-95">
+                Book Now
+            </button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>In-App Coordination Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#EA2831", "background-light": "#f8f6f6", "background-dark": "#211111"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="max-w-md mx-auto min-h-screen flex flex-col bg-white dark:bg-background-dark shadow-xl overflow-hidden">
+<!-- Top App Bar (List View State) -->
+<header class="flex items-center p-4 border-b border-primary/10 justify-between sticky top-0 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md z-10">
+<div class="flex items-center gap-3">
+<div class="p-2 hover:bg-primary/10 rounded-full transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">arrow_back</span>
+</div>
+<h2 class="text-lg font-bold leading-tight">Messages</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-primary/10 rounded-full text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 hover:bg-primary/10 rounded-full text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Tabs Navigation -->
+<nav class="flex border-b border-primary/10 px-4 bg-white dark:bg-background-dark">
+<a class="flex-1 flex flex-col items-center justify-center border-b-2 border-primary text-primary py-3 transition-colors" href="#">
+<p class="text-sm font-bold">Active</p>
+</a>
+<a class="flex-1 flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 py-3 hover:text-primary transition-colors" href="#">
+<p class="text-sm font-bold">Archived</p>
+</a>
+</nav>
+<!-- Security Indicator -->
+<div class="px-4 py-2 bg-primary/5 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">lock</span>
+<p class="text-[11px] text-primary/80 font-medium uppercase tracking-wider">End-to-end encrypted coordination</p>
+</div>
+<!-- Active Chat Preview (List Item) -->
+<div class="flex flex-col flex-1">
+<!-- Message Item: Driver -->
+<div class="flex items-center gap-4 px-4 py-4 hover:bg-primary/5 cursor-pointer border-b border-primary/5 transition-colors">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-primary/20" data-alt="Professional driver profile photo with green background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcS8V3vajyZaTPKM-bBIbtHHO46Fw3o2QczNHoLCP4ZQCJN5xYUr_SgqJVK1wxG9CcVYNup6R4AUfKVlqVMCHopyzQLfhoNxxbJPI-OuielLF9mH94GTuCmXiXDPf3PQUXE2yhXx7WutYtYlmU6jaUOLvW_h2D0AXIZw1La7DvXorRiZwuOb8GIgnvmu4I_WzxhcjR1Jjv2ZRh_Qiu2k9hLbsS4p_iF47R707pwyGoHfPIRyREKfPWCEpfqcEaSUC3Ai_1xkSv4w");'></div>
+<div class="absolute bottom-0 right-0 h-4 w-4 bg-green-500 border-2 border-white dark:border-background-dark rounded-full"></div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-baseline">
+<p class="text-slate-900 dark:text-slate-100 font-bold">John (Driver)</p>
+<p class="text-primary text-xs font-semibold uppercase">2m ago</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal truncate">I have arrived at the pickup point. Waiting near the main entrance.</p>
+</div>
+<div class="flex items-center justify-center bg-primary text-white h-5 w-5 rounded-full text-[10px] font-bold">1</div>
+</div>
+<!-- Message Item: Host -->
+<div class="flex items-center gap-4 px-4 py-4 hover:bg-primary/5 cursor-pointer border-b border-primary/5 transition-colors">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14 border-2 border-slate-200 dark:border-slate-700" data-alt="Friendly female host profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuASpn2vFMVgxK8V3Gxq7qZ4iWmW0X9UsApxYtEhKRY0KqTPORKFCsHQDgl4vDjI7QNMnV8f6oHnLmpioPHU_gK6t6xk0X9S_ZkMgpohcM4N82fbvKrSJuIup1eEVZcC78dVMwQil3Ka7g_OoxDGMFTsX21LfiLUYFPPcTokmAVwq_LE9Gm2R3cH3XwinqvF5dnfpCkFKrSx0zGHZoiTmM_0KT-e7dO290u-6aV19N5NrCjX-gJWQBJC3bSO4fW4-P97S9OvVC-Vig");'></div>
+<div class="absolute bottom-0 right-0 h-4 w-4 bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-background-dark rounded-full"></div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex justify-between items-baseline">
+<p class="text-slate-900 dark:text-slate-100 font-bold">Sarah (Host)</p>
+<p class="text-slate-400 text-xs font-normal">1h ago</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal truncate">The keys are in the lockbox. Code is 4492.</p>
+</div>
+</div>
+</div>
+<!-- Active Chat Overlay Simulation (For UI Design purposes shown below the list) -->
+<div class="mt-8 border-t-8 border-primary/10 bg-background-light dark:bg-background-dark">
+<!-- Active Chat Header -->
+<header class="flex items-center p-4 border-b border-primary/10 justify-between bg-white dark:bg-background-dark">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">arrow_back</span>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-10 w-10" data-alt="Driver profile photo small thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA90OgJRd6BLn5LD74ohx-AhaG9pWFmFSq4yMK8HjGSBEWUGjYNtX5ipyiY2LYnRK9r7uMuD8GTzzN4ltzJ3oXantxp-5qeLwXmcYwLXkRkMNFeeeCXiohNl5MgXvoo1D0zN4yZwN7Oum_PPoRsvp_Xw9rlSSm6oetwoNK0nERVO4F3wZNsJYat_7TinZQNKa42BtUruAdIxKRTxMyvD7uTpii8aTRIKIDJdeFsrtP3E-wtPIUPIZkgqM0tyiUkvYEC1O-gN2YgnQ");'></div>
+<div class="flex flex-col">
+<h2 class="text-sm font-bold leading-tight">John (Driver)</h2>
+<p class="text-[10px] text-primary font-semibold flex items-center gap-1">
+<span class="size-1.5 bg-primary rounded-full animate-pulse"></span> Online
+                    </p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary">
+<span class="material-symbols-outlined">call</span>
+</button>
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</header>
+<!-- Chat Area -->
+<div class="p-4 flex flex-col gap-4 h-80 overflow-y-auto bg-slate-50 dark:bg-background-dark/50">
+<div class="text-center">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-3 py-1 bg-white dark:bg-slate-800 rounded-full shadow-sm">Today</span>
+</div>
+<!-- Recipient Message -->
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="bg-white dark:bg-slate-800 p-3 rounded-xl rounded-tl-none shadow-sm text-sm text-slate-700 dark:text-slate-200 border border-slate-100 dark:border-slate-700">
+                    Hello! I'm on my way to pick you up. Estimated arrival in 5 minutes.
+                </div>
+<p class="text-[10px] text-slate-400 mt-1 ml-1">10:45 AM</p>
+</div>
+<!-- Sender Message -->
+<div class="flex flex-col items-end self-end max-w-[85%]">
+<div class="bg-primary p-3 rounded-xl rounded-tr-none shadow-sm text-sm text-white">
+                    Great, thank you! I'll be waiting at the lobby entrance.
+                </div>
+<p class="text-[10px] text-slate-400 mt-1 mr-1 flex items-center gap-1">10:46 AM <span class="material-symbols-outlined text-[12px] text-primary">done_all</span></p>
+</div>
+<!-- Recipient Message -->
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="bg-white dark:bg-slate-800 p-3 rounded-xl rounded-tl-none shadow-sm text-sm text-slate-700 dark:text-slate-200 border border-slate-100 dark:border-slate-700">
+                    I have arrived at the pickup point.
+                </div>
+<p class="text-[10px] text-slate-400 mt-1 ml-1">10:52 AM</p>
+</div>
+</div>
+<!-- Quick Replies -->
+<div class="px-4 pb-2 bg-slate-50 dark:bg-background-dark/50 flex gap-2 overflow-x-auto no-scrollbar">
+<button class="shrink-0 px-4 py-2 bg-white dark:bg-slate-800 border border-primary/20 rounded-full text-xs font-semibold text-primary shadow-sm hover:bg-primary hover:text-white transition-all">
+                On my way!
+            </button>
+<button class="shrink-0 px-4 py-2 bg-white dark:bg-slate-800 border border-primary/20 rounded-full text-xs font-semibold text-primary shadow-sm hover:bg-primary hover:text-white transition-all">
+                Coming now
+            </button>
+<button class="shrink-0 px-4 py-2 bg-white dark:bg-slate-800 border border-red-200 rounded-full text-xs font-semibold text-red-600 shadow-sm hover:bg-red-50 transition-all">
+                Slightly delayed
+            </button>
+</div>
+<!-- Message Input -->
+<div class="p-4 bg-white dark:bg-background-dark border-t border-primary/10 flex items-center gap-3">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<div class="flex-1 bg-slate-100 dark:bg-slate-800 rounded-full px-4 py-2 flex items-center">
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full text-slate-700 dark:text-slate-200 placeholder-slate-400" placeholder="Type a message..." type="text"/>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">mood</span>
+</button>
+</div>
+<button class="bg-primary text-white p-2 rounded-full shadow-lg shadow-primary/20 hover:scale-105 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<style>
+    /* Hide scrollbar for clean horizontal quick replies */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+</body></html>

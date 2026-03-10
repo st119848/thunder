@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#FAC638", "background-light": "#f8f8f5", "background-dark": "#231e0f"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<title>My Fleet | Vehicle Host</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="sticky top-0 z-10 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 py-4">
+<div class="flex items-center justify-between max-w-2xl mx-auto w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400">directions_car</span>
+<h1 class="text-xl font-bold tracking-tight">My Fleet</h1>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+                List Vehicle
+            </button>
+</div>
+</header>
+<main class="flex-1 max-w-2xl mx-auto w-full p-4 space-y-4">
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="bg-primary text-white px-4 py-1.5 rounded-full text-sm font-medium shrink-0">All Cars (4)</button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 shrink-0">Active</button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 shrink-0">Booked</button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 dark:text-slate-400 shrink-0">Maintenance</button>
+</div>
+<div class="space-y-3">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="p-4 flex gap-4">
+<div class="w-24 h-24 rounded-lg bg-slate-100 dark:bg-slate-800 flex-shrink-0 bg-cover bg-center" data-alt="Modern white electric sedan parked outdoors" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCadeqkS4i6AyxfwZSsvvQ1yTWXpATjJE1NHFpQATMdAzMa-OAtMHtBMd_iJewIiR0zdIehJpwAig_pTUhaGyCcuQIUMxlLDTCM4LcOfRnrSrv4EFaSLMwRJQXmPVjM3eKoBnhQhiu7A7webHkE06NImwQ5lA8Fdeql3xD-OIh8VI06X2iieLP2oeHg8Us6foXzSpvm7mPukp3BFeQstFfbLmSRUX25IBq6blHTC2xhIN_RPBZUyzl71h7f5eMQkylq8mJrRJxGkQ')"></div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg truncate">Tesla Model 3</h3>
+<p class="text-xs text-slate-500 font-mono uppercase tracking-wider">ABC-1234 • 2023</p>
+</div>
+<span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Active</span>
+</div>
+<div class="mt-3 grid grid-cols-2 gap-2">
+<div class="bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg">
+<p class="text-[10px] text-slate-500 uppercase font-semibold">Earnings</p>
+<p class="text-sm font-bold text-primary dark:text-blue-400">$12,450</p>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg">
+<p class="text-[10px] text-slate-500 uppercase font-semibold">Next Service</p>
+<p class="text-sm font-bold">Oct 15</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-4 flex gap-4">
+<div class="w-24 h-24 rounded-lg bg-slate-100 dark:bg-slate-800 flex-shrink-0 bg-cover bg-center" data-alt="Silver SUV parked in a driveway" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDscE267ZSM5IgqxQd1A3caX6rHw0L3dm1fAq7n9FrhU8MmTtjXiSzVoO0rsi3MpZqnBzmJZ3vOSrL_ZTmQUOon3o1f_OPwCg6ITEckw7SDkJCJRpQ5J3iBWNwpUQxiLpfnTGqOLfJ6bncT1xSBNZEzlDVuQ-aftetGtW78o-yhX4vaVfn-oUi8lnnsOdUC6uN0SKtCsA2sSRlfPkcG3amur4m1QpYeKtqc2K9UdT5xPUz0c1S_yoFPtLhHZxkFHpXUKFD5bOoglw')"></div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg truncate">Toyota RAV4</h3>
+<p class="text-xs text-slate-500 font-mono uppercase tracking-wider">XYZ-5678 • 2022</p>
+</div>
+<span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Booked</span>
+</div>
+<div class="mt-3 grid grid-cols-2 gap-2">
+<div class="bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg">
+<p class="text-[10px] text-slate-500 uppercase font-semibold">Earnings</p>
+<p class="text-sm font-bold text-primary dark:text-blue-400">$8,200</p>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg">
+<p class="text-[10px] text-slate-500 uppercase font-semibold">Next Service</p>
+<p class="text-sm font-bold text-slate-400">Scheduled</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-4 flex gap-4 opacity-75">
+<div class="w-24 h-24 rounded-lg bg-slate-100 dark:bg-slate-800 flex-shrink-0 bg-cover bg-center" data-alt="Blue sports car in a garage setting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCx2bE_7_ZUF5KnE_uwZmgNOAVf68RUnP_5ijrgaD4djie6ObH5QH2T0I5i3S2SsHXBDeMvIqgAtlOST8buu-GTPTJQ1Lcmc-6oyuJpNHzAvUPUxY28USaopHrRfworsK7b3vbxskXQgT57QLdxtzjI6_JdczM1byzETLcc9Vr_C5tVLKVfg60_f1YqsWOsB9vBR8p73CBkz-MP8uafZ7BVPOADiozDtf3NpA8EiuwkvaTIlV-Hh6LXOhKkjS-1Ff2wqyoM6iZmig')"></div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg truncate">Porsche Taycan</h3>
+<p class="text-xs text-slate-500 font-mono uppercase tracking-wider">SPD-9110 • 2024</p>
+</div>
+<span class="bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Maintenance</span>
+</div>
+<div class="mt-3 grid grid-cols-2 gap-2">
+<div class="bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg">
+<p class="text-[10px] text-slate-500 uppercase font-semibold">Earnings</p>
+<p class="text-sm font-bold text-primary dark:text-blue-400">$24,100</p>
+</div>
+<div class="bg-amber-50 dark:bg-amber-900/10 p-2 rounded-lg border border-amber-100 dark:border-amber-900/20">
+<p class="text-[10px] text-amber-600 uppercase font-semibold">In Shop</p>
+<p class="text-sm font-bold text-amber-700">Due Today</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-4 flex gap-4">
+<div class="w-24 h-24 rounded-lg bg-slate-100 dark:bg-slate-800 flex-shrink-0 bg-cover bg-center" data-alt="Black luxury sedan in urban area" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfA0CL-TphkicnRTc5AK8UDMctpG1Kmha36sB8ld76Suk7tlTDjsZPDyX1qLyvrfNn39NpIpE3UCpimNklXM0n1Ro36fSwLRmoDyY58L_NRrletmyA-B0qEwBS6U1rS4Q8q9AUjHf7-KNzPyIhKmyCnCJIjHZQE-GRX292T6Ovr2OshkbdVitoZuqu1byVvZeQ0-vLHzcWYv1TkzkZyqJWno4559ECt_iDaZzvL-61OEx00FkHNnc0j7dbqBZR_FUN787NR0Gjzw')"></div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg truncate">BMW 5 Series</h3>
+<p class="text-xs text-slate-500 font-mono uppercase tracking-wider">LUX-4422 • 2021</p>
+</div>
+<span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Active</span>
+</div>
+<div class="mt-3 grid grid-cols-2 gap-2">
+<div class="bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg">
+<p class="text-[10px] text-slate-500 uppercase font-semibold">Earnings</p>
+<p class="text-sm font-bold text-primary dark:text-blue-400">$18,750</p>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg">
+<p class="text-[10px] text-slate-500 uppercase font-semibold">Next Service</p>
+<p class="text-sm font-bold">Nov 30</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 dark:bg-primary/20 rounded-xl p-6 border-2 border-dashed border-primary/20 flex flex-col items-center justify-center text-center space-y-3 cursor-pointer hover:bg-primary/10 transition-colors">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">add_circle</span>
+</div>
+<div>
+<h4 class="font-bold text-primary dark:text-blue-400">Scale your fleet</h4>
+<p class="text-sm text-slate-500">Adding more vehicles can increase your monthly earnings by up to 40%.</p>
+</div>
+</div>
+</main>
+<footer class="sticky bottom-0 z-10 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pb-safe">
+<nav class="flex justify-around items-center h-16 max-w-2xl mx-auto">
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary dark:text-blue-400 font-semibold" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-[10px]">Vehicles</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-medium">Earnings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</nav>
+</footer>
+</body></html>

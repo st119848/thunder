@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Car Maintenance Tracker</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#FAC638", "background-light": "#f8f8f5", "background-dark": "#231e0f"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-background-dark shadow-xl overflow-x-hidden">
+<header class="flex items-center bg-white dark:bg-background-dark p-4 border-b border-slate-200 dark:border-slate-800 justify-between sticky top-0 z-10">
+<div class="text-primary dark:text-slate-100 flex size-10 items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<h1 class="text-primary dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 px-3">Maintenance Tracker</h1>
+<div class="flex items-center justify-end">
+<button class="flex items-center justify-center rounded-full size-10 bg-primary/10 dark:bg-primary/30 text-primary dark:text-slate-100">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<main class="flex-1 pb-24">
+<div class="@container px-4 py-4">
+<div class="bg-primary rounded-xl overflow-hidden min-h-[180px] relative flex flex-col justify-end p-6 group">
+<div class="absolute inset-0 opacity-40 bg-gradient-to-t from-primary to-transparent"></div>
+<img alt="Luxury blue sedan in a modern garage" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay" data-alt="Luxury blue sedan in a modern garage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4M_deQUGVh3QGNBTM0qx12frMlKq0p78KLkzgArfSKEYbLM8eS_Z6B9UIVOIiiZROkcziJgZI_5P80LLELHmPkCyn0RnqapOWp2ej1Bee1dsBiZpbXt0bHimiSvEJgUegpBq8X61Wyh9PVo_tnwZrNzLagQgujGZSnvzjy1F-h-BP95gy6jY6uBrxbSF-QRz6Re4pj7r2DK3N41O6kR7JFBZBPhs7BWZ0VtI0_t-zCaWCf4KeM1M_lklJM2xhVNRSSWNcqF0tKA"/>
+<div class="relative z-10">
+<p class="text-white/80 text-sm font-medium">Tesla Model S</p>
+<h2 class="text-white text-2xl font-bold leading-tight">All systems operational</h2>
+<div class="mt-2 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-400"></span>
+<span class="text-green-400 text-xs font-semibold uppercase tracking-wider">Healthy</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2 rounded-xl p-5 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary dark:text-blue-400">build</span>
+<span class="text-xs font-bold text-red-500">-150 mi</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium mt-2">Next Service</p>
+<p class="text-primary dark:text-slate-100 text-xl font-bold">1,240 mi</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-5 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary dark:text-blue-400">verified_user</span>
+<span class="text-xs font-bold text-green-500">+5 days</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium mt-2">Insurance</p>
+<p class="text-primary dark:text-slate-100 text-xl font-bold">45 days</p>
+</div>
+</div>
+<section class="mt-8 px-4">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-primary dark:text-slate-100 text-lg font-bold">Upcoming Reminders</h3>
+<button class="text-primary dark:text-blue-400 text-xs font-semibold">View All</button>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+<div class="size-12 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400">
+<span class="material-symbols-outlined">oil_barrel</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Oil Change Due</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">In 250 miles or 15 days</p>
+</div>
+<button class="p-2 text-slate-400">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+<div class="size-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined">tire_repair</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Tire Rotation</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Scheduled for Oct 24, 2023</p>
+</div>
+<button class="p-2 text-slate-400">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+<div class="size-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Registration Renewal</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Expires in 45 days</p>
+</div>
+<button class="p-2 text-slate-400">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<section class="mt-8 px-4">
+<div class="bg-primary/5 dark:bg-primary/20 rounded-xl p-6 border border-primary/10 dark:border-primary/40">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary dark:text-blue-400">info</span>
+<h4 class="text-primary dark:text-slate-100 font-bold">Maintenance Tip</h4>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Checking your tire pressure monthly can improve fuel efficiency by up to 3% and extend tire life.
+                    </p>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 w-full max-w-md bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 flex justify-around py-3 px-4 z-20">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined font-variation-fill">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">speed</span>
+<span class="text-[10px] font-medium">Tracker</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-[10px] font-medium">Garage</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-medium">Logs</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

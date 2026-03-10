@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#FAC638", "background-light": "#f8f8f5", "background-dark": "#231e0f"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<title>Car Availability Calendar</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<!-- Top Navigation -->
+<div class="flex items-center bg-white dark:bg-slate-900 p-4 border-b border-slate-200 dark:border-slate-800 justify-between sticky top-0 z-10">
+<div class="text-primary dark:text-slate-100 flex size-10 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center">Manage Availability</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="text-primary dark:text-slate-100">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</div>
+<main class="flex-1 w-full max-w-2xl mx-auto p-4 space-y-6 pb-32">
+<!-- Car Info Summary -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="size-16 rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden shrink-0">
+<img alt="Tesla Model 3" class="w-full h-full object-cover" data-alt="Blue modern electric sedan parked outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkh2swKMWk3GeDnNwtLbLqInZqGOlKQL7XwLLfLL4PLGU7S4Q-GHVCynPd2C5gomDO09xgKS1HC1EcFu9pDU8Du-rTOmh2BS5fNRV_gAoOWGldSFujsSSLu4DnZ5Wd4wg5QXSIVQtj_prxsEyQRT7_nhE9YGS4KmLhE-ImJSDspz45uxLjRXJepSpA5MNO0B-64U2LGCd5vKgcHwyuenQ6qzUkCLUMykO2GkgleL9FUbhbMhE38Q2a82xojvAYQActPXX9Sgiwnw"/>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-slate-100">Tesla Model 3</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Manage hosting dates for your vehicle</p>
+</div>
+</div>
+<!-- Interactive Calendar -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-4">
+<div class="flex items-center justify-between mb-6">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors text-primary dark:text-slate-100">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<h4 class="text-lg font-bold text-slate-900 dark:text-slate-100">November 2023</h4>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors text-primary dark:text-slate-100">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center mb-2">
+<div class="text-xs font-bold text-slate-400 py-2">SUN</div>
+<div class="text-xs font-bold text-slate-400 py-2">MON</div>
+<div class="text-xs font-bold text-slate-400 py-2">TUE</div>
+<div class="text-xs font-bold text-slate-400 py-2">WED</div>
+<div class="text-xs font-bold text-slate-400 py-2">THU</div>
+<div class="text-xs font-bold text-slate-400 py-2">FRI</div>
+<div class="text-xs font-bold text-slate-400 py-2">SAT</div>
+</div>
+<div class="grid grid-cols-7 gap-1">
+<!-- Placeholder days for end of Oct -->
+<div class="h-12 flex items-center justify-center text-slate-300 dark:text-slate-700 text-sm">30</div>
+<div class="h-12 flex items-center justify-center text-slate-300 dark:text-slate-700 text-sm">31</div>
+<!-- Nov Days -->
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">1</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">2</button>
+<!-- Booked State -->
+<button class="h-12 rounded-lg bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 flex flex-col items-center justify-center text-sm font-bold relative">
+                        3
+                        <span class="absolute bottom-1.5 w-1 h-1 rounded-full bg-orange-500"></span>
+</button>
+<button class="h-12 rounded-lg bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 flex flex-col items-center justify-center text-sm font-bold relative">
+                        4
+                        <span class="absolute bottom-1.5 w-1 h-1 rounded-full bg-orange-500"></span>
+</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">5</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">6</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">7</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">8</button>
+<!-- Selected Range Start -->
+<button class="h-12 bg-primary text-white rounded-l-lg flex flex-col items-center justify-center text-sm font-bold">9</button>
+<!-- Selected Range Middle -->
+<button class="h-12 bg-primary/20 text-primary dark:text-slate-100 flex flex-col items-center justify-center text-sm font-bold">10</button>
+<button class="h-12 bg-primary/20 text-primary dark:text-slate-100 flex flex-col items-center justify-center text-sm font-bold">11</button>
+<!-- Selected Range End -->
+<button class="h-12 bg-primary text-white rounded-r-lg flex flex-col items-center justify-center text-sm font-bold">12</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">13</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">14</button>
+<!-- Blocked State -->
+<button class="h-12 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex flex-col items-center justify-center text-sm font-medium line-through">15</button>
+<button class="h-12 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex flex-col items-center justify-center text-sm font-medium line-through">16</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">17</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">18</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">19</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">20</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">21</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">22</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">23</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">24</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">25</button>
+<button class="h-12 rounded-lg flex flex-col items-center justify-center text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">26</button>
+</div>
+</div>
+<!-- Selection Actions -->
+<div class="space-y-3">
+<h4 class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1">Selection Actions (Nov 9 - Nov 12)</h4>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center justify-center gap-2 p-4 bg-white dark:bg-slate-900 border-2 border-primary dark:border-primary/50 rounded-xl hover:bg-primary/5 transition-colors group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">check_circle</span>
+<span class="text-sm font-bold text-primary">Mark Available</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400 group-hover:scale-110 transition-transform">block</span>
+<span class="text-sm font-bold text-slate-700 dark:text-slate-300">Block Dates</span>
+</button>
+</div>
+</div>
+<!-- Legend -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800">
+<h4 class="text-sm font-bold text-slate-500 dark:text-slate-400 mb-4 px-1">Calendar Legend</h4>
+<div class="grid grid-cols-2 gap-y-3 gap-x-6">
+<div class="flex items-center gap-2">
+<div class="size-4 rounded bg-white border border-slate-200 dark:border-slate-700"></div>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Available</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-4 rounded bg-orange-100 dark:bg-orange-900/30 border border-orange-200 dark:border-orange-800"></div>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Booked by Guest</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-4 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 relative overflow-hidden">
+<div class="absolute inset-0 bg-slate-300 dark:bg-slate-600 w-[1px] h-full rotate-45 left-1/2 -translate-x-1/2"></div>
+</div>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Blocked (Personal)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-4 rounded bg-primary"></div>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">Selected Range</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Footer Action -->
+<div class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 p-4 pb-8 z-20">
+<div class="max-w-2xl mx-auto flex items-center gap-4">
+<button class="flex-1 bg-primary text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity active:scale-[0.98]">
+                    Save Availability
+                </button>
+</div>
+</div>
+</div>
+</body></html>

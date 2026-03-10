@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#EA2831", "background-light": "#f8f6f6", "background-dark": "#211111"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<title>Rate Your Trip</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen flex-col max-w-md mx-auto bg-white dark:bg-background-dark shadow-xl">
+<!-- Header -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 border-b border-slate-100 dark:border-slate-800 sticky top-0 z-10">
+<button class="text-slate-900 dark:text-slate-100 flex size-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold flex-1 text-center pr-10">Rate Your Trip</h2>
+</div>
+<!-- Hero Car Info -->
+<div class="p-6 text-center border-b border-slate-50 dark:border-slate-800">
+<div class="mx-auto mb-4 overflow-hidden rounded-xl h-40 w-full bg-slate-100">
+<img alt="Tesla Model 3" class="w-full h-full object-cover" data-alt="Modern white Tesla Model 3 electric car" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCxuOlCgVXxuotEykOXaGjjkBAdnZqZlkSkL4pV2pE67tMlfPc9KUjqER3ZcuihxbpmqgKQZKtz-MoW-Re85zxezGVXQ1THouYuVtSFQHDnHr4RvaTlLNtbvYlmzTCHwzQn_haN9HZfFVCnUTMuy_B9C_VvodBSJRWHYL4O53ymHcWg_TLtIKQxJ0YsCmDw__KPNGNYuM3nixFp97IunbHmbdeb8GndTHtHMWu99wRiWqNkVaJiyPXVsoZJXtWYRiLqIXHTREE4w"/>
+</div>
+<h3 class="text-2xl font-extrabold leading-tight">How was your trip with the Tesla Model 3?</h3>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-sm font-medium">Trip ended Oct 24, 2023</p>
+</div>
+<div class="flex-1 overflow-y-auto pb-32">
+<!-- Rating Sections -->
+<div class="p-6 space-y-8">
+<!-- Category 1 -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<h4 class="text-base font-bold">Car Cleanliness</h4>
+<span class="text-primary font-bold">Excellent</span>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+</div>
+<!-- Category 2 -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<h4 class="text-base font-bold">Owner Communication</h4>
+<span class="text-slate-400 font-medium">Select rating</span>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-700 text-4xl">star</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-700 text-4xl">star</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-700 text-4xl">star</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-700 text-4xl">star</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-700 text-4xl">star</span>
+</div>
+</div>
+<!-- Category 3 -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<h4 class="text-base font-bold">Car Accuracy</h4>
+<span class="text-slate-400 font-medium">Select rating</span>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-700 text-4xl">star</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-700 text-4xl">star</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-700 text-4xl">star</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-700 text-4xl">star</span>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-700 text-4xl">star</span>
+</div>
+</div>
+<!-- Additional Comments -->
+<div class="space-y-3 pt-4 border-t border-slate-50 dark:border-slate-800">
+<label class="text-base font-bold">Write a review</label>
+<textarea class="w-full min-h-[120px] rounded-xl border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary p-4 text-sm" placeholder="Share details of your experience to help others. How was the car? How was the host?"></textarea>
+</div>
+<!-- Photo Upload Placeholder -->
+<div class="flex gap-4 overflow-x-auto pb-2">
+<button class="shrink-0 flex flex-col items-center justify-center size-24 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-slate-400">add_a_photo</span>
+<span class="text-[10px] font-bold mt-1 text-slate-500">Add Photos</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 border-t border-slate-100 dark:border-slate-800">
+<button class="w-full bg-primary py-4 rounded-xl font-bold text-slate-900 shadow-lg shadow-primary/20 hover:scale-[0.98] transition-transform active:scale-95">
+                Submit Review
+            </button>
+<!-- Bottom Nav Bar -->
+<div class="flex gap-2 bg-transparent mt-4">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">home</span>
+</div>
+<p class="text-[10px] font-medium leading-normal tracking-tight">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">directions_car</span>
+</div>
+<p class="text-[10px] font-medium leading-normal tracking-tight">Trips</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">chat_bubble</span>
+</div>
+<p class="text-[10px] font-medium leading-normal tracking-tight">Inbox</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">person</span>
+</div>
+<p class="text-[10px] font-medium leading-normal tracking-tight">Profile</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>

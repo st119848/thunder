@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#FAC638", "background-light": "#f8f8f5", "background-dark": "#231e0f"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<title>Upload Commercial Documents</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<!-- Header -->
+<div class="flex items-center bg-white dark:bg-slate-900 p-4 pb-2 justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="text-primary dark:text-slate-100 flex size-12 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-primary dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Vehicle Verification</h2>
+<div class="size-12"></div> <!-- Spacer for centering -->
+</div>
+<!-- Progress Indicator -->
+<div class="flex w-full flex-col items-center justify-center gap-3 py-6 bg-white dark:bg-slate-900">
+<div class="flex flex-row items-center gap-3">
+<div class="h-2 w-8 rounded-full bg-primary"></div>
+<div class="h-2 w-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+<div class="h-2 w-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+</div>
+<span class="text-xs font-semibold uppercase tracking-wider text-primary/60 dark:text-slate-400">Step 1 of 3</span>
+</div>
+<!-- Main Content Area -->
+<div class="px-4 py-6 max-w-2xl mx-auto w-full">
+<h3 class="text-primary dark:text-slate-100 tracking-tight text-2xl font-bold leading-tight pb-2">Commercial Documents</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-normal pb-6">Please upload clear photos of your vehicle documents. Ensure all text is legible for faster verification.</p>
+<div class="space-y-4">
+<!-- Document Item: Compulsory Insurance -->
+<div class="flex flex-col gap-3 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">policy</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-normal">Compulsory Insurance</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal">Required for legal registration</p>
+</div>
+</div>
+<button class="shrink-0 flex items-center justify-center size-10 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add_a_photo</span>
+</button>
+</div>
+</div>
+<!-- Document Item: Voluntary Insurance -->
+<div class="flex flex-col gap-3 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-normal">Voluntary Insurance</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal">Optional commercial coverage</p>
+</div>
+</div>
+<button class="shrink-0 flex items-center justify-center size-10 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add_a_photo</span>
+</button>
+</div>
+</div>
+<!-- Document Item: Blue Book -->
+<div class="flex flex-col gap-3 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-normal">Car Registration</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal">Blue Book (Vehicle ownership)</p>
+</div>
+</div>
+<button class="shrink-0 flex items-center justify-center size-10 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">add_a_photo</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Guidelines Section -->
+<div class="mt-10 p-5 rounded-xl bg-primary/5 border border-primary/10">
+<h4 class="text-primary dark:text-slate-100 font-bold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">info</span>
+                    Upload Guidelines
+                </h4>
+<ul class="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
+<li>Use a well-lit environment to take photos</li>
+<li>Ensure all four corners of the document are visible</li>
+<li>Avoid reflections or shadows on the paper</li>
+<li>Files should be in JPG, PNG, or PDF format (Max 10MB)</li>
+</ul>
+</div>
+</div>
+<!-- Sticky Bottom Footer Button -->
+<div class="mt-auto p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 sticky bottom-0">
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg shadow-lg active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                Continue to Next Step
+            </button>
+</div>
+</div>
+</body></html>

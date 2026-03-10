@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#EA2831", "background-light": "#f8f6f6", "background-dark": "#211111"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<title>Notifications Center</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden max-w-md mx-auto border-x border-slate-200 dark:border-slate-800">
+<!-- Header Section -->
+<div class="flex items-center bg-white dark:bg-slate-900 p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-100 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1">Notifications</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent text-slate-900 dark:text-slate-100 p-0">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Filter Tabs -->
+<div class="bg-white dark:bg-slate-900">
+<div class="flex border-b border-slate-100 dark:border-slate-800 px-4 gap-8">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-slate-900 dark:text-slate-100 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">All</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 dark:text-slate-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">Unread</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-slate-500 dark:text-slate-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">Promos</p>
+</a>
+</div>
+</div>
+<!-- Notification List -->
+<div class="flex flex-col grow pb-24">
+<!-- Today Section -->
+<div class="px-4 py-3 bg-slate-50 dark:bg-slate-800/50">
+<p class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Today</p>
+</div>
+<!-- Item: Payment Successful -->
+<div class="flex items-start gap-4 bg-white dark:bg-slate-900 px-4 min-h-[88px] py-4 border-b border-slate-50 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex items-center justify-center rounded-xl bg-primary/20 shrink-0 size-12">
+<span class="material-symbols-outlined text-amber-600 dark:text-primary">check_circle</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-snug">Payment Successful</p>
+<p class="text-slate-400 dark:text-slate-500 text-xs font-normal">2m ago</p>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal mt-1">Your payment of $145.00 for the Tesla Model 3 has been processed successfully.</p>
+</div>
+</div>
+<!-- Item: New Message -->
+<div class="flex items-start gap-4 bg-primary/5 dark:bg-primary/10 px-4 min-h-[88px] py-4 border-b border-slate-50 dark:border-slate-800 relative">
+<div class="absolute left-1 top-1/2 -translate-y-1/2 w-1 h-12 bg-primary rounded-full"></div>
+<div class="text-slate-900 dark:text-slate-100 flex items-center justify-center rounded-xl bg-primary shrink-0 size-12">
+<span class="material-symbols-outlined text-slate-900">chat_bubble</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold leading-snug">New Message from Sarah</p>
+<p class="text-slate-400 dark:text-slate-500 text-xs font-normal">15m ago</p>
+</div>
+<p class="text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal mt-1 italic">"Hi! I've just cleaned the car and it's ready for you at the pickup location..."</p>
+</div>
+</div>
+<!-- Item: Booking Approved -->
+<div class="flex items-start gap-4 bg-white dark:bg-slate-900 px-4 min-h-[88px] py-4 border-b border-slate-50 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 shrink-0 size-12">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-snug">Booking Approved: Tesla Model 3</p>
+<p class="text-slate-400 dark:text-slate-500 text-xs font-normal">1h ago</p>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal mt-1">Host Sarah has approved your request. View the trip details for instructions.</p>
+</div>
+</div>
+<!-- Yesterday Section -->
+<div class="px-4 py-3 bg-slate-50 dark:bg-slate-800/50">
+<p class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Yesterday</p>
+</div>
+<!-- Item: Return Reminder -->
+<div class="flex items-start gap-4 bg-white dark:bg-slate-900 px-4 min-h-[88px] py-4 border-b border-slate-50 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex items-center justify-center rounded-xl bg-red-50 dark:bg-red-900/20 shrink-0 size-12">
+<span class="material-symbols-outlined text-red-500">schedule</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-snug">Reminder: Return in 2 hours</p>
+<p class="text-slate-400 dark:text-slate-500 text-xs font-normal">Yesterday</p>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal mt-1">Your rental period for the BMW i4 is ending soon. Please return the car by 5:00 PM.</p>
+</div>
+</div>
+<!-- Item: Review Request -->
+<div class="flex items-start gap-4 bg-white dark:bg-slate-900 px-4 min-h-[88px] py-4 border-b border-slate-50 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 shrink-0 size-12">
+<span class="material-symbols-outlined">star</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex justify-between items-start">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-snug">Rate your experience</p>
+<p class="text-slate-400 dark:text-slate-500 text-xs font-normal">Yesterday</p>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal mt-1">How was your trip with Marcus? Share your feedback to help other renters.</p>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 w-full max-w-md bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 pb-safe">
+<div class="flex gap-2 px-4 pb-3 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">search</span>
+</div>
+<p class="text-[10px] font-medium leading-normal">Explore</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<p class="text-[10px] font-medium leading-normal">Bookings</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center relative">
+<span class="material-symbols-outlined fill-1">notifications</span>
+<span class="absolute top-1 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</div>
+<p class="text-[10px] font-bold leading-normal">Inbox</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">person</span>
+</div>
+<p class="text-[10px] font-medium leading-normal">Profile</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#FAC638", "background-light": "#f8f8f5", "background-dark": "#231e0f"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<title>Car Maintenance Log</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-background-dark shadow-xl overflow-x-hidden">
+<header class="flex items-center bg-white dark:bg-background-dark p-4 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-10">
+<div class="text-primary dark:text-slate-100 flex size-10 shrink-0 items-center justify-center cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h1 class="text-primary dark:text-slate-100 text-xl font-bold leading-tight tracking-tight flex-1 ml-2">Vehicle Health</h1>
+<div class="text-primary dark:text-slate-100 flex size-10 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto">
+<div class="p-4 space-y-6">
+<section>
+<div class="relative h-48 w-full rounded-xl overflow-hidden mb-4 bg-primary/10">
+<img alt="Luxury black sedan" class="w-full h-full object-cover" data-alt="Modern dark navy blue luxury sedan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWWH33aT0VBWNxZgMJt5Q0rORjjjkLuDPLxFDbplizjAMIn812Bgqq_lV-eTu6P4zAAlPWK9voJy-Dql1_xHcRj9gJZDwmRwZEO0flGS03FX4r-BEcOH_HCrKdK6wc4vhw-uedVZ3hRogRpeThspSVCbkLjDP57S9UvrtidNDP55hRgituFNa-dg-DyOKiBQiidStQLG0sXvpJ0qlqTzsYI28jKdstzVvrNyBq0B6jdRD01cW4pRXm_RQXdwzYjw4oeOC2i0GECw"/>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-primary/80 to-transparent">
+<h2 class="text-white text-lg font-bold">2023 BMW M4 Competition</h2>
+<p class="text-white/80 text-sm">Last Synced: 2 hours ago</p>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-primary dark:text-slate-100 text-lg font-bold mb-4">Service Reminders</h2>
+<div class="space-y-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold ml-1">Last Oil Change</label>
+<div class="flex w-full items-stretch rounded-lg shadow-sm">
+<input class="form-input flex w-full min-w-0 flex-1 rounded-l-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 text-base" placeholder="October 12, 2023" type="text" value="Oct 12, 2023"/>
+<div class="flex items-center justify-center px-3 rounded-r-lg border border-l-0 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 ml-1">Next due: 5,000 miles or April 2024</p>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold ml-1">Tire Status &amp; Rotation</label>
+<div class="flex w-full items-stretch rounded-lg shadow-sm">
+<input class="form-input flex w-full min-w-0 flex-1 rounded-l-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 text-base" placeholder="Select rotation date" type="text" value="Aug 05, 2023"/>
+<div class="flex items-center justify-center px-3 rounded-r-lg border border-l-0 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500">
+<span class="material-symbols-outlined">tire_repair</span>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-medium">Pressure: Normal</span>
+<span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs font-medium">Tread: 6/32"</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold ml-1">Brake Check Date</label>
+<div class="flex w-full items-stretch rounded-lg shadow-sm">
+<input class="form-input flex w-full min-w-0 flex-1 rounded-l-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 text-base" placeholder="Select inspection date" type="text" value=""/>
+<div class="flex items-center justify-center px-3 rounded-r-lg border border-l-0 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 ml-1">Recommended every 12,000 miles</p>
+</div>
+</div>
+</section>
+<section class="pt-4 pb-8">
+<button class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">save</span>
+                        Update All Logs
+                    </button>
+<button class="w-full mt-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold py-4 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">history</span>
+                        View Full History
+                    </button>
+</section>
+</div>
+</main>
+<nav class="flex border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark px-4 pb-6 pt-2">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-medium leading-none">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary dark:text-slate-100" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">description</span>
+<p class="text-[10px] font-medium leading-none">Logs</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<p class="text-[10px] font-medium leading-none">Garage</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-medium leading-none">Profile</p>
+</a>
+</nav>
+</div>
+</body></html>

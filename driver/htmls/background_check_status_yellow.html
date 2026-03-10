@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#EA2831", "background-light": "#f8f6f6", "background-dark": "#211111"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<title>Driver Verification Status</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 py-3">
+<div class="max-w-md mx-auto flex items-center justify-between">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold flex-1 text-center pr-10">Verification Status</h1>
+</div>
+</header>
+<main class="flex-1 w-full max-w-md mx-auto p-4 space-y-6">
+<!-- Status Overview Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-between mb-4">
+<div class="flex flex-col">
+<span class="text-sm text-slate-500 dark:text-slate-400 font-medium">Current Status</span>
+<h2 class="text-xl font-bold text-slate-900 dark:text-slate-100">Verification in Progress</h2>
+</div>
+<div class="bg-primary/20 text-slate-900 dark:text-primary px-3 py-1 rounded-full text-sm font-bold">
+                    65%
+                </div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-3 mb-4">
+<div class="bg-primary h-3 rounded-full" style="width: 65%;"></div>
+</div>
+<div class="flex items-start gap-2 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-sm pt-0.5">info</span>
+<p class="text-sm">We are currently processing your criminal record search. Estimated completion in 2-3 business days.</p>
+</div>
+</div>
+<!-- Detail Steps -->
+<div>
+<h3 class="text-lg font-bold mb-4 px-1">Verification Steps</h3>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+<!-- Step 1: Completed -->
+<div class="grid grid-cols-[48px_1fr] gap-x-2 px-4">
+<div class="flex flex-col items-center gap-1 pt-4">
+<div class="bg-primary rounded-full flex items-center justify-center p-1">
+<span class="material-symbols-outlined text-slate-900 text-sm font-bold">check</span>
+</div>
+<div class="w-0.5 bg-primary h-full"></div>
+</div>
+<div class="flex flex-col py-4 border-b border-slate-50 dark:border-slate-800">
+<p class="text-slate-900 dark:text-slate-100 font-semibold">Identity Verified</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Completed on Jan 12, 2024</p>
+</div>
+</div>
+<!-- Step 2: Completed -->
+<div class="grid grid-cols-[48px_1fr] gap-x-2 px-4">
+<div class="flex flex-col items-center gap-1">
+<div class="w-0.5 bg-primary h-4"></div>
+<div class="bg-primary rounded-full flex items-center justify-center p-1">
+<span class="material-symbols-outlined text-slate-900 text-sm font-bold">check</span>
+</div>
+<div class="w-0.5 bg-primary h-full"></div>
+</div>
+<div class="flex flex-col py-4 border-b border-slate-50 dark:border-slate-800">
+<p class="text-slate-900 dark:text-slate-100 font-semibold">Consent Form Signed</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Completed on Jan 12, 2024</p>
+</div>
+</div>
+<!-- Step 3: In Progress -->
+<div class="grid grid-cols-[48px_1fr] gap-x-2 px-4">
+<div class="flex flex-col items-center gap-1">
+<div class="w-0.5 bg-primary h-4"></div>
+<div class="bg-primary/20 rounded-full flex items-center justify-center p-1 animate-pulse">
+<span class="material-symbols-outlined text-primary text-sm font-bold">schedule</span>
+</div>
+<div class="w-0.5 bg-slate-200 dark:bg-slate-700 h-full"></div>
+</div>
+<div class="flex flex-col py-4 border-b border-slate-50 dark:border-slate-800">
+<p class="text-slate-900 dark:text-slate-100 font-semibold">Criminal Record Search</p>
+<p class="text-primary font-medium text-sm">Processing...</p>
+</div>
+</div>
+<!-- Step 4: Pending -->
+<div class="grid grid-cols-[48px_1fr] gap-x-2 px-4">
+<div class="flex flex-col items-center gap-1 pb-4">
+<div class="w-0.5 bg-slate-200 dark:bg-slate-700 h-4"></div>
+<div class="bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center p-1">
+<span class="material-symbols-outlined text-slate-400 text-sm font-bold">circle</span>
+</div>
+</div>
+<div class="flex flex-col py-4">
+<p class="text-slate-400 dark:text-slate-600 font-semibold">Final Review</p>
+<p class="text-slate-400 dark:text-slate-600 text-sm">Pending external verification</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Help Section -->
+<div class="bg-primary/10 rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-700 dark:text-primary">help_center</span>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Need help?</p>
+<p class="text-xs text-slate-600 dark:text-slate-400">Contact driver support</p>
+</div>
+</div>
+<button class="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-4 py-1.5 rounded-lg text-sm font-bold shadow-sm border border-slate-200 dark:border-slate-700">
+                Support
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 pb-6 pt-2 sticky bottom-0">
+<div class="max-w-md mx-auto flex justify-around">
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-600" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-600" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-medium">Earnings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">verified_user</span>
+<span class="text-[10px] font-bold">Status</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-600" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

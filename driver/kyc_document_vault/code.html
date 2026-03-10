@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#EA2831", "background-light": "#f8f6f6", "background-dark": "#211111"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<title>KYC &amp; Document Vault</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full max-w-md mx-auto flex-col bg-background-light dark:bg-background-dark overflow-x-hidden border-x border-primary/10">
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 sticky top-0 z-10 border-b border-primary/10 justify-between">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-primary/10 cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center">KYC &amp; Document Vault</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-full hover:bg-primary/10 text-primary">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</header>
+<main class="flex-1 pb-24">
+<section class="p-4">
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight mb-4">Verification Status</h2>
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-900 p-5 shadow-sm border border-primary/5">
+<div class="flex flex-[2_2_0px] flex-col gap-3">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-amber-600 dark:text-amber-500">
+<span class="material-symbols-outlined text-sm">warning</span>
+<p class="text-base font-bold leading-tight uppercase tracking-wide text-xs">Action Required</p>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-relaxed">
+                                Please upload your missing documents to complete your driver profile.
+                            </p>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden mt-1">
+<div class="bg-primary h-full w-[66%]"></div>
+</div>
+<p class="text-[10px] text-slate-400 font-medium">2 of 3 documents verified</p>
+</div>
+<div class="w-24 h-24 bg-primary/10 flex items-center justify-center rounded-lg border border-primary/20 shrink-0">
+<span class="material-symbols-outlined text-4xl text-primary">verified_user</span>
+</div>
+</div>
+</section>
+<section class="px-4 py-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight mb-4">Required Documents</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-xl border border-primary/10 shadow-sm">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-800 dark:text-slate-200">National Identity Card (IC)</h4>
+<div class="flex items-center gap-1.5 mt-0.5 text-primary">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span class="text-xs font-medium">Verified</span>
+</div>
+</div>
+<div class="text-slate-400">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-xl border border-primary/10 shadow-sm">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-800 dark:text-slate-200">Public Driving License (PDL)</h4>
+<div class="flex items-center gap-1.5 mt-0.5 text-primary">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span class="text-xs font-medium">Verified</span>
+</div>
+</div>
+<div class="text-slate-400">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<div class="flex flex-col gap-3 p-4 bg-primary/5 dark:bg-primary/10 rounded-xl border-2 border-dashed border-primary/30">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-primary flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined">screenshot_region</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-800 dark:text-slate-200">Grab/Taxi Profile Screenshot</h4>
+<div class="flex items-center gap-1.5 mt-0.5 text-amber-600 dark:text-amber-500">
+<span class="material-symbols-outlined text-sm">pending_actions</span>
+<span class="text-xs font-medium uppercase">Required</span>
+</div>
+</div>
+</div>
+<div class="mt-2">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-white py-3 rounded-lg font-bold hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-xl">upload</span>
+                                Upload Document
+                            </button>
+</div>
+<p class="text-[11px] text-slate-500 dark:text-slate-400 text-center italic">
+                            Max file size: 5MB. Supported formats: JPG, PNG, PDF
+                        </p>
+</div>
+<div class="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 opacity-70">
+<div class="size-12 rounded-lg bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 shrink-0">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-800 dark:text-slate-200">Vehicle Insurance (Optional)</h4>
+<div class="flex items-center gap-1.5 mt-0.5 text-slate-500">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">Pending Review</span>
+</div>
+</div>
+<div class="text-slate-400">
+<span class="material-symbols-outlined">lock</span>
+</div>
+</div>
+</div>
+</section>
+<section class="p-4 mt-4">
+<div class="rounded-xl bg-slate-900 p-6 text-white relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-lg font-bold mb-2">Need help?</h4>
+<p class="text-sm text-slate-300 mb-4 leading-relaxed">Our verification team is available 24/7 to assist with your document submission.</p>
+<button class="px-6 py-2 bg-white text-slate-900 rounded-full text-sm font-bold hover:bg-slate-100 transition-colors">
+                            Chat with Support
+                        </button>
+</div>
+<div class="absolute -right-6 -bottom-6 text-white/10 rotate-12">
+<span class="material-symbols-outlined text-9xl">support_agent</span>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md flex gap-2 border-t border-primary/10 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md px-4 pb-6 pt-3 shadow-lg">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">shield_with_heart</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">Vault</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">Earnings</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-medium leading-normal tracking-wide">Profile</p>
+</a>
+</nav>
+</div>
+</body></html>

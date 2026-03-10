@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Renter - Driver Verification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#FAC638", "background-light": "#f8f8f5", "background-dark": "#231e0f"}, fontFamily: {display: "Inter"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full max-w-md mx-auto flex-col bg-white dark:bg-slate-900 shadow-xl overflow-x-hidden pb-32">
+<!-- Top App Bar -->
+<div class="flex items-center bg-white dark:bg-slate-900 p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-100 dark:border-slate-800">
+<div class="text-primary dark:text-slate-100 flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-primary dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Review Renter</h2>
+</div>
+<!-- Profile Section -->
+<div class="flex p-6 @container">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 border-4 border-primary/10 shadow-sm" data-alt="Professional headshot of a smiling male driver" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdOLSQGVuHMpKFpiRY8M11Y9hfoojeZRsYZimtmpr5QO0TGW8benM8nKUiFV1eNFkXfSn9sfIbxfP5qvkW0Pv4k00dinXOWo8zDlkdpsuNtTyWaXGLkqlQVOmSt_8j1oaC1uW4dbcw931SbAUdLE7zhxghpcIGSHqll9a4p8rEbOslh9siO0s_DVDQruQW-yq72dRmVeYkcb3aSaFiSDs7dR-vom_Jupc-iY2eiImoirOrVWMTLvJLIAxJKMAWIcDBsGvbk-4hHQ");'></div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-primary dark:text-slate-100 text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Alex Johnson</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-sm fill-1">verified</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal text-center uppercase tracking-wider">Verified Renter</p>
+</div>
+<p class="text-slate-400 dark:text-slate-500 text-xs font-normal leading-normal text-center mt-1">Member since April 2021</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Rating Stats -->
+<div class="flex flex-wrap gap-4 px-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-5 border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Average Rating</p>
+<div class="flex items-end gap-2">
+<p class="text-primary dark:text-slate-100 tracking-tight text-3xl font-bold leading-none">4.8</p>
+<p class="text-slate-400 dark:text-slate-500 text-lg font-medium leading-none pb-0.5">/ 5.0</p>
+</div>
+<div class="flex text-amber-400 mt-1">
+<span class="material-symbols-outlined text-base fill-1">star</span>
+<span class="material-symbols-outlined text-base fill-1">star</span>
+<span class="material-symbols-outlined text-base fill-1">star</span>
+<span class="material-symbols-outlined text-base fill-1">star</span>
+<span class="material-symbols-outlined text-base">star_half</span>
+</div>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-5 border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Total Trips</p>
+<p class="text-primary dark:text-slate-100 tracking-tight text-3xl font-bold leading-none">124</p>
+<p class="text-green-600 dark:text-green-400 text-xs font-medium leading-none mt-2">98% completion rate</p>
+</div>
+</div>
+<!-- Verifications -->
+<div class="px-4 pt-6">
+<h3 class="text-primary dark:text-slate-100 text-sm font-bold uppercase tracking-wider mb-3">Identity Verifications</h3>
+<div class="flex flex-col gap-2">
+<div class="flex h-12 shrink-0 items-center justify-between gap-x-2 rounded-lg bg-primary/5 dark:bg-primary/20 px-4 border border-primary/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-slate-100">shield</span>
+<p class="text-primary dark:text-slate-100 text-sm font-medium leading-normal">Public Driving License</p>
+</div>
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 text-xl">check_circle</span>
+</div>
+<div class="flex h-12 shrink-0 items-center justify-between gap-x-2 rounded-lg bg-primary/5 dark:bg-primary/20 px-4 border border-primary/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-slate-100">local_taxi</span>
+<p class="text-primary dark:text-slate-100 text-sm font-medium leading-normal">Grab/Taxi Driver Profile</p>
+</div>
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 text-xl">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Platform Reviews -->
+<div class="px-4 pt-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-primary dark:text-slate-100 text-sm font-bold uppercase tracking-wider">Recent Reviews</h3>
+<p class="text-primary text-xs font-semibold cursor-pointer">View all</p>
+</div>
+<div class="space-y-4">
+<!-- Review 1 -->
+<div class="border-b border-slate-100 dark:border-slate-800 pb-4">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<div class="size-8 rounded-full bg-slate-200" data-alt="Reviewer avatar profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKyVAVEauotEG2kMz7uZTKNdOT0LjFG730ydbEuruXTybg6l0e8G3JvKQS9MCsRCoZx5tn8tj4Guk33B0qBXi2Ud7XpeUEEFFylUisBZ6y7SDn6aWxpXtAePsQ-sb-eSdAjAHlWls-RDn2U9IaLe_IcSMEDH2nx-X1VkmOMS_pffTfEPmTMC5_weq5GQCBJmryOiBqF4XNemqVqNXYrN1fpnWkMarvQxkobal7hWhrOrLJoJizjEBRqe2Cl8wJ1at_AZae0mPG4g");'></div>
+<div>
+<p class="text-xs font-bold text-slate-800 dark:text-slate-200">Sarah M.</p>
+<p class="text-[10px] text-slate-400">March 12, 2024</p>
+</div>
+</div>
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-xs fill-1">star</span>
+</div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 italic">"Alex was very punctual and returned the car in perfect condition. Would definitely rent to him again!"</p>
+</div>
+<!-- Review 2 -->
+<div class="border-b border-slate-100 dark:border-slate-800 pb-4">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<div class="size-8 rounded-full bg-slate-200" data-alt="Reviewer avatar profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBOrbiC56uAfOFMsLUbU5l9UGMOU0-VNax_OLeGcD4bQCgF6E4g0udDTZJW6BxidSSjC8gqQLq1j10Q21W6TVNpbuNg_Pd1Sm6q8Ecm0FkYlWVHbFWhgvVe3xd7bYdKdHNpQyH4APcwHR-S1S9wOoJSXD68uOPghEuMAIQuFa8sFBKXPXvERa62W3woUQdLhpgWno0Qvnw_ItjIlAGvQmxUsgqiAxqVkF_xxpGuAVXECuGKyk41unXy0lCoLmp_K1AoBJ9_UPME6A");'></div>
+<div>
+<p class="text-xs font-bold text-slate-800 dark:text-slate-200">David L.</p>
+<p class="text-[10px] text-slate-400">Feb 28, 2024</p>
+</div>
+</div>
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-xs fill-1">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+</div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 italic">"Great communication throughout the rental period. Very professional driver."</p>
+</div>
+</div>
+</div>
+<!-- Floating Action Buttons -->
+<div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 flex gap-4">
+<button class="flex-1 h-14 rounded-xl border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold flex items-center justify-center gap-2 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined">close</span>
+                Reject
+            </button>
+<button class="flex-1 h-14 rounded-xl bg-primary text-white font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">check_circle</span>
+                Approve
+            </button>
+</div>
+</div>
+</body></html>
