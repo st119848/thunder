@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thunder App - Driver & Renter Hub</title>
+    <title>Thunder Hub - Multi Use-Case Showcase</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+Thai:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         :root {
-            --primary-bg: #0f172a;
+            --primary-bg: #0b0f1a;
             --secondary-bg: #1e293b;
             --accent-driver: #f59e0b;
             --accent-renter: #3b82f6;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
         }
 
         * {
@@ -28,516 +28,485 @@
         }
 
         body {
-            font-family: 'Outfit', 'Noto+Sans+Thai', sans-serif;
+            font-family: 'Kanit', sans-serif;
             background-color: var(--primary-bg);
             color: var(--text-main);
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        .background-blob {
+        /* Background effects */
+        .bg-glow {
             position: fixed;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05), transparent 70%);
             z-index: -1;
-            filter: blur(60px);
             pointer-events: none;
         }
 
-        .blob-1 { top: -100px; right: -100px; }
-        .blob-2 { bottom: -100px; left: -100px; }
-
         header {
-            padding: 60px 20px 40px;
+            padding: 80px 20px 60px;
             text-align: center;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            background: linear-gradient(135deg, #fff 0%, #64748b 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
         }
 
         .sub-header {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Kanit', sans-serif;
             color: var(--accent-renter);
-            font-size: 1rem;
+            font-size: 0.95rem;
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 12px 20px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 14px 24px;
             border-radius: 12px;
             display: inline-block;
             border-left: 4px solid var(--accent-renter);
             text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .sub-header::before {
-            content: "> ";
-            color: #10b981;
-            font-weight: bold;
-        }
-
+        .sub-header::before { content: "> "; color: #10b981; font-weight: bold; }
         .sub-header::after {
             content: "_";
             animation: blink 1s infinite;
             color: #fff;
         }
+        @keyframes blink { 50% { opacity: 0; } }
 
-        @keyframes blink {
-            50% { opacity: 0; }
+        /* Use Case Sections */
+        .use-case-group-label {
+            text-align: center;
+            padding: 100px 20px 20px;
+            text-transform: uppercase;
+            letter-spacing: 12px;
+            font-weight: 800;
+            font-size: 2.5rem;
+            opacity: 0.8;
+            color: #fff;
         }
 
         section {
-            padding: 40px 0 80px;
+            padding: 60px 0;
+            position: relative;
         }
 
         .section-header {
-            padding: 0 20px;
+            padding: 0 40px;
             margin-bottom: 30px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin-left: auto;
             margin-right: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
         }
 
         .section-title {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .section-title h2 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 700;
+            color: #fff;
         }
 
-        .section-title .dot {
-            width: 12px;
-            height: 12px;
+        .dot {
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
         }
 
-        .driver-theme .dot { background-color: var(--accent-driver); box-shadow: 0 0 15px var(--accent-driver); }
-        .renter-theme .dot { background-color: var(--accent-renter); box-shadow: 0 0 15px var(--accent-renter); }
+        .renter-theme .dot { background: var(--accent-renter); box-shadow: 0 0 20px var(--accent-renter); }
+        .renter-theme .section-title h2 { color: var(--accent-renter); }
+        
+        .driver-theme .dot { background: var(--accent-driver); box-shadow: 0 0 20px var(--accent-driver); }
+        .driver-theme .section-title h2 { color: var(--accent-driver); }
 
-        /* Swiper Customization */
+        .use-case-desc {
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-size: 1.1rem;
+            margin-left: 29px;
+        }
+
+        /* Swiper Styling */
         .swiper {
             width: 100%;
-            padding: 20px 50px 60px !important;
+            padding: 40px 50px 80px !important;
         }
 
         .swiper-slide {
-            width: 320px;
+            width: 300px;
             height: auto;
             display: flex;
             flex-direction: column;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.5s ease;
         }
 
         .card {
             background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            border-radius: 28px;
             overflow: hidden;
             height: 100%;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            cursor: zoom-in;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255,255,255,0.2);
         }
 
         .card-image-wrap {
             position: relative;
-            aspect-ratio: 9/19.5; /* iPhone Screen Aspect Ratio */
-            overflow: hidden;
+            aspect-ratio: 9/19.5;
             background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
 
         .card img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            transition: transform 0.6s ease;
-        }
-
-        .swiper-slide-active .card img {
-            transform: scale(1.05);
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .card-content {
-            padding: 20px;
+            padding: 24px;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
         }
 
         .card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 6px;
+            font-size: 1.2rem;
+            font-weight: 700;
             color: #fff;
         }
 
-        .card-category {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .swiper-pagination-bullet {
-            background: var(--text-muted);
-            opacity: 0.3;
-        }
-
-        .driver-theme .swiper-pagination-bullet-active { background: var(--accent-driver); }
-        .renter-theme .swiper-pagination-bullet-active { background: var(--accent-renter); }
-
-        footer {
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 1px solid var(--glass-border);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .swiper { padding: 20px 20px 60px !important; }
-            .swiper-slide { width: 280px; }
-        }
-
-        /* Lightbox Styles */
+        /* Lightbox */
         #lightbox {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.97);
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            backdrop-filter: blur(10px);
+            z-index: 10000;
+            backdrop-filter: blur(20px);
             cursor: zoom-out;
         }
 
         #lightbox img {
-            max-width: 95%;
-            max-height: 95%;
+            max-width: 90%;
+            max-height: 90%;
             object-fit: contain;
-            border-radius: 12px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            border-radius: 16px;
+            box-shadow: 0 0 100px rgba(0,0,0,0.8);
             transform: scale(0.9);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        #lightbox.active {
-            display: flex;
+        #lightbox.active { display: flex; }
+        #lightbox.active img { transform: scale(1); }
+
+        footer {
+            padding: 100px 20px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
         }
 
-        #lightbox.active img {
-            transform: scale(1);
-        }
-
-        .card {
-            cursor: zoom-in;
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .use-case-group-label { font-size: 1.5rem; padding: 60px 20px 10px; }
+            .swiper { padding: 20px 20px 60px !important; }
+            .swiper-slide { width: 260px; }
+            .section-title h2 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
-    <div class="background-blob blob-1"></div>
-    <div class="background-blob blob-2"></div>
+    <div class="bg-glow"></div>
 
     <header>
         <h1>THUNDER</h1>
         <p class="sub-header">สัมผัสประสบการณ์การเดินทางที่เหนือระดับ ทั้งในมุมมองของคนขับและผู้เช่า ด้วยอินเทอร์เฟซที่สวยงามและใช้งานง่าย</p>
     </header>
 
-    <!-- SECTION: DRIVER -->
-    <section class="driver-theme">
-        <div class="section-header">
-            <div class="section-title">
-                <div class="dot"></div>
-                <h2>Driver Experience</h2>
-            </div>
-        </div>
-        
-        <div class="swiper driver-swiper">
-            <div class="swiper-wrapper">
-                <!-- Driver Slides -->
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="driver/images/car_profile_page.png" alt="Car Profile">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Core</div>
-                            <div class="card-title">Car Profile</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="driver/images/digital_wallet.png" alt="Wallet">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Finance</div>
-                            <div class="card-title">Digital Wallet</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="driver/images/booking_history.png" alt="History">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Activity</div>
-                            <div class="card-title">Booking History</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="driver/images/in_app_chat.png" alt="Chat">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Communication</div>
-                            <div class="card-title">In-App Chat</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="driver/images/smart_search_filters.png" alt="Search">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Discovery</div>
-                            <div class="card-title">Smart Filters</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="driver/images/pick_up_drop_off_checklist.png" alt="Checklist">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Operations</div>
-                            <div class="card-title">Rental Checklist</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="driver/images/background_check_status_yellow.png" alt="Background Check">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Safety</div>
-                            <div class="card-title">Background Check</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="driver/images/kyc_document_vault.png" alt="KYC">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Security</div>
-                            <div class="card-title">KYC Document Vault</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="driver/images/notifications_center.png" alt="Notifications">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Alerts</div>
-                            <div class="card-title">Notifications Center</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="driver/images/booking_summary_yellow.png" alt="Summary">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Activity</div>
-                            <div class="card-title">Booking Summary</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="driver/images/emergency_help_center.png" alt="Emergency">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Support</div>
-                            <div class="card-title">Emergency Help</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
+    <!-- RENTER MASTER GROUP -->
+    <div class="use-case-group-label">Renter Operations</div>
 
-    <!-- SECTION: RENTER -->
+    <!-- RENTER USE CASE 1 -->
     <section class="renter-theme">
         <div class="section-header">
             <div class="section-title">
                 <div class="dot"></div>
-                <h2>Renter Experience</h2>
+                <h2>Onboarding & Trust</h2>
+            </div>
+            <p class="use-case-desc">เริ่มต้นเป็นเจ้าของรถผู้ให้บริการด้วยการยืนยันตัวตนและการลงทะเบียนที่รวดเร็ว</p>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="renter/images/vehicle_onboarding.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Vehicle Onboarding</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="renter/images/owner_profile_verification_navy.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Profile Verification</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="renter/images/commercial_documents_navy.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Legal Documents</div></div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="swiper renter-swiper">
+    <!-- RENTER USE CASE 2 -->
+    <section class="renter-theme">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="dot"></div>
+                <h2>Fleet Management</h2>
+            </div>
+            <p class="use-case-desc">บริหารจัดการยานพาหนะและตารางเวลาการเช่าได้อย่างมีประสิทธิภาพ</p>
+        </div>
+        <div class="swiper">
             <div class="swiper-wrapper">
-                <!-- Renter Slides -->
                 <div class="swiper-slide">
                     <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="renter/images/rental_management_dashboard.png" alt="Dashboard">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Overview</div>
-                            <div class="card-title">Management Dashboard</div>
-                        </div>
+                        <div class="card-image-wrap"><img src="renter/images/my_vehicles_host.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">My Vehicles List</div></div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="renter/images/my_vehicles_host.png" alt="Vehicles">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Fleet</div>
-                            <div class="card-title">My Vehicles</div>
-                        </div>
+                        <div class="card-image-wrap"><img src="renter/images/availability_calendar.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Rental Calendar</div></div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="renter/images/live_gps_tracking_navy.png" alt="Tracking">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Security</div>
-                            <div class="card-title">Live GPS Tracking</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="renter/images/earnings_payouts.png" alt="Earnings">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Finance</div>
-                            <div class="card-title">Earnings & Payouts</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="renter/images/availability_calendar.png" alt="Calendar">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Scheduling</div>
-                            <div class="card-title">Availability Calendar</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="renter/images/maintenance_tracker_navy.png" alt="Maintenance">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Health</div>
-                            <div class="card-title">Vehicle Maintenance</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="renter/images/vehicle_onboarding.png" alt="Onboarding">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Setup</div>
-                            <div class="card-title">Vehicle Onboarding</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="renter/images/driver_verification.png" alt="Verification">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Trust</div>
-                            <div class="card-title">Driver Verification</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="renter/images/pricing_engine_navy.png" alt="Pricing">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Business</div>
-                            <div class="card-title">Smart Pricing Engine</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="renter/images/owner_profile_verification_navy.png" alt="Owner Profile">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Safety</div>
-                            <div class="card-title">Owner Verification</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="card-image-wrap">
-                            <img src="renter/images/maintenance_log_navy.png" alt="Log">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-category">Health</div>
-                            <div class="card-title">Maintenance Log</div>
-                        </div>
+                        <div class="card-image-wrap"><img src="renter/images/pricing_engine_navy.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Smart Pricing</div></div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- RENTER USE CASE 3 -->
+    <section class="renter-theme">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="dot"></div>
+                <h2>Tracking & Security</h2>
+            </div>
+            <p class="use-case-desc">มั่นใจในความปลอดภัยด้วยระบบติดตาม GPS และการตรวจสอบผู้ขับขี่</p>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="renter/images/live_gps_tracking_navy.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Live GPS Tracking</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="renter/images/driver_verification.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Driver-Side Check</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RENTER USE CASE 4 -->
+    <section class="renter-theme">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="dot"></div>
+                <h2>Business Performance</h2>
+            </div>
+            <p class="use-case-desc">ติดตามรายรับและรายงานสรุปการดำเนินงานทั้งหมด</p>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="renter/images/rental_management_dashboard.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Admin Dashboard</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="renter/images/earnings_payouts.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Earnings & Payouts</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="renter/images/maintenance_tracker_navy.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Maintenance Insight</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DRIVER MASTER GROUP -->
+    <div class="use-case-group-label">Driver Experience</div>
+
+    <!-- DRIVER USE CASE 1 -->
+    <section class="driver-theme">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="dot"></div>
+                <h2>Reliable Identity</h2>
+            </div>
+            <p class="use-case-desc">สร้างความน่าเชื่อถือด้วยโปรไฟล์ที่ผ่านการตรวจสอบมาตรฐาน</p>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="driver/images/kyc_document_vault.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">KYC Document Vault</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="driver/images/background_check_status_yellow.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Background Check</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="driver/images/platform_profile_sync_yellow.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Profile Sync</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DRIVER USE CASE 2 -->
+    <section class="driver-theme">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="dot"></div>
+                <h2>Seamless Booking</h2>
+            </div>
+            <p class="use-case-desc">ค้นหารถที่ใช่และทำการจองได้ภายในไม่กี่วินาที</p>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="driver/images/smart_search_filters.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Smart Filters</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="driver/images/car_profile_page.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Car Detailed Page</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="driver/images/booking_summary_yellow.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Booking Summary</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DRIVER USE CASE 3 -->
+    <section class="driver-theme">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="dot"></div>
+                <h2>Active Trip Support</h2>
+            </div>
+            <p class="use-case-desc">เครื่องมือจัดการระหว่างการเดินทางเพื่อให้ทุกอย่างราบรื่น</p>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="driver/images/pick_up_drop_off_checklist.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Rental Checklist</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="driver/images/in_app_chat.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">User Chat Hub</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="driver/images/internal_chat_quick_replies.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Quick Replies</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DRIVER USE CASE 4 -->
+    <section class="driver-theme">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="dot"></div>
+                <h2>Wallet & History</h2>
+            </div>
+            <p class="use-case-desc">จัดการกระเป๋าเงินดิจิทัลและดูประวัติการเดินทางย้อนหลัง</p>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="driver/images/digital_wallet.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Digital Wallet</div></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card-image-wrap"><img src="driver/images/booking_history.png" alt=""></div>
+                        <div class="card-content"><div class="card-title">Booking History</div></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -551,28 +520,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const driverSwiper = new Swiper('.driver-swiper', {
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            spaceBetween: 30,
-            grabCursor: true,
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            }
-        });
-
-        const renterSwiper = new Swiper('.renter-swiper', {
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            spaceBetween: 30,
-            grabCursor: true,
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            }
+        // Initialize all swipers
+        document.querySelectorAll('.swiper').forEach(el => {
+            new Swiper(el, {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                spaceBetween: 30,
+                grabCursor: true,
+                loop: false, // Changed to false for sequenced use cases
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                }
+            });
         });
 
         // Lightbox Logic
@@ -585,13 +545,13 @@
                 const imgSrc = card.querySelector('img').src;
                 lightboxImg.src = imgSrc;
                 lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scroll
+                document.body.style.overflow = 'hidden';
             });
         });
 
         lightbox.addEventListener('click', () => {
             lightbox.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scroll
+            document.body.style.overflow = '';
         });
     </script>
 </body>
