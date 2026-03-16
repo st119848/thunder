@@ -19,9 +19,20 @@
             <h1>🚀 Mobility Super App</h1>
             <p style="color: #64748b; margin-top: 5px;">Digital Asset Management & Safety Platform (Ref: BP Part 1-4)</p>
         </div>
-        <button class="btn-download" onclick="downloadScreenshot()">
-            📸 Download Summary
-        </button>
+        <div class="anime-nav-container">
+            <a href="index.html" class="anime-nav-item active">
+                🏠 Home
+            </a>
+            <a href="framework.html" class="anime-nav-item">
+                🏗️ Framework
+            </a>
+            <a href="extend.html" class="anime-nav-item">
+                📈 Extended Feas
+            </a>
+            <div class="anime-nav-item" onclick="downloadScreenshot()" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">
+                📸 Download
+            </div>
+        </div>
     </div>
 
     <!-- Persona Navigation -->
@@ -34,34 +45,33 @@
         <div class="nav-item" onclick="switchView('p-dealer')">🏷️ พาร์ทเนอร์ (Dealer)</div>
     </div>
 
-    <!-- Global Settings bar - Shared across all personas -->
-    <div class="global-settings">
-        <div class="settings-container">
-            <div class="setting-item">
-                <label>🌐 เลือก Scenario ธุรกิจ</label>
-                <select id="scenario-preset" onchange="applyScenario()">
-                    <option value="balanced">Balanced Growth (แนะนำ)</option>
-                    <option value="balanced">Balanced Growth (แนะนำ)</option>
-                    <option value="conservative">Conservative (แบบประหยัด)</option>
-                    <option value="aggressive">Aggressive (รุกหนัก)</option>
-                    <option value="asset-light">Asset-Light (เน้นพาร์ทเนอร์)</option>
-                    <option value="premium">Premium Service (รถหรู/EV)</option>
-                </select>
-            </div>
-            <div class="setting-item">
-                <label>🚗 รุ่นรถ (Car Model)</label>
-                <select id="car-model-preset" onchange="applyCarModel()">
-                    <option value="custom">-- ปรับแต่งเอง --</option>
-                    <option value="byd_seal">BYD Seal (1.2 ล้านบาท)</option>
-                    <option value="axios">Axios (1 ล้านบาท)</option>
-                    <option value="standard">Standard Fleet (8.5 แสนบาท)</option>
-                </select>
-            </div>
-        </div>
-    </div>
 
     <!-- Executive View (Original Dashboard) -->
     <div id="view-exec" class="persona-view active">
+        <!-- Global Settings bar - Now only for Executive -->
+        <div class="global-settings" style="margin-bottom: 20px;">
+            <div class="settings-container">
+                <div class="setting-item">
+                    <label>🌐 เลือก Scenario ธุรกิจ</label>
+                    <select id="scenario-preset" onchange="applyScenario()">
+                        <option value="balanced">Balanced Growth (แนะนำ)</option>
+                        <option value="conservative">Conservative (แบบประหยัด)</option>
+                        <option value="aggressive">Aggressive (รุกหนัก)</option>
+                        <option value="asset-light">Asset-Light (เน้นพาร์ทเนอร์)</option>
+                        <option value="premium">Premium Service (รถหรู/EV)</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>🚗 รุ่นรถ (Car Model)</label>
+                    <select id="car-model-preset" onchange="applyCarModel()">
+                        <option value="custom">-- ปรับแต่งเอง --</option>
+                        <option value="byd_seal">BYD Seal (1.2 ล้านบาท)</option>
+                        <option value="axios">Axios (1 ล้านบาท)</option>
+                        <option value="standard">Standard Fleet (8.5 แสนบาท)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
         <div class="layout">
             <!-- Sidebar: Inputs -->
             <div class="sidebar">
@@ -359,6 +369,25 @@
             <div class="sidebar">
                 <div class="panel">
                     <h2 class="panel-title">👨‍✈️ วางแผนคนขับเช่าซื้อ (RTO Driver)</h2>
+                    <div class="grid-2" style="margin-bottom: 20px;">
+                        <div class="input-group">
+                            <label>เลือก Scenario</label>
+                            <select id="p_dr_preset" onchange="applyDriverPreset()" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border);">
+                                <option value="normal">-- กำหนดเอง --</option>
+                                <option value="part_time">พาร์ทไทม์ (4 ชม.)</option>
+                                <option value="full_time">ฟูลไทม์ (10 ชม.)</option>
+                                <option value="hardworking">ขยัน (12 ชม.)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>เลือกรุ่นรถ</label>
+                            <select id="p_dr_car_select" onchange="applyRoleCar('p_dr_car_select')" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border);">
+                                <option value="standard">Standard Fleet</option>
+                                <option value="axios">Axios</option>
+                                <option value="byd_seal">BYD Seal</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="input-pill">
                         <label>เลือกราคารถที่ต้องการ (บาท)</label>
                         <input type="number" id="p_dr_car_price" value="800000" oninput="updateDriverView()">
@@ -378,6 +407,13 @@
                 </div>
             </div>
             <div class="main-content">
+                <div class="panel" style="background: linear-gradient(135deg, #1e293b, #334155); color: white; margin-bottom: 20px;">
+                    <h2 class="panel-title" style="color: white;">🌟 บทบาท: พาร์ทเนอร์คนขับสร้างอนาคต</h2>
+                    <p style="opacity: 0.9; line-height: 1.6;">
+                        <strong>สิ่งที่คุณต้องทำ:</strong> รับรถไปประกอบอาชีพขับ Ride-Hailing ผ่านแพลตฟอร์มของเรา พร้อมดูแลรักษาความปลอดภัยในการขับขี่ผ่านระบบ AI Tracking<br>
+                        <strong>จุดมุ่งหมาย:</strong> เปลี่ยน "ค่าเช่า" ให้เป็น "เงินออมในรูปสินทรัพย์" เมื่อขับครบสัญญา 5 ปี รถจะตกเป็นของคุณ 100% ทันทีโดยไม่ต้องมีเงินก้อน
+                    </p>
+                </div>
                 <div class="summary-cards">
                     <div class="card card-rev">
                         <h3>รายได้/วัน</h3>
@@ -418,6 +454,25 @@
             <div class="sidebar">
                 <div class="panel">
                     <h2 class="panel-title">⏱️ วางแผนคนขับรายชั่วโมง (Hourly Driver)</h2>
+                    <div class="grid-2" style="margin-bottom: 20px;">
+                        <div class="input-group">
+                            <label>กะการทำงาน</label>
+                            <select id="p_dr_hr_preset" onchange="applyDriverHrPreset()" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border);">
+                                <option value="normal">-- กำหนดเอง --</option>
+                                <option value="short">กะสั้น (4 ชม.)</option>
+                                <option value="standard">กะปกติ (8 ชม.)</option>
+                                <option value="long">กะยาว (10 ชม.)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>เลือกรุ่นรถ</label>
+                            <select id="p_dr_hr_car_select" onchange="applyRoleCar('p_dr_hr_car_select')" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border);">
+                                <option value="standard">Standard Fleet</option>
+                                <option value="axios">Axios</option>
+                                <option value="byd_seal">BYD Seal</option>
+                            </select>
+                        </div>
+                    </div>
                     <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;">เหมาะสำหรับผู้ที่ต้องการเช่ารถขับเป็นรายครั้ง ไม่ต้องการภาระผูกพัน</p>
                     <div class="input-pill">
                         <label>ชั่วโมงขับงาน (ชม./วัน)</label>
@@ -434,6 +489,13 @@
                 </div>
             </div>
             <div class="main-content">
+                <div class="panel" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color: white; margin-bottom: 20px;">
+                    <h2 class="panel-title" style="color: white;">🚀 บทบาท: คนขับอิสระสร้างรายได้เสริม</h2>
+                    <p style="opacity: 0.9; line-height: 1.6;">
+                        <strong>สิ่งที่คุณต้องทำ:</strong> จองรถผ่านแอปพลิเคชันในช่วงเวลาที่คุณต้องการทำงาน ขับเสร็จส่งคืนรถได้ทุกจุดที่กำหนด<br>
+                        <strong>จุดมุ่งหมาย:</strong> สร้างรายได้ตามเวลาที่คุณสะดวก โดยไม่มีภาระค่าประกัน ค่าซ่อมบำรุง หรือค่างวดรถ เหมาะสำหรับผู้ที่ต้องการความคล่องตัวสูงสุด
+                    </p>
+                </div>
                 <div class="summary-cards">
                     <div class="card card-rev" style="background: #0ea5e9;">
                         <h3>รายได้/วัน</h3>
@@ -467,6 +529,25 @@
             <div class="sidebar">
                 <div class="panel">
                     <h2 class="panel-title">💰 นักลงทุน (ซื้อรถเข้าพอร์ตลงทุน)</h2>
+                    <div class="grid-2" style="margin-bottom: 20px;">
+                        <div class="input-group">
+                            <label>ขนาดพอร์ต</label>
+                            <select id="p_inv_preset" onchange="applyInvestorPreset()" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border);">
+                                <option value="normal">-- กำหนดเอง --</option>
+                                <option value="starter">เริ่มทดลอง (1-2 คัน)</option>
+                                <option value="medium">รายกลาง (10 คัน)</option>
+                                <option value="pro">รายใหญ่ (50 คัน)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>เลือกรุ่นรถ</label>
+                            <select id="p_inv_car_select" onchange="applyRoleCar('p_inv_car_select')" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border);">
+                                <option value="standard">Standard Fleet</option>
+                                <option value="axios">Axios</option>
+                                <option value="byd_seal">BYD Seal</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="input-pill">
                         <label>จำนวนรถที่คุณต้องการลงทุน (คัน)</label>
                         <input type="number" id="p_inv_count" value="10" oninput="updateInvestorView()">
@@ -482,6 +563,13 @@
                 </div>
             </div>
             <div class="main-content">
+                <div class="panel" style="background: linear-gradient(135deg, #6366f1, #4f46e5); color: white; margin-bottom: 20px;">
+                    <h2 class="panel-title" style="color: white;">💎 บทบาท: นักลงทุนสินทรัพย์ดิจิทัลยานยนต์</h2>
+                    <p style="opacity: 0.9; line-height: 1.6;">
+                        <strong>สิ่งที่คุณต้องทำ:</strong> ลงทุนซื้อรถเข้าพอร์ตและปล่อยเช่าผ่านระบบบริหารจัดการของแพลตฟอร์ม<br>
+                        <strong>จุดมุ่งหมาย:</strong> สร้าง Passive Income ที่มั่นคง โดยมีเทคโนโลยี AI ช่วยคัดกรองคนขับและระบบประกันที่ครอบคลุม เพื่อลดความเสี่ยงและเพิ่มโอกาสรับผลตอบแทน (ROI) ที่สูงกว่าดอกเบี้ยธนาคาร
+                    </p>
+                </div>
                 <div class="summary-cards">
                     <div class="card card-rev" style="background: #6366f1;">
                         <h3>Passive Income/ด.</h3>
@@ -515,6 +603,25 @@
             <div class="sidebar">
                 <div class="panel">
                     <h2 class="panel-title">🚛 พาร์ทเนอร์บริหาร Fleet (Asset Provider)</h2>
+                    <div class="grid-2" style="margin-bottom: 20px;">
+                        <div class="input-group">
+                            <label>สเกลธุรกิจ</label>
+                            <select id="p_fleet_preset" onchange="applyFleetPreset()" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border);">
+                                <option value="normal">-- กำหนดเอง --</option>
+                                <option value="local">Local Fleet (20 คัน)</option>
+                                <option value="regional">Regional Fleet (100 คัน)</option>
+                                <option value="national">National Fleet (500 คัน)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>รุ่นรถหลัก</label>
+                            <select id="p_fleet_car_select" onchange="applyRoleCar('p_fleet_car_select')" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border);">
+                                <option value="standard">Standard Fleet</option>
+                                <option value="axios">Axios</option>
+                                <option value="byd_seal">BYD Seal</option>
+                            </select>
+                        </div>
+                    </div>
                     <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;">สำหรับบริษัทรถเช่าที่ต้องการเพิ่ม Utilization ของรถในคลัง</p>
                     <div class="input-pill">
                         <label>จำนวนรถที่ส่งเข้าระบบ (คัน)</label>
@@ -535,6 +642,13 @@
                 </div>
             </div>
             <div class="main-content">
+                <div class="panel" style="background: linear-gradient(135deg, #475569, #1e293b); color: white; margin-bottom: 20px;">
+                    <h2 class="panel-title" style="color: white;">🤝 บทบาท: พันธมิตรบริหารจัดการฟลีท</h2>
+                    <p style="opacity: 0.9; line-height: 1.6;">
+                        <strong>สิ่งที่คุณต้องทำ:</strong> นำรถในสต็อกที่มีอยู่ส่งเข้าสู่ระบบหมุนเวียนของแพลตฟอร์มในช่วงเวลาที่รถว่าง<br>
+                        <strong>จุดมุ่งหมาย:</strong> เพิ่มอัตราการใช้งานรถ (Utilization Rate) และเปลี่ยน "ค่าเสื่อมราคา" ให้เป็น "กระแสเงินสด" ทันที ผ่านฐานคนขับคุณภาพที่เราคัดสรรไว้ให้แล้ว
+                    </p>
+                </div>
                 <div class="summary-cards">
                     <div class="card card-rev" style="background: #1e293b;">
                         <h3>รายได้รวม (Gross Rev/ด.)</h3>
@@ -576,6 +690,24 @@
             <div class="sidebar">
                 <div class="panel">
                     <h2 class="panel-title">🏷️ พาร์ทเนอร์ดีลเลอร์ (Sales & Service)</h2>
+                    <div class="grid-2" style="margin-bottom: 20px;">
+                        <div class="input-group">
+                            <label>เป้าหมายธุรกิจ</label>
+                            <select id="p_dealer_preset" onchange="applyDealerPreset()" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border);">
+                                <option value="normal">-- กำหนดเอง --</option>
+                                <option value="conservative">เป้าหมายปกติ</option>
+                                <option value="aggressive">เป้าหมายเชิงรุก</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>รุ่นรถที่จำหน่าย</label>
+                            <select id="p_dealer_car_select" onchange="applyRoleCar('p_dealer_car_select')" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border);">
+                                <option value="standard">Standard (8.5 แสน)</option>
+                                <option value="axios">Axios (1 ล้านบาท)</option>
+                                <option value="byd_seal">BYD Seal (1.2 ล้านบาท)</option>
+                            </select>
+                        </div>
+                    </div>
                     <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;">สำหรับค่ายรถที่ต้องการช่องทางระบายสต็อกแบบ RTO และรายได้ Service</p>
                     <div class="input-pill">
                         <label>เป้ายอดขายผ่านแพลตฟอร์ม/ปี (คัน)</label>
@@ -588,6 +720,13 @@
                 </div>
             </div>
             <div class="main-content">
+                <div class="panel" style="background: linear-gradient(135deg, #059669, #047857); color: white; margin-bottom: 20px;">
+                    <h2 class="panel-title" style="color: white;">🏬 บทบาท: พันธมิตรผู้จัดจำหน่ายและดูแลระบบ</h2>
+                    <p style="opacity: 0.9; line-height: 1.6;">
+                        <strong>สิ่งที่คุณต้องทำ:</strong> เป็นช่องทางหลักในการจัดหารถยนต์และให้บริการหลังการขายแก่สมาชิกในแพลตฟอร์ม<br>
+                        <strong>จุดมุ่งหมาย:</strong> ขยายฐานยอดขายผ่านโมเดล RTO ที่เข้าถึงกลุ่มลูกค้าใหม่ๆ ได้กว้างขึ้น พร้อมล็อกรายได้จากการบริการ (Service) ระยะยาวตลอด 5 ปีของสัญญาเช่าซื้อ
+                    </p>
+                </div>
                 <div class="summary-cards">
                     <div class="card card-rev" style="background: #059669;">
                         <h3>Total Car Sales (Val)</h3>

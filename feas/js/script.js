@@ -71,6 +71,76 @@ function applyCarModel() {
     calculate();
 }
 
+function applyRoleCar(selectId) {
+    const selected = document.getElementById(selectId).value;
+    const priceMap = {
+        byd_seal: 1200000,
+        axios: 1000000,
+        standard: 850000
+    };
+    
+    if (selectId === 'p_dr_car_select') {
+        document.getElementById('p_dr_car_price').value = priceMap[selected];
+        const dailyRent = Math.ceil((priceMap[selected] * 1.25) / (5 * 365));
+        document.getElementById('p_dr_rent').value = dailyRent;
+        updateDriverView();
+    } else if (selectId === 'p_dr_hr_car_select') {
+        const hourlyRentMap = { byd_seal: 150, axios: 120, standard: 100 };
+        document.getElementById('p_dr_hr_rent').value = hourlyRentMap[selected];
+        updateDriverHrView();
+    } else if (selectId === 'p_inv_car_select') {
+        const carData = carModels[selected];
+        document.getElementById('p_inv_price').value = priceMap[selected];
+        document.getElementById('p_inv_down').value = carData.c_car_down;
+        updateInvestorView();
+    } else if (selectId === 'p_fleet_car_select') {
+        const rateMap = { byd_seal: 1800, axios: 1500, standard: 1200 };
+        document.getElementById('p_fleet_rate').value = rateMap[selected];
+        updatePartnerFleetView();
+    } else if (selectId === 'p_dealer_car_select') {
+        updatePartnerDealerView();
+    }
+}
+
+function applyDriverPreset() {
+    const val = document.getElementById('p_dr_preset').value;
+    if (val === 'part_time') document.getElementById('p_dr_hours').value = 4;
+    if (val === 'full_time') document.getElementById('p_dr_hours').value = 10;
+    if (val === 'hardworking') document.getElementById('p_dr_hours').value = 12;
+    updateDriverView();
+}
+
+function applyDriverHrPreset() {
+    const val = document.getElementById('p_dr_hr_preset').value;
+    if (val === 'short') document.getElementById('p_dr_hr_hours').value = 4;
+    if (val === 'standard') document.getElementById('p_dr_hr_hours').value = 8;
+    if (val === 'long') document.getElementById('p_dr_hr_hours').value = 10;
+    updateDriverHrView();
+}
+
+function applyInvestorPreset() {
+    const val = document.getElementById('p_inv_preset').value;
+    if (val === 'starter') document.getElementById('p_inv_count').value = 2;
+    if (val === 'medium') document.getElementById('p_inv_count').value = 10;
+    if (val === 'pro') document.getElementById('p_inv_count').value = 50;
+    updateInvestorView();
+}
+
+function applyFleetPreset() {
+    const val = document.getElementById('p_fleet_preset').value;
+    if (val === 'local') document.getElementById('p_fleet_v').value = 20;
+    if (val === 'regional') document.getElementById('p_fleet_v').value = 100;
+    if (val === 'national') document.getElementById('p_fleet_v').value = 500;
+    updatePartnerFleetView();
+}
+
+function applyDealerPreset() {
+    const val = document.getElementById('p_dealer_preset').value;
+    if (val === 'conservative') document.getElementById('p_dealer_sales').value = 100;
+    if (val === 'aggressive') document.getElementById('p_dealer_sales').value = 500;
+    updatePartnerDealerView();
+}
+
 function switchView(view) {
     // Update Menu Active State
     document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));

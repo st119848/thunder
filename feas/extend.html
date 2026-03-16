@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แดชบอร์ดวิเคราะห์ความเป็นไปได้เชิงลึก</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .header-actions { display:flex; gap:10px; flex-wrap:wrap; }
+    .btn-link {
+      background:#0f172a; color:#fff; text-decoration:none; border-radius:8px; padding:10px 16px;
+      font-weight:600; display:inline-flex; align-items:center; gap:8px;
+    }
+    .cards-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px; }
+    .mini-card { background:#fff; border-radius:10px; padding:14px; box-shadow:0 2px 6px rgba(0,0,0,.06); }
+    .mini-card .label { color:#64748b; font-size:.8rem; margin-bottom:4px; }
+    .mini-card .value { font-size:1.25rem; font-weight:700; color:#0f172a; }
+    .section-grid { display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-bottom:20px; }
+    .risk-table td input[type="range"] { width:120px; }
+    .badge { display:inline-block; padding:2px 8px; border-radius:999px; font-size:.75rem; font-weight:700; }
+    .badge-low { background:#dcfce7; color:#166534; }
+    .badge-med { background:#fef3c7; color:#92400e; }
+    .badge-high { background:#fee2e2; color:#991b1b; }
+    .flow-wrap { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; align-items:stretch; }
+    .flow-box { background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px; }
+    .flow-title { font-size:.8rem; color:#64748b; }
+    .flow-val { font-size:1.1rem; font-weight:700; color:#0f172a; }
+    .flow-arrow { text-align:center; color:#3b82f6; font-weight:700; margin-top:8px; }
+    .panel-note { color:#64748b; font-size:.82rem; margin-top:8px; }
+    .table-compact td,.table-compact th { padding:8px; font-size:.82rem; }
+    @media (max-width: 1100px) {
+      .cards-4,.section-grid,.flow-wrap { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <h1>📈 แดชบอร์ดวิเคราะห์ความเป็นไปได้เชิงลึก</h1>
+      <p style="color:#64748b;margin-top:6px;">กรวยตลาด • แผนบุกตลาด • เมทริกซ์ความเสี่ยง • เศรษฐศาสตร์ต่อหน่วย • กระแสเงินสดรายกลุ่ม • เทียบคู่แข่ง • วิเคราะห์ความอ่อนไหว</p>
+    </div>
+    <div class="header-actions">
+      <a class="btn-link" href="index.html">← กลับหน้าแดชบอร์ดหลัก</a>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="sidebar">
+      <div class="panel">
+        <h2 class="panel-title">🌍 อินพุตกรวยตลาด</h2>
+        <div class="input-group"><label>ตลาดรวมทั้งหมด (TAM) บาท/ปี</label><input id="tam" type="number" value="200000000000" oninput="updateAll()"></div>
+        <div class="input-group"><label>ตลาดที่เข้าถึงได้ (SAM) % ของ TAM</label><input id="sam_pct" type="number" value="48" oninput="updateAll()"></div>
+        <div class="input-group"><label>ตลาดที่ตั้งเป้าครอง (SOM) % ของ SAM</label><input id="som_pct" type="number" value="3" oninput="updateAll()"></div>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel-title">🚗 สมมติฐานการดำเนินงาน</h2>
+        <div class="input-group"><label>จำนวนรถปีแรก (คัน)</label><input id="fleet" type="number" value="350" oninput="updateAll()"></div>
+        <div class="input-group"><label>อัตราการใช้งาน (%)</label><input id="util" type="number" value="68" oninput="updateAll()"></div>
+        <div class="input-group"><label>รายได้เฉลี่ย (บาท/วัน/คัน)</label><input id="ticket" type="number" value="1500" oninput="updateAll()"></div>
+        <div class="input-group"><label>ค่าธรรมเนียมแพลตฟอร์ม (%)</label><input id="platform_fee" type="number" value="20" oninput="updateAll()"></div>
+        <div class="input-group"><label>อัตราผิดนัด/หนี้เสีย (%)</label><input id="default_rate" type="number" value="4" oninput="updateAll()"></div>
+        <div class="input-group"><label>ค่าเบี้ยประกัน+ความเสี่ยง (บาท/คัน/เดือน)</label><input id="ins_cost" type="number" value="1800" oninput="updateAll()"></div>
+        <div class="input-group"><label>แรงหนุนจากเอไอ (%)</label><input id="ai_boost" type="number" value="12" oninput="updateAll()"></div>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel-title">💹 อินพุตเศรษฐศาสตร์ต่อหน่วย</h2>
+        <div class="input-group"><label>รายได้เฉลี่ยต่อทริป (บาท)</label><input id="ride_ticket" type="number" value="180" oninput="updateAll()"></div>
+        <div class="input-group"><label>ต้นทุนผันแปรฝั่งเรียกรถ (%)</label><input id="ride_var" type="number" value="35" oninput="updateAll()"></div>
+        <div class="input-group"><label>รายได้เฉลี่ยต่อการเช่า (บาท)</label><input id="share_ticket" type="number" value="1200" oninput="updateAll()"></div>
+        <div class="input-group"><label>ต้นทุนผันแปรฝั่งเช่าขับเอง (%)</label><input id="share_var" type="number" value="28" oninput="updateAll()"></div>
+        <div class="input-group"><label>รายได้เช่าซื้อ (บาท/วัน/คัน)</label><input id="rto_ticket" type="number" value="500" oninput="updateAll()"></div>
+        <div class="input-group"><label>ต้นทุนผันแปรเช่าซื้อ (%)</label><input id="rto_var" type="number" value="22" oninput="updateAll()"></div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="cards-4">
+        <div class="mini-card"><div class="label">ตลาดรวม (TAM)</div><div class="value" id="v_tam">-</div></div>
+        <div class="mini-card"><div class="label">ตลาดเข้าถึงได้ (SAM)</div><div class="value" id="v_sam">-</div></div>
+        <div class="mini-card"><div class="label">ตลาดเป้าหมาย (SOM)</div><div class="value" id="v_som">-</div></div>
+        <div class="mini-card"><div class="label">รายได้คาดการณ์ต่อปี</div><div class="value" id="v_rev_year">-</div></div>
+      </div>
+
+      <div class="section-grid">
+        <div class="panel">
+          <h2 class="panel-title">🧭 ไทม์ไลน์บุกตลาด (ไตรมาส 1-4)</h2>
+          <table class="table-compact" id="gtm_table">
+            <thead><tr><th>ไตรมาส</th><th>เป้าหมายหลัก</th><th>เพิ่มจำนวนรถ</th><th>ผลลัพธ์ที่คาดหวัง</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <div class="panel-note">เชื่อมจากแผน Q1–Q4 ในเอกสารธุรกิจ เพื่อให้เห็นผลต่อการขยายฝั่งซัพพลายและรายได้.</div>
+        </div>
+        <div class="panel">
+          <h2 class="panel-title">📊 กรวยตลาด (TAM/SAM/SOM)</h2>
+          <div class="chart-box" style="height:290px;"><canvas id="marketChart"></canvas></div>
+        </div>
+      </div>
+
+      <div class="section-grid">
+        <div class="panel">
+          <h2 class="panel-title">⚠️ เมทริกซ์ความเสี่ยง (การแข่งขัน + ปฏิบัติการ)</h2>
+          <table class="risk-table table-compact">
+            <thead><tr><th>ความเสี่ยง</th><th>โอกาสเกิด</th><th>ผลกระทบ</th><th>คะแนน</th><th>ระดับ</th></tr></thead>
+            <tbody id="risk_rows"></tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <h2 class="panel-title">🧮 เศรษฐศาสตร์ต่อหน่วยรายช่องทาง</h2>
+          <table class="table-compact">
+            <thead><tr><th>ช่องทาง</th><th>รายรับต่อรายการ</th><th>ต้นทุนผันแปร</th><th>กำไรขั้นต้นต่อหน่วย</th><th>อัตรากำไร</th></tr></thead>
+            <tbody id="unit_rows"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel-title">💸 กระแสเงินสดรายกลุ่ม (รายเดือน)</h2>
+        <div class="flow-wrap">
+          <div class="flow-box"><div class="flow-title">เงินที่ผู้ใช้งานจ่ายเข้าระบบ</div><div class="flow-val" id="flow_user">-</div><div class="flow-arrow">→ แพลตฟอร์ม</div></div>
+          <div class="flow-box"><div class="flow-title">รายได้ที่แพลตฟอร์มรับไว้ (ค่าธรรมเนียม+บริการเสริม)</div><div class="flow-val" id="flow_platform">-</div><div class="flow-arrow">→ คนขับ/นักลงทุน</div></div>
+          <div class="flow-box"><div class="flow-title">รายได้สุทธิคนขับ (หลังหักค่าเช่า+ต้นทุน)</div><div class="flow-val" id="flow_driver">-</div><div class="flow-arrow">↔ สัญญาเช่าซื้อ</div></div>
+          <div class="flow-box"><div class="flow-title">รายได้สุทธินักลงทุน (เชิงรับ)</div><div class="flow-val" id="flow_investor">-</div><div class="flow-arrow">↔ การเติบโตของฟลีท</div></div>
+        </div>
+      </div>
+
+      <div class="section-grid">
+        <div class="panel">
+          <h2 class="panel-title">🏁 ตารางเทียบคู่แข่ง</h2>
+          <table class="table-compact">
+            <thead><tr><th>ความสามารถหลัก</th><th>Thunder</th><th>Grab/Bolt</th><th>Haup/Drivehub</th></tr></thead>
+            <tbody>
+              <tr><td>โมเดลเช่าซื้อเพื่อเป็นเจ้าของ</td><td>5</td><td>1</td><td>1</td></tr>
+              <tr><td>การเพิ่มประสิทธิภาพด้วยเอไอ</td><td>5</td><td>3</td><td>2</td></tr>
+              <tr><td>ความปลอดภัยดิจิทัล + ควบคุมไอโอที</td><td>5</td><td>2</td><td>3</td></tr>
+              <tr><td>ระบบสมาชิกซอฟต์แวร์สำหรับฟลีทองค์กร</td><td>4</td><td>2</td><td>3</td></tr>
+              <tr class="row-total"><td>คะแนนรวมถ่วงน้ำหนัก (x20)</td><td id="cmp_thunder">-</td><td id="cmp_ride">-</td><td id="cmp_share">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <h2 class="panel-title">🎯 วิเคราะห์ความอ่อนไหว (กำไรต่อปี)</h2>
+          <div class="chart-box" style="height:290px;"><canvas id="senseChart"></canvas></div>
+          <div class="panel-note">เปรียบเทียบผลกระทบจากอัตราการใช้งาน อัตราผิดนัด ต้นทุนประกัน และแรงหนุนจากเอไอ.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const fmtTHB = (n) => '฿' + new Intl.NumberFormat('th-TH', { maximumFractionDigits: 0 }).format(n);
+    const fmtPct = (n) => new Intl.NumberFormat('th-TH', { maximumFractionDigits: 1 }).format(n) + '%';
+    const get = (id) => Number(document.getElementById(id).value || 0);
+
+    const gtm = [
+      ['ไตรมาส 1', 'ทดสอบเช่าซื้อและยืนยันระบบความปลอดภัย', 50, 'โครงการนำร่องกระแสเงินสดเป็นบวก'],
+      ['ไตรมาส 2', 'ขยายด้วยพาร์ทเนอร์องค์กร', 100, 'จำนวนรถฝั่งซัพพลายเพิ่มขึ้น'],
+      ['ไตรมาส 3', 'เปิดตลาดฝั่งผู้ใช้งานเรียกรถ/เช่าขับเอง', 120, 'ดีมานด์เติบโตต่อเนื่อง'],
+      ['ไตรมาส 4', 'ขยายผลด้วยเอไอเพิ่มประสิทธิภาพ', 80, 'อัตรากำไรดีขึ้น']
+    ];
+
+    const riskDefs = [
+      'สงครามราคาแข่งกับเจ้าตลาด',
+      'แรงกดดันค่าเบี้ยประกัน',
+      'ข้อจำกัดด้านกฎหมายและกำกับดูแล',
+      'ความเสี่ยงผิดนัด/หนี้เสียของฟลีท',
+      'การทุจริตหรือการใช้งานผิดเงื่อนไข'
+    ];
+
+    let marketChart, senseChart;
+
+    function baseAnnualRevenue() {
+      const fleet = get('fleet');
+      const util = get('util') / 100;
+      const ticket = get('ticket');
+      const fee = get('platform_fee') / 100;
+      const ai = get('ai_boost') / 100;
+      const defaultRate = get('default_rate') / 100;
+
+      const gross = fleet * util * ticket * 365;
+      const platformGross = gross * fee * (1 + ai * 0.35);
+      return platformGross * (1 - defaultRate);
+    }
+
+    function annualProfit(adj = {}) {
+      const rev = baseAnnualRevenue() * (adj.revMul ?? 1);
+      const fleet = get('fleet');
+      const ins = (adj.insCost ?? get('ins_cost')) * 12 * fleet;
+      const fixed = 15000000;
+      const riskBuffer = rev * (get('default_rate') / 100) * 0.2;
+      return rev - ins - fixed - riskBuffer;
+    }
+
+    function renderGTM() {
+      const tbody = document.querySelector('#gtm_table tbody');
+      tbody.innerHTML = '';
+      for (const row of gtm) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td>`;
+        tbody.appendChild(tr);
+      }
+    }
+
+    function renderRisk() {
+      const tbody = document.getElementById('risk_rows');
+      tbody.innerHTML = '';
+      riskDefs.forEach((r, i) => {
+        const like = 2 + (i % 3);
+        const impact = 3 + (i % 2);
+        const score = like * impact;
+        const level = score >= 15 ? 'high' : score >= 8 ? 'med' : 'low';
+        const cls = level === 'high' ? 'badge-high' : level === 'med' ? 'badge-med' : 'badge-low';
+        const label = level === 'high' ? 'สูง' : level === 'med' ? 'กลาง' : 'ต่ำ';
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${r}</td><td>${like}/5</td><td>${impact}/5</td><td>${score}</td><td><span class="badge ${cls}">${label}</span></td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderUnitEconomics() {
+      const streams = [
+        ['บริการเรียกรถ', get('ride_ticket'), get('ride_var')],
+        ['บริการเช่าขับเอง', get('share_ticket'), get('share_var')],
+        ['บริการเช่าซื้อรายวัน', get('rto_ticket'), get('rto_var')]
+      ];
+      const tbody = document.getElementById('unit_rows');
+      tbody.innerHTML = '';
+      streams.forEach(s => {
+        const contribution = s[1] * (1 - s[2] / 100);
+        const margin = contribution / s[1] * 100;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${s[0]}</td><td>${fmtTHB(s[1])}</td><td>${fmtPct(s[2])}</td><td>${fmtTHB(contribution)}</td><td>${fmtPct(margin)}</td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderCashflow() {
+      const annualRev = baseAnnualRevenue();
+      const monthlyGrossUser = annualRev / ((get('platform_fee') / 100) || 0.2) / 12;
+      const monthlyPlatform = annualRev / 12;
+      const monthlyDriver = monthlyGrossUser * 0.55;
+      const monthlyInvestor = monthlyGrossUser * 0.25;
+
+      document.getElementById('flow_user').textContent = fmtTHB(monthlyGrossUser);
+      document.getElementById('flow_platform').textContent = fmtTHB(monthlyPlatform);
+      document.getElementById('flow_driver').textContent = fmtTHB(monthlyDriver);
+      document.getElementById('flow_investor').textContent = fmtTHB(monthlyInvestor);
+    }
+
+    function renderMarketCardsAndChart() {
+      const tam = get('tam');
+      const sam = tam * (get('sam_pct') / 100);
+      const som = sam * (get('som_pct') / 100);
+      const rev = baseAnnualRevenue();
+
+      document.getElementById('v_tam').textContent = fmtTHB(tam);
+      document.getElementById('v_sam').textContent = fmtTHB(sam);
+      document.getElementById('v_som').textContent = fmtTHB(som);
+      document.getElementById('v_rev_year').textContent = fmtTHB(rev);
+
+      const data = [tam, sam, som];
+      if (!marketChart) {
+        marketChart = new Chart(document.getElementById('marketChart'), {
+          type: 'bar',
+          data: { labels: ['ตลาดรวม (TAM)', 'ตลาดที่เข้าถึงได้ (SAM)', 'ตลาดที่ตั้งเป้าครอง (SOM)'], datasets: [{ data, backgroundColor: ['#0f172a', '#3b82f6', '#10b981'] }] },
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        });
+      } else {
+        marketChart.data.datasets[0].data = data;
+        marketChart.update();
+      }
+    }
+
+    function renderCompetitionTotals() {
+      document.getElementById('cmp_thunder').textContent = '24/25';
+      document.getElementById('cmp_ride').textContent = '10/25';
+      document.getElementById('cmp_share').textContent = '12/25';
+    }
+
+    function renderSensitivityChart() {
+      const base = annualProfit();
+      const utilDown = annualProfit({ revMul: 0.9 });
+      const defaultUp = annualProfit({ revMul: 0.94 });
+      const insUp = annualProfit({ insCost: get('ins_cost') * 1.25 });
+      const aiUp = annualProfit({ revMul: 1.08 });
+      const vals = [base, utilDown, defaultUp, insUp, aiUp];
+
+      if (!senseChart) {
+        senseChart = new Chart(document.getElementById('senseChart'), {
+          type: 'bar',
+          data: {
+            labels: ['ฐานปัจจุบัน', 'ใช้งานลดลง 10%', 'ผิดนัดเพิ่ม 6%', 'ค่าประกันเพิ่ม 25%', 'เอไอหนุนรายได้ +8%'],
+            datasets: [{ data: vals, backgroundColor: ['#3b82f6', '#ef4444', '#f97316', '#a855f7', '#10b981'] }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { y: { ticks: { callback: (v) => '฿' + new Intl.NumberFormat('th-TH').format(v) } } }
+          }
+        });
+      } else {
+        senseChart.data.datasets[0].data = vals;
+        senseChart.update();
+      }
+    }
+
+    function updateAll() {
+      renderGTM();
+      renderRisk();
+      renderUnitEconomics();
+      renderCashflow();
+      renderMarketCardsAndChart();
+      renderCompetitionTotals();
+      renderSensitivityChart();
+    }
+
+    updateAll();
+  </script>
+</body>
+</html>

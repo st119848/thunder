@@ -508,3 +508,85 @@ th {
     font-weight: bold;
     color: var(--accent);
 }
+/* Anime Nav Styles */
+.anime-nav-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.anime-nav-item {
+    position: relative;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 9999px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.anime-nav-item:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.anime-nav-item.active {
+    color: white;
+}
+
+/* Active Glow Effect */
+.anime-nav-item.active::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(59, 130, 246, 0.25);
+    border-radius: 9999px;
+    filter: blur(8px);
+    z-index: -1;
+    animation: active-pulse 2s ease-in-out infinite;
+}
+
+.anime-nav-item.active::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shine-animation 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes active-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.05); opacity: 0.5; }
+}
+
+@keyframes shine-animation {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Scrollable Container Support for Mobile */
+@media (max-width: 768px) {
+    .anime-nav-container {
+        overflow-x: auto;
+        max-width: 100vw;
+        justify-content: flex-start;
+        padding: 4px;
+    }
+}
