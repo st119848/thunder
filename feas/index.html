@@ -10,497 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <style>
-        :root {
-            --primary: #0f172a;
-            --accent: #3b82f6;
-            --success: #10b981;
-            --danger: #ef4444;
-            --bg: #f1f5f9;
-            --card: #ffffff;
-            --text: #334155;
-            --border: #e2e8f0;
-        }
-
-        body {
-            font-family: 'Sarabun', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 20px;
-        }
-
-        .header {
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .header-content h1 {
-            margin: 0;
-            color: var(--primary);
-        }
-
-        .btn-download {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-family: 'Sarabun', sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s;
-            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
-        }
-
-        .btn-download:hover {
-            background: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px -1px rgba(59, 130, 246, 0.4);
-        }
-
-        .btn-download:active {
-            transform: translateY(0);
-        }
-
-        .layout {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 20px;
-        }
-
-        .panel {
-            background: var(--card);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-        }
-
-        .panel-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 10px;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-
-        .input-group {
-            margin-bottom: 12px;
-        }
-
-        .input-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-            color: #475569;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 0.95rem;
-            box-sizing: border-box;
-            background-color: #f8fafc;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: var(--accent);
-            background-color: #fff;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        /* Dashboard Summary Cards */
-        .summary-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .card {
-            padding: 20px;
-            border-radius: 12px;
-            color: white;
-            text-align: center;
-        }
-
-        .card-rev {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-        }
-
-        .card-cost {
-            background: linear-gradient(135deg, #f43f5e, #e11d48);
-        }
-
-        .card-profit {
-            background: linear-gradient(135deg, #10b981, #059669);
-        }
-
-        .card h3 {
-            margin: 0 0 10px 0;
-            font-size: 1rem;
-            font-weight: 500;
-            opacity: 0.9;
-        }
-
-        .card .value {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        /* Charts Container */
-        .charts-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .chart-box {
-            background: var(--card);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            height: 320px;
-        }
-
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        th,
-        td {
-            text-align: right;
-            padding: 10px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        th:first-child,
-        td:first-child {
-            text-align: left;
-        }
-
-        th {
-            background: #f8fafc;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .row-total {
-            font-weight: bold;
-            background: #f1f5f9;
-        }
-
-        .text-danger {
-            color: var(--danger);
-        }
-
-        /* Tooltip System */
-        .info-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 16px;
-            height: 16px;
-            background: #94a3b8;
-            color: white;
-            border-radius: 50%;
-            font-size: 11px;
-            cursor: help;
-            margin-left: 5px;
-            vertical-align: middle;
-            font-weight: bold;
-            position: relative;
-        }
-
-        .info-icon:hover {
-            background: var(--accent);
-        }
-
-        [data-tooltip] {
-            position: relative;
-        }
-
-        [data-tooltip]:before {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 8px 12px;
-            background: #1e293b;
-            color: white;
-            font-size: 0.75rem;
-            border-radius: 6px;
-            white-space: normal;
-            width: 200px;
-            z-index: 100;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.2s ease;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            font-weight: normal;
-            line-height: 1.4;
-            text-align: left;
-        }
-
-        [data-tooltip]:after {
-            content: "";
-            position: absolute;
-            bottom: 110%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 6px solid transparent;
-            border-top-color: #1e293b;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.2s ease;
-        }
-
-        [data-tooltip]:hover:before,
-        [data-tooltip]:hover:after {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .glossary {
-            margin-top: 10px;
-            font-size: 0.8rem;
-            color: #64748b;
-            line-height: 1.6;
-            padding: 10px;
-            background: #f8fafc;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .glossary strong {
-            color: var(--primary);
-        }
-
-        .panel-dark {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            border: none;
-        }
-
-        .panel-dark .panel-title {
-            color: #f1f5f9;
-            border-bottom-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .text-light {
-            color: #f1f5f9;
-        }
-
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 10px 0;
-        }
-
-        .stat-card {
-            text-align: center;
-        }
-
-        .stat-card label {
-            display: block;
-            font-size: 0.85rem;
-            opacity: 0.7;
-            margin-bottom: 5px;
-        }
-
-        .stat-card .value {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .text-accent {
-            color: var(--accent);
-        }
-
-        /* Stakeholder Cards */
-        .stakeholder-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .stakeholder-card {
-            background: #f8fafc;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 15px;
-            border-left: 5px solid var(--accent);
-        }
-
-        .stakeholder-card h4 {
-            margin: 0 0 10px 0;
-            font-size: 0.95rem;
-            color: var(--primary);
-        }
-
-        .stakeholder-val {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--success);
-        }
-
-        .stakeholder-label {
-            font-size: 0.75rem;
-            color: #64748b;
-        }
-
-        @media (max-width: 1024px) {
-            .layout {
-                grid-template-columns: 1fr;
-            }
-
-            .charts-container {
-                grid-template-columns: 1fr;
-            }
-
-            .summary-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-        }
-
-        /* Persona Navigation Styles */
-        .persona-nav {
-            display: flex;
-            flex-wrap: wrap;
-            background: white;
-            padding: 5px;
-            border-radius: 12px;
-            margin: 0 auto 20px;
-            max-width: 1000px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            gap: 5px;
-            border: 1px solid var(--border);
-        }
-
-        .nav-item {
-            flex: 1;
-            min-width: 150px;
-            padding: 10px 10px;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.2s;
-            color: #64748b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .nav-item:hover {
-            background: #f8fafc;
-            color: var(--accent);
-        }
-
-        .nav-item.active {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
-        }
-
-        .persona-view {
-            display: none;
-        }
-
-        .persona-view.active {
-            display: block;
-        }
-
-        /* Persona specific cards */
-        .persona-card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-        }
-
-        .input-pill {
-            background: #f1f5f9;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            border: 1px solid var(--border);
-        }
-
-        .input-pill label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .input-pill input {
-            width: 100%;
-            padding: 12px;
-            font-size: 1.2rem;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            color: var(--accent);
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-
-    <div class="header" id="capture-header">
+    <div class="header">
         <div class="header-content">
-            <h1>Mobility Super App - Business Projection</h1>
-            <p style="margin-top: 5px; color: #64748b;">Interactive Financial Dashboard (1-Year Projection)</p>
+            <h1>🚀 Mobility Super App</h1>
+            <p style="color: #64748b; margin-top: 5px;">Digital Asset Management & Safety Platform (Ref: BP Part 1-4)</p>
         </div>
-        <div style="display: flex; gap: 10px;">
-            <div class="input-group" style="margin-bottom: 0;">
-                <select id="scenario-preset" onchange="applyScenario()" style="padding: 10px; border-radius: 8px; border: 1px solid var(--border); font-family: 'Sarabun', sans-serif; font-weight: 600; background: white; color: var(--primary); cursor: pointer; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
-                    <option value="balanced">⚖️ แผนดำเนินงานปกติ (Balanced)</option>
-                    <option value="conservative">🛡️ แบบระมัดระวัง (Conservative)</option>
-                    <option value="aggressive">🚀 ขยาย Fleet รวดเร็ว (Aggressive)</option>
-                    <option value="asset-light">☁️ เน้นพาร์ทเนอร์ (Asset Light)</option>
-                    <option value="premium">💎 เจาะตลาด Premium (High Margin)</option>
-                </select>
-            </div>
-            <button class="btn-download" onclick="downloadScreenshot()">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                </svg>
-                ดาวน์โหลดสรุปผล (Screenshot)
-            </button>
-        </div>
+        <button class="btn-download" onclick="downloadScreenshot()">
+            📸 Download Summary
+        </button>
     </div>
 
+    <!-- Persona Navigation -->
     <div class="persona-nav">
         <div class="nav-item active" onclick="switchView('exec')">🏢 ผู้บริหาร</div>
         <div class="nav-item" onclick="switchView('driver')">👨‍✈️ คนขับเช่าซื้อ (RTO)</div>
@@ -510,338 +34,326 @@
         <div class="nav-item" onclick="switchView('p-dealer')">🏷️ พาร์ทเนอร์ (Dealer)</div>
     </div>
 
-    <!-- Executive View (Existing Dashboard) -->
-    <div id="view-exec" class="persona-view active">
-
-    <div class="layout">
-        <div class="sidebar">
-            <div class="panel">
-                <h2 class="panel-title">🚗 1. ข้อมูลรถในระบบ (Fleet Size)</h2>
-                <div class="input-group">
-                    <label>
-                        รถที่บริษัทซื้อเอง (Rent-to-Own) [คัน]
-                        <span class="info-icon" data-tooltip="รถที่บริษัทผ่อนเองและปล่อยเช่าให้คนขับแบบขับจบได้รถ">?</span>
-                    </label>
-                    <input type="number" id="v_platform" value="50" oninput="calculate()">
-                </div>
-                <div class="input-group">
-                    <label>
-                        รถนักลงทุน (Rent-to-Own) [คัน]
-                        <span class="info-icon" data-tooltip="รถที่นักลงทุนซื้อมาฝากแพลตฟอร์มบริหารจัดการ">?</span>
-                    </label>
-                    <input type="number" id="v_investor" value="100" oninput="calculate()">
-                </div>
-                <div class="input-group">
-                    <label>
-                        รถ P2P / พาร์ทเนอร์ [คัน]
-                        <span class="info-icon" data-tooltip="Peer-to-Peer: รถบ้านหรือรถทั่วไปที่มาสมัครวิ่งงานผ่านแอป">?</span>
-                    </label>
-                    <input type="number" id="v_p2p" value="200" oninput="calculate()">
-                </div>
+    <!-- Global Settings bar - Shared across all personas -->
+    <div class="global-settings">
+        <div class="settings-container">
+            <div class="setting-item">
+                <label>🌐 เลือก Scenario ธุรกิจ</label>
+                <select id="scenario-preset" onchange="applyScenario()">
+                    <option value="balanced">Balanced Growth (แนะนำ)</option>
+                    <option value="balanced">Balanced Growth (แนะนำ)</option>
+                    <option value="conservative">Conservative (แบบประหยัด)</option>
+                    <option value="aggressive">Aggressive (รุกหนัก)</option>
+                    <option value="asset-light">Asset-Light (เน้นพาร์ทเนอร์)</option>
+                    <option value="premium">Premium Service (รถหรู/EV)</option>
+                </select>
             </div>
+            <div class="setting-item">
+                <label>🚗 รุ่นรถ (Car Model)</label>
+                <select id="car-model-preset" onchange="applyCarModel()">
+                    <option value="custom">-- ปรับแต่งเอง --</option>
+                    <option value="byd_seal">BYD Seal (1.2 ล้านบาท)</option>
+                    <option value="axios">Axios (1 ล้านบาท)</option>
+                    <option value="standard">Standard Fleet (8.5 แสนบาท)</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
-            <div class="panel">
-                <h2 class="panel-title">💰 2. สมมติฐานรายรับ (Revenue Variables)</h2>
-                <div class="grid-2">
+    <!-- Executive View (Original Dashboard) -->
+    <div id="view-exec" class="persona-view active">
+        <div class="layout">
+            <!-- Sidebar: Inputs -->
+            <div class="sidebar">
+                <div class="panel">
+                    <h2 class="panel-title">🚗 1. จำนวนสินทรัพย์ (Assets)</h2>
                     <div class="input-group">
-                        <label>ค่าเช่า RTO (บาท/วัน)</label>
+                        <label>รถในแพลตฟอร์มเอง (Platform Fleet)</label>
+                        <input type="number" id="v_platform" value="50" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>รถจากนักลงทุน (Investor Fleet)</label>
+                        <input type="number" id="v_investor" value="100" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>รถจากพาร์ทเนอร์/บุคคล (P2P/Partner)</label>
+                        <input type="number" id="v_p2p" value="200" oninput="calculate()">
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2 class="panel-title">💰 2. สมมติฐานรายได้ (Revenue Items)</h2>
+                    <div class="input-group">
+                        <label>ค่าเช่า RTO (บาท/วัน/คัน)</label>
                         <input type="number" id="r_rto_day" value="500" oninput="calculate()">
                     </div>
                     <div class="input-group">
-                        <label>หัก GP นักลงทุน (%)</label>
+                        <label>GP จากรถนักลงทุน (%)</label>
                         <input type="number" id="gp_investor" value="15" oninput="calculate()">
                     </div>
-                </div>
-                <div class="grid-2">
                     <div class="input-group">
-                        <label>Car Sharing (บาท/ชม.)</label>
+                        <label>ค่าเช่า Car Sharing (บาท/ชม.)</label>
                         <input type="number" id="r_share_hr" value="100" oninput="calculate()">
                     </div>
                     <div class="input-group">
-                        <label>เฉลี่ย ชม./วัน/คัน</label>
+                        <label>เฉลี่ยใช้งาน Sharing (ชม./วัน)</label>
                         <input type="number" id="share_hr_usage" value="5" oninput="calculate()">
                     </div>
-                </div>
-                <div class="grid-2">
-                    <div class="input-group">
-                        <label>Car Sharing (บาท/วัน)</label>
-                        <input type="number" id="r_share_day" value="1200" oninput="calculate()">
+                    <div class="grid-2">
+                        <div class="input-group">
+                            <label>Sharing (บาท/วัน)</label>
+                            <input type="number" id="r_share_day" value="1200" oninput="calculate()">
+                        </div>
+                        <div class="input-group">
+                            <label>GP Sharing (%)</label>
+                            <input type="number" id="gp_share" value="25" oninput="calculate()">
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label>หัก GP Sharing (%)</label>
-                        <input type="number" id="gp_share" value="25" oninput="calculate()">
+                    <div class="grid-2">
+                        <div class="input-group">
+                            <label>Hailing (บาท/วัน)</label>
+                            <input type="number" id="r_hail_day" value="1500" oninput="calculate()">
+                        </div>
+                        <div class="input-group">
+                            <label>GP Hailing (%)</label>
+                            <input type="number" id="gp_hail" value="20" oninput="calculate()">
+                        </div>
                     </div>
-                </div>
-                <div class="grid-2">
-                    <div class="input-group">
-                        <label>Ride-Hailing (ยอด/วัน)</label>
-                        <input type="number" id="r_hail_day" value="1500" oninput="calculate()">
+                    <!-- Value Added -->
+                    <div class="grid-2">
+                        <div class="input-group">
+                            <label>GP ประกันภัย/คัน (%)</label>
+                            <input type="number" id="gp_ins" value="10" oninput="calculate()">
+                        </div>
+                        <div class="input-group">
+                            <label>SaaS Fee (บ./ด./คัน)</label>
+                            <input type="number" id="r_saas" value="300" oninput="calculate()">
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label>
-                            หัก GP Hailing (%)
-                            <span class="info-icon" data-tooltip="Gross Profit: ส่วนแบ่งรายได้ที่แพลตฟอร์มหักจากการเรียกใช้งานแต่ละครั้ง">?</span>
-                        </label>
-                        <input type="number" id="gp_hail" value="20" oninput="calculate()">
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel">
-                <h2 class="panel-title">📉 3. สมมติฐานรายจ่าย (Cost & OpEx)</h2>
-                <div class="input-group">
-                    <label>
-                        ราคารถ/คัน (Avg. Car Price) [บาท]
-                        <span class="info-icon" data-tooltip="ราคาเต็มของรถยนต์ที่เลือกใช้">?</span>
-                    </label>
-                    <input type="number" id="c_car_price" value="800000" oninput="calculate()">
-                </div>
-                <div class="input-group">
-                    <label>
-                        เงินดาวน์/คัน (Down Payment) [บาท]
-                        <span class="info-icon" data-tooltip="เงินก้อนแรกที่ต้องจ่ายต่อคัน (ถ้ารถเช่าซื้อ)">?</span>
-                    </label>
-                    <input type="number" id="c_car_down" value="160000" oninput="calculate()">
-                </div>
-                <div class="input-group">
-                    <label>
-                        ค่าเริ่มระบบ/จัดตั้ง (Initial Setup) [บาท]
-                        <span class="info-icon" data-tooltip="ค่าจดทะเบียน, มัดจำออฟฟิศ, และค่าใช้จ่ายแรกเข้าอื่นๆ">?</span>
-                    </label>
-                    <input type="number" id="c_setup" value="500000" oninput="calculate()">
-                </div>
-                <div class="input-group">
-                    <label>ค่างวดรถบริษัท (บาท/คัน/เดือน)</label>
-                    <input type="number" id="c_car_install" value="12000" oninput="calculate()">
-                </div>
-                <div class="input-group">
-                    <label>ค่าประกัน/ซ่อมบำรุงรถบริษัท (บาท/คัน/เดือน)</label>
-                    <input type="number" id="c_car_maint" value="2500" oninput="calculate()">
-                </div>
-                <div class="input-group">
-                    <label>ระบบ Digital Safety & Server (บาท/เดือน)</label>
-                    <input type="number" id="c_tech" value="150000" oninput="calculate()">
-                </div>
-                <div class="input-group">
-                    <label>งบการตลาด & โปรโมชัน (บาท/เดือน)</label>
-                    <input type="number" id="c_mkt" value="200000" oninput="calculate()">
-                </div>
-                <div class="input-group">
-                    <label>เงินเดือนทีมงาน & Ops (บาท/เดือน)</label>
-                    <input type="number" id="c_staff" value="300000" oninput="calculate()">
                 </div>
 
-                <h2 class="panel-title">📈 4. อัตราเติบโตรายปี (Growth % p.a.)</h2>
-                <div class="grid-2">
+                <div class="panel panel-dark">
+                    <h2 class="panel-title" style="color:white">🤖 AI & Digital Safety Efficiency</h2>
                     <div class="input-group">
-                        <label>การเติบโตรายรับ (%)</label>
-                        <input type="number" id="g_rev" value="10" oninput="calculate()">
+                        <label style="color: #cbd5e1">AI Matching Efficiency Boost (%)</label>
+                        <input type="range" id="ai_boost" min="0" max="50" value="15" oninput="calculate()" style="width:100%">
+                        <div id="ai_boost_val" style="text-align:center; font-weight:bold; color:var(--success)">15%</div>
+                        <p style="font-size:0.75rem; color:#94a3b8; margin-top:5px;">เพิ่มรายได้ Ride-Hailing & Sharing ผ่าน AI Optimization</p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2 class="panel-title">📉 3. รายจ่าย & ต้นทุน (Costs)</h2>
+                    <div class="input-group">
+                        <label>เงินดาวน์รถแพลตฟอร์ม (บาท/คัน)</label>
+                        <input type="number" id="c_car_down" value="170000" oninput="calculate()">
                     </div>
                     <div class="input-group">
-                        <label>การเพิ่มของรายจ่าย (%)</label>
-                        <input type="number" id="g_cost" value="5" oninput="calculate()">
-                    </div>
-                </div>
-
-                <h2 class="panel-title">🤖 5. กลยุทธ์เสริมและ AI (AI & Value Added)</h2>
-                <div class="grid-2">
-                    <div class="input-group">
-                        <label>
-                            GP ประกันภัย (%)
-                            <span class="info-icon" data-tooltip="ส่วนแบ่งกำไรจาก On-demand Insurance">?</span>
-                        </label>
-                        <input type="number" id="gp_ins" value="10" oninput="calculate()">
+                        <label>ค่าใช้จ่ายเริ่มต้นบริษัท (Setup Cost)</label>
+                        <input type="number" id="c_setup" value="2000000" oninput="calculate()">
                     </div>
                     <div class="input-group">
-                        <label>
-                            B2B SaaS (บ./ด./คัน)
-                            <span class="info-icon" data-tooltip="ค่าบริการ Dashboard จากพาร์ทเนอร์">?</span>
-                        </label>
-                        <input type="number" id="r_saas" value="300" oninput="calculate()">
+                        <label>ค่างวดรถ (บาท/เดือน/คัน)</label>
+                        <input type="number" id="c_car_install" value="12000" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>ซ่อมบำรุง/IoT (บาท/เดือน/คัน)</label>
+                        <input type="number" id="c_car_maint" value="2500" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>Tech & Server (บาท/เดือน)</label>
+                        <input type="number" id="c_tech" value="150000" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>การตลาด/Staff (บาท/เดือน)</label>
+                        <input type="number" id="c_mkt" value="200000" oninput="calculate()">
+                    </div>
+                    <div class="input-group">
+                        <label>Staff/Admin (บาท/เดือน)</label>
+                        <input type="number" id="c_staff" value="300000" oninput="calculate()">
                     </div>
                 </div>
-                <div class="input-group">
-                    <label>
-                        AI Efficiency Boost (%)
-                        <span class="info-icon" data-tooltip="Agentic AI ช่วยเพิ่มการใช้งานรถและ Dynamic Pricing">?</span>
-                    </label>
-                    <input type="range" id="ai_boost" min="0" max="30" value="15" oninput="calculate()">
-                    <div style="text-align: right; font-size: 0.8rem; font-weight: bold; color: var(--accent);" id="ai_boost_val">15%</div>
-                </div>
-
-                <div class="glossary">
-                    <strong>Glossary:</strong><br>
-                    • <strong>RTO (Rent-to-Own):</strong> เช่าเพื่อเป็นเจ้าของ<br>
-                    • <strong>GP (Gross Profit):</strong> รายได้แพลตฟอร์ม (Margin)<br>
-                    • <strong>P2P:</strong> รถจากคนขับพาร์ทเนอร์อิสระ<br>
-                    • <strong>Initial Capital:</strong> (จำนวนรถบริษัท x เงินดาวน์) + ค่าเริ่มระบบ
-                </div>
-            </div>
-        </div>
-
-        <div class="main-content">
-
-            <div class="summary-cards">
-                <div class="card card-rev">
-                    <h3>รายรับรวมต่อเดือน (Total Revenue)</h3>
-                    <div class="value" id="sum_rev">0</div>
-                </div>
-                <div class="card card-cost">
-                    <h3>รายจ่ายรวมต่อเดือน (Total Cost)</h3>
-                    <div class="value" id="sum_cost">0</div>
-                </div>
-                <div class="card card-profit">
-                    <h3>กำไรสุทธิต่อเดือน (Net Profit)</h3>
-                    <div class="value" id="sum_profit">0</div>
-                </div>
-            </div>
-
-            <div class="charts-container">
-                <div class="chart-box">
-                    <canvas id="revChart"></canvas>
-                </div>
-                <div class="chart-box">
-                    <canvas id="plChart"></canvas>
-                </div>
-            </div>
-
-            <div class="charts-container">
-                <div class="chart-box">
-                    <canvas id="unitChart"></canvas>
-                </div>
-                <div class="chart-box">
-                    <canvas id="cumChart"></canvas>
-                </div>
-            </div>
-
-            <div class="panel panel-dark">
-                <h2 class="panel-title">🤝 สรุปผลประโยชน์รายกลุ่ม (Stakeholder Summary)</h2>
-                <div class="stakeholder-grid">
-                    <div class="stakeholder-card">
-                        <h4>📄 สำหรับ "คนขับ" (Driver)</h4>
-                        <div class="stakeholder-val" id="stk_driver">฿0</div>
-                        <div class="stakeholder-label">รายได้สุทธิหลังหักค่างวด (ต่อเดือน)</div>
-                        <div style="margin-top: 5px; font-size: 0.8rem; color: var(--success);">⭐ ได้เป็นเจ้าของรถเมื่อจบสัญญา</div>
-                    </div>
-                    <div class="stakeholder-card" style="border-left-color: #f59e0b;">
-                        <h4>🏢 สำหรับ "นักลงทุน" (Investor)</h4>
-                        <div class="stakeholder-val" id="stk_investor">฿0</div>
-                        <div class="stakeholder-label">Passive Income สุทธิ (ต่อเดือน/คัน)</div>
-                        <div style="margin-top: 5px; font-size: 0.8rem; color: #f59e0b;">🛡️ ปลอดภัย 100% ด้วย IoT Kill-switch</div>
+                
+                <div class="panel">
+                    <h2 class="panel-title">📈 4. ประมาณการเติบโต (Growth)</h2>
+                    <div class="grid-2">
+                        <div class="input-group">
+                            <label>รายได้โต (% ต่อปี)</label>
+                            <input type="number" id="g_rev" value="20" oninput="calculate()">
+                        </div>
+                        <div class="input-group">
+                            <label>รายจ่ายโต (% ต่อปี)</label>
+                            <input type="number" id="g_cost" value="10" oninput="calculate()">
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="panel panel-dark">
-                <h2 class="panel-title">💰 วิเคราะห์ความคุ้มค่า (Investment & ROI)</h2>
-                <div class="summary-grid">
-                    <div class="stat-card">
-                        <label>
-                            เงินทุนเริ่มแรก (Initial Capital)
-                            <span class="info-icon" data-tooltip="คำนวณจาก: (จำนวนรถที่บริษัทซื้อ x เงินดาวน์ต่อคัน) + ค่าเริ่มระบบจัดตั้ง">?</span>
-                        </label>
-                        <div class="value text-accent" id="init_cap">฿0</div>
+            <!-- Main Content: Charts & Tables -->
+            <div class="main-content">
+                <!-- Summary Stats -->
+                <div class="summary-cards">
+                    <div class="card card-rev">
+                        <h3>รายรับรวม (Rev)/ด.</h3>
+                        <div class="value" id="sum_rev">฿0</div>
                     </div>
-                    <div class="stat-card">
-                        <label>ROI (Return on Investment) / ปี</label>
-                        <div class="value text-success" id="roi_val">0%</div>
+                    <div class="card card-cost">
+                        <h3>รายจ่ายรวม (Cost)/ด.</h3>
+                        <div class="value" id="sum_cost">฿0</div>
                     </div>
-                    <div class="stat-card">
-                        <label>จุดคุ้มทุน (Payback Period)</label>
-                        <div class="value text-accent" id="payback_val">0 ปี</div>
+                    <div class="card card-profit">
+                        <h3>กำไรสุทธิ (Profit)/ด.</h3>
+                        <div class="value" id="sum_profit">฿0</div>
                     </div>
                 </div>
-                <div class="summary-grid" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 10px;">
-                    <div class="stat-card">
-                        <label>กำไรสุทธิรวมต่อปี</label>
-                        <div class="value text-success" id="year_profit">฿0</div>
+
+                <!-- ROI & Payback -->
+                <div class="panel">
+                    <h2 class="panel-title">📊 Investment Metrics</h2>
+                    <div class="summary-grid">
+                        <div class="stat-card">
+                            <label>เงินทุนเริ่มแรก (Initial Capital)</label>
+                            <div class="value text-accent" id="init_cap">฿0</div>
+                        </div>
+                        <div class="stat-card">
+                            <label>Return on Investment (ROI/ปี)</label>
+                            <div class="value text-success" id="roi_val">0%</div>
+                        </div>
+                        <div class="stat-card">
+                            <label>Payback Period (คืนทุนที่)</label>
+                            <div class="value text-accent" id="payback_val">0 ปี</div>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <label>รายจ่ายรวมต่อปี</label>
-                        <div class="value text-danger" id="year_cost">฿0</div>
+                    <div class="glossary">
+                        <strong>Initial Capital:</strong> คำนวณจาก (เงินดาวน์รถแพลตฟอร์ม × จำนวนรถ) + ค่า Setup บริษัท
                     </div>
-                    <div class="stat-card">
-                        <label>Net Margin</label>
-                        <div class="value text-accent" id="year_margin">0%</div>
+                </div>
+
+                <!-- 5-Year Projection Summary -->
+                <div class="panel panel-dark">
+                    <h2 class="panel-title">📅 5-Year Annual Projection (ประมาณการ 5 ปี)</h2>
+                    <div class="summary-grid">
+                        <div class="stat-card">
+                            <label>กำไรสุทธิปีแรก</label>
+                            <div class="value text-success" id="year_profit">฿0</div>
+                        </div>
+                        <div class="stat-card">
+                            <label>รายจ่ายรวมต่อปี</label>
+                            <div class="value" id="year_cost">฿0</div>
+                        </div>
+                        <div class="stat-card">
+                            <label>Profit Margin (%)</label>
+                            <div class="value text-accent" id="year_margin">0%</div>
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto; margin-top:20px;">
+                        <table style="color: white; border-color: rgba(255,255,255,0.1)">
+                            <thead>
+                                <tr>
+                                    <th>ปีที่</th>
+                                    <th>รายรับรวม/ปี</th>
+                                    <th>รายจ่ายรวม/ปี</th>
+                                    <th>กำไรสุทธิ/ปี</th>
+                                    <th>กำไรสะสม (Cum.)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_5year"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-box">
+                        <canvas id="revChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <canvas id="plChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-box">
+                        <canvas id="unitChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <canvas id="cumChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Stakeholder Details -->
+                <div class="panel">
+                    <h2 class="panel-title">👥 ประโยชน์ต่อ Stakeholders (Win-Win Model)</h2>
+                    <div class="stakeholder-grid">
+                        <div class="stakeholder-card">
+                            <h4>👨‍✈️ คนขับ (RTO Driver)</h4>
+                            <div class="stakeholder-val" id="stk_driver">฿0</div>
+                            <div class="stakeholder-label">กำไรสุทธิต่อเดือน (หลังหักค่าเช่า+น้ำมัน)</div>
+                        </div>
+                        <div class="stakeholder-card" style="border-left-color: var(--success)">
+                            <h4>💰 นักลงทุน (Car Investor)</h4>
+                            <div class="stakeholder-val" id="stk_investor">฿0</div>
+                            <div class="stakeholder-label">ผลตอบแทนสุทธิต่อเดือน (Passive Income/คัน)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Revenue Detail Table -->
+                <div class="panel">
+                    <h2 class="panel-title">📊 Revenue Breakdown Table</h2>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ประเภทรายได้</th>
+                                    <th>รายได้/เดือน</th>
+                                    <th>รายได้/ปี</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_rev"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Cost Detail Table -->
+                <div class="panel">
+                    <h2 class="panel-title">💸 Cost Breakdown Table</h2>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ประเภทรายจ่าย</th>
+                                    <th>รายจ่าย/เดือน</th>
+                                    <th>รายจ่าย/ปี</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_cost"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 12-Month Projection Table -->
+                <div class="panel">
+                    <h2 class="panel-title">🗓️ 12-Month Cash Flow Projection</h2>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ระยะเวลา</th>
+                                    <th>รายรับ</th>
+                                    <th>รายจ่าย</th>
+                                    <th>กำไรสุทธิ</th>
+                                    <th>เงินสดสะสม</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_projection"></tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-
-            <div class="panel">
-                <h2 class="panel-title">
-                    📊 รายละเอียดรายรับ (Revenue Breakdown)
-                    <span class="info-icon" data-tooltip="สูตร: (จำนวนรถ x ยอดรายวัน x วันที่รถออกวิ่ง x %GP) โดยคำนวณแยกตามประเภท">?</span>
-                </h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ช่องทางรายได้ (Stream)</th>
-                            <th>รายได้/เดือน (THB)</th>
-                            <th>รายได้/ปี (THB)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbl_rev"></tbody>
-                </table>
-            </div>
-
-            <div class="panel">
-                <h2 class="panel-title">
-                    📋 รายละเอียดรายจ่าย (Cost Breakdown)
-                    <span class="info-icon" data-tooltip="รวมค่าเสื่อม/ค่างวดรถบริษัท, ค่าดำเนินงาน และงบการตลาด">?</span>
-                </h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>รายการค่าใช้จ่าย (Expense)</th>
-                            <th>รายจ่าย/เดือน (THB)</th>
-                            <th>รายจ่าย/ปี (THB)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbl_cost"></tbody>
-                </table>
-            </div>
-
-            <div class="panel">
-                <h2 class="panel-title">🗓️ ตารางประมาณการ 12 เดือน (Monthly Projection)</h2>
-                <div style="overflow-x: auto;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>เดือน (Month)</th>
-                                <th>รายรับ (Revenue)</th>
-                                <th>รายจ่าย (Cost)</th>
-                                <th>กำไรสุทธิ (Profit)</th>
-                                <th>กำไรสะสม (Cumulative)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbl_projection"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="panel">
-                <h2 class="panel-title">🏦 ประมาณการรายปีล่วงหน้า 5 ปี (5-Year Long-term Projection)</h2>
-                <div style="overflow-x: auto;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ปีที่ (Year)</th>
-                                <th>รายรับ/ปี (Revenue)</th>
-                                <th>รายจ่าย/ปี (Cost)</th>
-                                <th>กำไรสุทธิ (Net Profit)</th>
-                                <th>กำไรสะสม (Cumulative)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbl_5year"></tbody>
-                    </table>
-                </div>
-            </div>
-
         </div>
     </div>
-    </div><!-- End #view-exec -->
 
-    <!-- Driver RTO View -->
+    <!-- RTO Driver View -->
     <div id="view-driver" class="persona-view">
         <div class="layout" style="grid-template-columns: 1fr 1fr;">
             <div class="sidebar">
@@ -852,51 +364,47 @@
                         <input type="number" id="p_dr_car_price" value="800000" oninput="updateDriverView()">
                     </div>
                     <div class="input-pill">
-                        <label>ชั่วโมงการทำงาน (ชม./วัน)</label>
+                        <label>ชั่วโมงขับงาน (ชม./วัน)</label>
                         <input type="number" id="p_dr_hours" value="10" oninput="updateDriverView()">
                     </div>
                     <div class="input-pill">
-                        <label>รายได้เฉลี่ย (บาท/ชม.)</label>
-                        <input type="number" id="p_dr_rate" value="150" oninput="updateDriverView()">
+                        <label>รายได้คาดการณ์ (บาท/ชม.)</label>
+                        <input type="number" id="p_dr_rate" value="180" oninput="updateDriverView()">
                     </div>
                     <div class="input-pill">
-                        <label>ค่าเช่าซื้อ RTO (บาท/วัน)</label>
+                        <label>ค่าเช่าซื้อรายวัน (บาท/วัน)</label>
                         <input type="number" id="p_dr_rent" value="500" oninput="updateDriverView()">
                     </div>
                 </div>
             </div>
             <div class="main-content">
                 <div class="summary-cards">
-                    <div class="card card-rev" style="background: var(--accent);">
-                        <h3>รายได้ก่อนหัก/วัน</h3>
+                    <div class="card card-rev">
+                        <h3>รายได้/วัน</h3>
                         <div class="value" id="p_dr_gross">฿0</div>
                     </div>
-                    <div class="card card-cost">
-                        <h3>ค่าเช่า/วัน</h3>
-                        <div class="value" id="p_dr_cost_tag">฿500</div>
+                    <div class="card card-cost" style="background: #475569;">
+                        <h3>ค่าเช่า RTO/วัน</h3>
+                        <div class="value" id="p_dr_cost_tag">฿0</div>
                     </div>
                     <div class="card card-profit">
-                        <h3>รายได้สุทธิ/วัน</h3>
+                        <h3>กำไรสุทธิ/วัน</h3>
                         <div class="value" id="p_dr_net">฿0</div>
                     </div>
                 </div>
-                <div class="panel panel-dark">
-                    <h2 class="panel-title">⭐ แผนการเป็นเจ้าของรถ (Path to Ownership)</h2>
-                    <div class="summary-grid">
-                        <div class="stat-card">
-                            <label>รายได้สุทธิ/เดือน</label>
-                            <div class="value text-success" id="p_dr_month">฿0</div>
-                        </div>
-                        <div class="stat-card">
-                            <label>ระยะเวลาส่งงวด</label>
-                            <div class="value text-accent">60 งวด</div>
-                        </div>
-                        <div class="stat-card">
-                            <label>สถานะทรัพย์สิน</label>
-                            <div class="value text-warning">กำลังสะสม</div>
-                        </div>
-                    </div>
-                    <p style="text-align: center; margin-top: 15px; opacity: 0.8; font-size: 0.9rem;">
+                <div class="card card-profit" style="margin-bottom: 20px;">
+                    <h3>กำไรสุทธิของคุณต่อเดือน</h3>
+                    <div class="value" style="font-size: 3rem;" id="p_dr_month">฿0</div>
+                </div>
+                <div class="panel">
+                    <h2 class="panel-title">🔑 เส้นทางสู่ความเป็นเจ้าของ (Path to Ownership)</h2>
+                    <ul style="color: #475569; line-height: 1.8;">
+                        <li>✅ รวมประกันภัยชั้น 1 ตลอดอายุสัญญา</li>
+                        <li>✅ รวมค่าซ่อมบำรุงและเปลี่ยนยางตามระยะ</li>
+                        <li>✅ รวมสิทธิพิเศษใช้ Digital Safety Platform</li>
+                        <li>🚀 **โบนัสพิเศษ:** ขับดีมีแต้มแลกส่วนลดค่างวด</li>
+                    </ul>
+                    <p style="margin-top: 15px; background: #f0fdf4; padding: 15px; border-radius: 8px; color: #166534; font-weight: bold;">
                         "เมื่อคุณขับจบ 5 ปี รถคันนี้จะเป็นของคุณ 100% พร้อมมูลค่าทรัพย์สินทันที 400,000 บาท"
                     </p>
                 </div>
@@ -1111,527 +619,7 @@
         </div>
     </div>
 
-    <script>
-        function switchView(view) {
-            // Update Menu Active State
-            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-            const activeNav = [...document.querySelectorAll('.nav-item')].find(el => {
-                if(view === 'exec') return el.innerText.includes('ผู้บริหาร');
-                if(view === 'driver') return el.innerText.includes('เช่าซื้อ');
-                if(view === 'driver-hr') return el.innerText.includes('ราย ชม.');
-                if(view === 'investor') return el.innerText.includes('นักลงทุน');
-                if(view === 'p-fleet') return el.getAttribute('onclick').includes('p-fleet');
-                if(view === 'p-dealer') return el.getAttribute('onclick').includes('p-dealer');
-            });
-            if(activeNav) activeNav.classList.add('active');
-
-            // Toggle Visibility
-            document.querySelectorAll('.persona-view').forEach(el => el.classList.remove('active'));
-            const target = document.getElementById('view-' + view);
-            if(target) target.classList.add('active');
-
-            // Update respective view data
-            if(view === 'driver') updateDriverView();
-            if(view === 'driver-hr') updateDriverHrView();
-            if(view === 'investor') updateInvestorView();
-            if(view === 'p-fleet') updatePartnerFleetView();
-            if(view === 'p-dealer') updatePartnerDealerView();
-        }
-
-        function updateDriverView() {
-            const hr = parseFloat(document.getElementById('p_dr_hours').value) || 0;
-            const rate = parseFloat(document.getElementById('p_dr_rate').value) || 0;
-            const rent = parseFloat(document.getElementById('p_dr_rent').value) || 0;
-            const price = parseFloat(document.getElementById('p_dr_car_price').value) || 800000;
-
-            const gross = hr * rate;
-            const net = gross - rent;
-            
-            document.getElementById('p_dr_gross').innerText = '฿' + fmt(gross);
-            document.getElementById('p_dr_cost_tag').innerText = '฿' + fmt(rent);
-            document.getElementById('p_dr_net').innerText = '฿' + fmt(net);
-            document.getElementById('p_dr_month').innerText = '฿' + fmt(net * 30);
-            
-            const netEl = document.getElementById('p_dr_net');
-            netEl.style.color = net >= 0 ? '#10b981' : '#ef4444';
-        }
-
-        function updateDriverHrView() {
-            const hr = parseFloat(document.getElementById('p_dr_hr_hours').value) || 0;
-            const rentHr = parseFloat(document.getElementById('p_dr_hr_rent').value) || 0;
-            const rate = parseFloat(document.getElementById('p_dr_hr_rate').value) || 0;
-            
-            const gross = hr * rate;
-            const cost = hr * rentHr;
-            const net = gross - cost;
-            
-            document.getElementById('p_dr_hr_gross').innerText = '฿' + fmt(gross);
-            document.getElementById('p_dr_hr_cost').innerText = '฿' + fmt(cost);
-            document.getElementById('p_dr_hr_net').innerText = '฿' + fmt(net);
-        }
-
-        function updateInvestorView() {
-            const count = parseFloat(document.getElementById('p_inv_count').value) || 0;
-            const price = parseFloat(document.getElementById('p_inv_price').value) || 0;
-            const down = parseFloat(document.getElementById('p_inv_down').value) || 0;
-            
-            const rtoDay = 500;
-            const gpInv = 15;
-            
-            const incomePerCar = (rtoDay * 30 * 0.95); 
-            const margin = incomePerCar * ((100 - gpInv) / 100); 
-            
-            const totalPassive = margin * count;
-            const totalInv = (down) * count;
-            const roi = totalInv > 0 ? (totalPassive * 12 / totalInv) * 100 : 0;
-
-            document.getElementById('p_inv_passive').innerText = '฿' + fmt(totalPassive);
-            document.getElementById('p_inv_total').innerText = '฿' + fmt(totalInv);
-            document.getElementById('p_inv_roi').innerText = fmtPct(roi) + '%';
-            
-            // Table for 5 years
-            let tblHtml = '';
-            let cum = -totalInv;
-            for(let y=1; y<=5; y++) {
-                const yrProf = totalPassive * 12;
-                cum += yrProf;
-                tblHtml += `<tr><td>ปีที่ ${y}</td><td class="text-success">${fmt(yrProf)}</td><td class="${cum>=0?'text-success':'text-danger'}">${fmt(cum)}</td></tr>`;
-            }
-            document.getElementById('p_inv_tbl_5y').innerHTML = tblHtml;
-        }
-
-        function updatePartnerFleetView() {
-            const v = parseFloat(document.getElementById('p_fleet_v').value) || 0;
-            const days = parseFloat(document.getElementById('p_fleet_days').value) || 0;
-            const rate = parseFloat(document.getElementById('p_fleet_rate').value) || 0;
-            const feePercent = parseFloat(document.getElementById('p_fleet_fee').value) || 0;
-
-            const gross = v * days * rate;
-            const platformFee = gross * (feePercent / 100);
-            const netPartner = gross - platformFee;
-            
-            document.getElementById('p_fleet_gross').innerText = '฿' + fmt(gross);
-            document.getElementById('p_fleet_fee_val').innerText = '฿' + fmt(platformFee);
-            document.getElementById('p_fleet_net').innerText = '฿' + fmt(netPartner);
-            document.getElementById('p_fleet_year').innerText = '฿' + fmt(netPartner * 12);
-        }
-
-        function updatePartnerDealerView() {
-            const salesCount = parseFloat(document.getElementById('p_dealer_sales').value) || 0;
-            const serviceRate = parseFloat(document.getElementById('p_dealer_service').value) || 0;
-            const carPrice = 800000;
-            
-            const totalSales = salesCount * carPrice;
-            const totalService = salesCount * serviceRate * 12;
-            
-            document.getElementById('p_dealer_total_sales').innerText = '฿' + fmt(totalSales);
-            document.getElementById('p_dealer_total_service').innerText = '฿' + fmt(totalService);
-
-            // Realistic Growth Metrics
-            // 1. Turnover boost: more sales through platform vs traditional
-            const turnoverBase = 1.0; 
-            const boost = salesCount > 0 ? (salesCount / 100) + 1.5 : 0;
-            document.getElementById('p_dealer_turnover').innerText = boost.toFixed(1) + 'x';
-
-            // 2. Reach: RTO reaches under-banked (estimated 70% of RTO pool)
-            const reach = salesCount > 0 ? 72 : 0;
-            document.getElementById('p_dealer_reach').innerText = reach + '%';
-
-            // 3. Loyalty: RTO customers are locked into dealer service for 5 years
-            const loyalty = salesCount > 0 ? 85 : 0;
-            document.getElementById('p_dealer_loyalty').innerText = loyalty + '%';
-        }
-
-        // Initialize driver/investor values
-        window.addEventListener('load', () => {
-            updateDriverView();
-            updateInvestorView();
-        });
-        // Utilities
-        // Utilities
-        const fmt = (num) => new Intl.NumberFormat('th-TH', { maximumFractionDigits: 0 }).format(num);
-        const fmtPct = (num) => new Intl.NumberFormat('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(num);
-        let revChartInstance = null;
-        let plChartInstance = null;
-        let unitChartInstance = null;
-        let cumChartInstance = null;
-
-        // Scenarios Data
-        const scenarios = {
-            balanced: {
-                v_platform: 50, v_investor: 100, v_p2p: 200,
-                r_rto_day: 500, gp_investor: 15, r_share_hr: 100, share_hr_usage: 5,
-                r_share_day: 1200, gp_share: 25, r_hail_day: 1500, gp_hail: 20,
-                c_car_install: 12000, c_car_maint: 2500, c_tech: 150000, c_mkt: 200000, c_staff: 300000
-            },
-            conservative: {
-                v_platform: 20, v_investor: 50, v_p2p: 100,
-                r_rto_day: 450, gp_investor: 10, r_share_hr: 80, share_hr_usage: 3,
-                r_share_day: 1000, gp_share: 20, r_hail_day: 1200, gp_hail: 15,
-                c_car_install: 11000, c_car_maint: 2000, c_tech: 100000, c_mkt: 50000, c_staff: 200000
-            },
-            aggressive: {
-                v_platform: 200, v_investor: 300, v_p2p: 500,
-                r_rto_day: 550, gp_investor: 18, r_share_hr: 120, share_hr_usage: 6,
-                r_share_day: 1400, gp_share: 30, r_hail_day: 1800, gp_hail: 25,
-                c_car_install: 13000, c_car_maint: 3000, c_tech: 300000, c_mkt: 1000000, c_staff: 800000
-            },
-            'asset-light': {
-                v_platform: 5, v_investor: 150, v_p2p: 1000,
-                r_rto_day: 600, gp_investor: 20, r_share_hr: 100, share_hr_usage: 4,
-                r_share_day: 1200, gp_share: 25, r_hail_day: 1500, gp_hail: 20,
-                c_car_install: 15000, c_car_maint: 3500, c_tech: 250000, c_mkt: 400000, c_staff: 400000
-            },
-            premium: {
-                v_platform: 100, v_investor: 50, v_p2p: 50,
-                r_rto_day: 1200, gp_investor: 25, r_share_hr: 250, share_hr_usage: 8,
-                r_share_day: 2500, gp_share: 35, r_hail_day: 3000, gp_hail: 30,
-                c_car_install: 25000, c_car_maint: 5000, c_tech: 200000, c_mkt: 500000, c_staff: 500000
-            }
-        };
-
-        function applyScenario() {
-            const selected = document.getElementById('scenario-preset').value;
-            const data = scenarios[selected];
-            
-            for (let key in data) {
-                const el = document.getElementById(key);
-                if (el) el.value = data[key];
-            }
-            
-            calculate();
-        }
-
-        function calculate() {
-            // 1. Get Inputs
-            const v_platform = parseFloat(document.getElementById('v_platform').value) || 0;
-            const v_investor = parseFloat(document.getElementById('v_investor').value) || 0;
-            const v_p2p = parseFloat(document.getElementById('v_p2p').value) || 0;
-
-            const r_rto_day = parseFloat(document.getElementById('r_rto_day').value) || 0;
-            const r_share_hr = parseFloat(document.getElementById('r_share_hr').value) || 0;
-            const share_hr_usage = parseFloat(document.getElementById('share_hr_usage').value) || 0;
-            const r_share_day = parseFloat(document.getElementById('r_share_day').value) || 0;
-            const r_hail_day = parseFloat(document.getElementById('r_hail_day').value) || 0;
-
-            const gp_investor = parseFloat(document.getElementById('gp_investor').value) || 0;
-            const gp_share = parseFloat(document.getElementById('gp_share').value) || 0;
-            const gp_hail = parseFloat(document.getElementById('gp_hail').value) || 0;
-
-            const c_car_price = parseFloat(document.getElementById('c_car_price').value) || 0;
-            const c_car_down = parseFloat(document.getElementById('c_car_down').value) || 0;
-            const c_setup = parseFloat(document.getElementById('c_setup').value) || 0;
-            const c_car_install = parseFloat(document.getElementById('c_car_install').value) || 0;
-            const c_car_maint = parseFloat(document.getElementById('c_car_maint').value) || 0;
-            const c_tech = parseFloat(document.getElementById('c_tech').value) || 0;
-            const c_mkt = parseFloat(document.getElementById('c_mkt').value) || 0;
-            const c_staff = parseFloat(document.getElementById('c_staff').value) || 0;
-
-            const g_rev = parseFloat(document.getElementById('g_rev').value) || 0;
-            const g_cost = parseFloat(document.getElementById('g_cost').value) || 0;
-
-            const gp_ins = parseFloat(document.getElementById('gp_ins').value) || 0;
-            const r_saas = parseFloat(document.getElementById('r_saas').value) || 0;
-            const ai_boost = parseFloat(document.getElementById('ai_boost').value) || 0;
-            document.getElementById('ai_boost_val').innerText = ai_boost + '%';
-
-            // 2. Constants & Assumptions
-            const daysInMonth = 30;
-            const rtoUtil = 0.95; // 95% usage
-            const p2pUtilDays = 18; // active 18 days/month
-
-            // 3. Calculate Revenues (Monthly)
-            const boostFactor = 1 + (ai_boost / 100);
-            
-            const revPlatformRTO = (v_platform * r_rto_day * daysInMonth * rtoUtil);
-            const revInvestorRTO = (v_investor * r_rto_day * daysInMonth * rtoUtil) * (gp_investor / 100);
-
-            // Assume V_P2P is split into 3 groups with AI Efficiency Boost
-            const p2pSplit = v_p2p / 3;
-            const revHailing = (p2pSplit * r_hail_day * p2pUtilDays * (gp_hail / 100)) * boostFactor;
-            const revShareDay = (p2pSplit * r_share_day * p2pUtilDays * (gp_share / 100)) * boostFactor;
-            const revShareHr = (p2pSplit * (r_share_hr * share_hr_usage) * p2pUtilDays * (gp_share / 100)) * boostFactor;
-
-            // Value-Added Revenue (Business Plan Part 4)
-            const baseRev = revPlatformRTO + revInvestorRTO + revHailing + revShareDay + revShareHr;
-            const revInsurance = (baseRev * (gp_ins / 100)); 
-            const revSaaS = (v_investor + v_p2p) * r_saas;
-
-            const totalRev = baseRev + revInsurance + revSaaS;
-
-            // 4. Calculate Costs (Monthly)
-            const costInstallment = v_platform * c_car_install;
-            const costMaint = v_platform * c_car_maint;
-            const totalCost = costInstallment + costMaint + c_tech + c_mkt + c_staff;
-
-            const netProfit = totalRev - totalCost;
-            const netMargin = totalRev > 0 ? (netProfit / totalRev) * 100 : 0;
-
-            // 5. Investment Calculations
-            const initialInvestment = (v_platform * c_car_down) + c_setup;
-            const annualProfit = netProfit * 12;
-            const roi = initialInvestment > 0 ? (annualProfit / initialInvestment) * 100 : 0;
-            const paybackPeriod = netProfit > 0 ? (initialInvestment / netProfit) / 12 : 0;
-
-            // 6. Update UI Cards
-            document.getElementById('sum_rev').innerText = '฿' + fmt(totalRev);
-            document.getElementById('sum_cost').innerText = '฿' + fmt(totalCost);
-            document.getElementById('sum_profit').innerText = '฿' + fmt(netProfit);
-
-            // Update Investment & ROI Section
-            const roiEl = document.getElementById('roi_val');
-            roiEl.innerText = fmtPct(roi) + '%';
-            roiEl.className = roi >= 0 ? 'value text-success' : 'value text-danger';
-
-            document.getElementById('init_cap').innerText = '฿' + fmt(initialInvestment);
-            document.getElementById('payback_val').innerText = paybackPeriod > 0 ? fmtPct(paybackPeriod) + ' ปี' : 'N/A';
-
-            // Update Annual Section
-            const yearProfitEl = document.getElementById('year_profit');
-            yearProfitEl.innerText = '฿' + fmt(annualProfit);
-            yearProfitEl.className = annualProfit >= 0 ? 'value text-success' : 'value text-danger';
-            
-            document.getElementById('year_cost').innerText = '฿' + fmt(totalCost * 12);
-            document.getElementById('year_margin').innerText = fmtPct(netMargin) + '%';
-
-            // 6. Update Tables
-            document.getElementById('tbl_rev').innerHTML = `
-                <tr><td>1. RTO รถแพลตฟอร์ม</td><td class="text-success">${fmt(revPlatformRTO)}</td><td class="text-success">${fmt(revPlatformRTO * 12)}</td></tr>
-                <tr><td>2. RTO รถนักลงทุน (GP ${gp_investor}%)</td><td class="text-success">${fmt(revInvestorRTO)}</td><td class="text-success">${fmt(revInvestorRTO * 12)}</td></tr>
-                <tr><td>3. Ride-Hailing (AI Boosted)</td><td class="text-success">${fmt(revHailing)}</td><td class="text-success">${fmt(revHailing * 12)}</td></tr>
-                <tr><td>4. Car Sharing (AI Boosted)</td><td class="text-success">${fmt(revShareDay + revShareHr)}</td><td class="text-success">${fmt((revShareDay + revShareHr) * 12)}</td></tr>
-                <tr><td>5. On-demand Insurance (GP ${gp_ins}%)</td><td class="text-success">${fmt(revInsurance)}</td><td class="text-success">${fmt(revInsurance * 12)}</td></tr>
-                <tr><td>6. B2B SaaS Subscription</td><td class="text-success">${fmt(revSaaS)}</td><td class="text-success">${fmt(revSaaS * 12)}</td></tr>
-                <tr class="row-total"><td>รวมรายรับ</td><td class="text-success">฿${fmt(totalRev)}</td><td class="text-success">฿${fmt(totalRev * 12)}</td></tr>
-            `;
-
-            // Update Stakeholder Details
-            // Driver: Assume average income from Hailing per vehicle
-            const avgDriverRev = r_hail_day * 25; // per month
-            const driverNet = avgDriverRev - (r_rto_day * 30) - (avgDriverRev * (gp_hail/100));
-            document.getElementById('stk_driver').innerText = '฿' + fmt(driverNet);
-
-            // Investor: Monthly Net from RTO
-            const investorNet = (r_rto_day * 30 * rtoUtil) * ((100 - gp_investor) / 100);
-            document.getElementById('stk_investor').innerText = '฿' + fmt(investorNet);
-
-            document.getElementById('tbl_cost').innerHTML = `
-                <tr><td>1. ค่างวดรถแพลตฟอร์ม (Asset)</td><td class="text-danger">${fmt(costInstallment)}</td><td class="text-danger">${fmt(costInstallment * 12)}</td></tr>
-                <tr><td>2. ประกัน & ซ่อมบำรุง</td><td class="text-danger">${fmt(costMaint)}</td><td class="text-danger">${fmt(costMaint * 12)}</td></tr>
-                <tr><td>3. Tech & Digital Safety Platform</td><td class="text-danger">${fmt(c_tech)}</td><td class="text-danger">${fmt(c_tech * 12)}</td></tr>
-                <tr><td>4. งบการตลาด</td><td class="text-danger">${fmt(c_mkt)}</td><td class="text-danger">${fmt(c_mkt * 12)}</td></tr>
-                <tr><td>5. เงินเดือนทีมงาน (Operations)</td><td class="text-danger">${fmt(c_staff)}</td><td class="text-danger">${fmt(c_staff * 12)}</td></tr>
-                <tr class="row-total"><td>รวมรายจ่าย</td><td class="text-danger">฿${fmt(totalCost)}</td><td class="text-danger">฿${fmt(totalCost * 12)}</td></tr>
-            `;
-
-            // 8. Update Projection Table
-            let projHtml = '';
-            let cumulativeCash = -initialInvestment;
-            for (let m = 1; m <= 12; m++) {
-                const prevCash = cumulativeCash;
-                cumulativeCash += netProfit;
-                const isPayback = prevCash < 0 && cumulativeCash >= 0;
-
-                projHtml += `
-                    <tr class="${isPayback ? 'row-total' : ''}">
-                        <td>เดือนที่ ${m} ${isPayback ? '<span style="font-size:1.2rem">✅</span>' : ''}</td>
-                        <td class="text-success">${fmt(totalRev)}</td>
-                        <td class="text-danger">${fmt(totalCost)}</td>
-                        <td class="${netProfit >= 0 ? 'text-success' : 'text-danger'}">${fmt(netProfit)}</td>
-                        <td class="${cumulativeCash >= 0 ? 'text-success' : 'text-danger'}" style="font-weight:bold">${fmt(cumulativeCash)}</td>
-                    </tr>
-                `;
-            }
-            document.getElementById('tbl_projection').innerHTML = projHtml;
-
-            // 9. Update 5-Year Projection Table
-            let yearHtml = '';
-            let cumYearCash = -initialInvestment;
-            let currentYearRev = totalRev * 12;
-            let currentYearCost = totalCost * 12;
-
-            for (let y = 1; y <= 5; y++) {
-                const yearProfit = currentYearRev - currentYearCost;
-                cumYearCash += yearProfit;
-                
-                yearHtml += `
-                    <tr>
-                        <td>ปีที่ ${y}</td>
-                        <td class="text-success">${fmt(currentYearRev)}</td>
-                        <td class="text-danger">${fmt(currentYearCost)}</td>
-                        <td class="${yearProfit >= 0 ? 'text-success' : 'text-danger'}">${fmt(yearProfit)}</td>
-                        <td class="${cumYearCash >= 0 ? 'text-success' : 'text-danger'}" style="font-weight:bold">${fmt(cumYearCash)}</td>
-                    </tr>
-                `;
-                
-                // Grow for next year
-                currentYearRev *= (1 + g_rev / 100);
-                currentYearCost *= (1 + g_cost / 100);
-            }
-            document.getElementById('tbl_5year').innerHTML = yearHtml;
-
-            // 7. Update Charts
-            updateCharts(
-                [revPlatformRTO, revInvestorRTO, revHailing, revShareDay, revShareHr],
-                totalRev, totalCost, netProfit,
-                {
-                    platform: v_platform > 0 ? (revPlatformRTO - (costInstallment + costMaint)) / v_platform : 0,
-                    investor: v_investor > 0 ? revInvestorRTO / v_investor : 0,
-                    p2p: v_p2p > 0 ? (revHailing + revShareDay + revShareHr) / v_p2p : 0
-                }
-            );
-        }
-
-        function updateCharts(revDataArray, totalRev, totalCost, netProfit, unitData) {
-            // Chart 1: Revenue Breakdown (Doughnut)
-            const ctxRev = document.getElementById('revChart').getContext('2d');
-            if (revChartInstance) revChartInstance.destroy();
-            revChartInstance = new Chart(ctxRev, {
-                type: 'doughnut',
-                data: {
-                    labels: ['RTO แพลตฟอร์ม', 'RTO นักลงทุน', 'Ride-Hailing', 'Sharing รายวัน', 'Sharing รายชม.'],
-                    datasets: [{
-                        data: revDataArray,
-                        backgroundColor: ['#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe'],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        title: { display: true, text: 'สัดส่วนรายได้ (Revenue Breakdown)', font: { size: 16, family: 'Sarabun' } },
-                        legend: { position: 'right', labels: { font: { family: 'Sarabun' } } }
-                    }
-                }
-            });
-
-            // Chart 2: P&L Summary (Bar)
-            const ctxPL = document.getElementById('plChart').getContext('2d');
-            if (plChartInstance) plChartInstance.destroy();
-            plChartInstance = new Chart(ctxPL, {
-                type: 'bar',
-                data: {
-                    labels: ['รายรับรวม (Rev)', 'รายจ่ายรวม (Cost)', 'กำไรสุทธิ (Profit)'],
-                    datasets: [{
-                        label: 'THB / เดือน',
-                        data: [totalRev, totalCost, netProfit],
-                        backgroundColor: ['#3b82f6', '#f43f5e', netProfit >= 0 ? '#10b981' : '#ef4444'],
-                        borderRadius: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        title: { display: true, text: 'ภาพรวมกำไร-ขาดทุน ต่อเดือน (P&L)', font: { size: 16, family: 'Sarabun' } },
-                        legend: { display: false }
-                    },
-                    scales: { 
-                        y: { beginAtZero: true, ticks: { font: { family: 'Sarabun' } } },
-                        x: { ticks: { font: { family: 'Sarabun' } } }
-                    }
-                }
-            });
-
-            // Chart 3: Unit Economics (Bar)
-            const ctxUnit = document.getElementById('unitChart').getContext('2d');
-            if (unitChartInstance) unitChartInstance.destroy();
-            unitChartInstance = new Chart(ctxUnit, {
-                type: 'bar',
-                data: {
-                    labels: ['Platform RTO', 'Investor RTO', 'P2P / Partner'],
-                    datasets: [{
-                        label: 'กำไรสุทธิ / คัน / เดือน',
-                        data: [unitData.platform, unitData.investor, unitData.p2p],
-                        backgroundColor: ['#1e3a8a', '#3b82f6', '#93c5fd'],
-                        borderRadius: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y',
-                    plugins: {
-                        title: { display: true, text: 'ประสิทธิภาพกำไร (Profit per Unit / Mo)', font: { size: 16, family: 'Sarabun' } },
-                        legend: { display: false }
-                    },
-                    scales: { x: { beginAtZero: true, ticks: { font: { family: 'Sarabun' } } }, y: { ticks: { font: { family: 'Sarabun' } } } }
-                }
-            });
-
-            // Chart 4: Cumulative Profit (Line)
-            const ctxCum = document.getElementById('cumChart').getContext('2d');
-            if (cumChartInstance) cumChartInstance.destroy();
-            const monthlyData = Array.from({length: 12}, (_, i) => netProfit * (i + 1));
-            cumChartInstance = new Chart(ctxCum, {
-                type: 'line',
-                data: {
-                    labels: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10', 'M11', 'M12'],
-                    datasets: [{
-                        label: 'กำไรสะสม (Cumulative Profit)',
-                        data: monthlyData,
-                        borderColor: '#10b981',
-                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                        fill: true,
-                        tension: 0.4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        title: { display: true, text: 'ประมาณการกำไรสะสมใน 1 ปี (Cumulative)', font: { size: 16, family: 'Sarabun' } },
-                        legend: { display: false }
-                    },
-                    scales: { 
-                        y: { beginAtZero: true, ticks: { font: { family: 'Sarabun' } } },
-                        x: { ticks: { font: { family: 'Sarabun' } } }
-                    }
-                }
-            });
-        }
-
-        function downloadScreenshot() {
-            const btn = document.querySelector('.btn-download');
-            const originalText = btn.innerHTML;
-            
-            // Visual feedback
-            btn.innerHTML = 'กำลังประมวลผล...';
-            btn.style.opacity = '0.7';
-            btn.disabled = true;
-
-            // Target the whole body or a specific container
-            // Using document.body to get everything, but skipping the button itself if needed
-            html2canvas(document.body, {
-                scale: 2, // Higher quality
-                useCORS: true,
-                logging: false,
-                backgroundColor: '#f1f5f9',
-                ignoreElements: (element) => element.classList.contains('btn-download')
-            }).then(canvas => {
-                const link = document.createElement('a');
-                const date = new Date().toISOString().slice(0, 10);
-                link.download = `Mobility-Dashboard-Projection-${date}.png`;
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-                
-                // Restore button
-                btn.innerHTML = originalText;
-                btn.style.opacity = '1';
-                btn.disabled = false;
-            }).catch(err => {
-                console.error('Screenshot failed:', err);
-                alert('ไม่สามารถดาวน์โหลดรูปภาพได้ในขณะนี้');
-                btn.innerHTML = originalText;
-                btn.style.opacity = '1';
-                btn.disabled = false;
-            });
-        }
-
-        // Initialize on load
-        window.onload = calculate;
-    </script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
