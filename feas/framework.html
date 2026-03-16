@@ -73,16 +73,6 @@
         </div>
     </div>
 
-    <!-- Persona Navigation (Static here) -->
-    <div class="persona-nav">
-        <a href="index.html" class="nav-item" style="text-decoration: none; color: inherit;">🏢 ผู้บริหาร</a>
-        <a href="index.html" class="nav-item" style="text-decoration: none; color: inherit;">👨‍✈️ คนขับเช่าซื้อ (RTO)</a>
-        <a href="index.html" class="nav-item" style="text-decoration: none; color: inherit;">🕙 คนขับราย ชม.</a>
-        <a href="index.html" class="nav-item" style="text-decoration: none; color: inherit;">💰 นักลงทุน (Asset)</a>
-        <a href="index.html" class="nav-item" style="text-decoration: none; color: inherit;">🚛 พาร์ทเนอร์ (Fleet)</a>
-        <a href="index.html" class="nav-item" style="text-decoration: none; color: inherit;">🏷️ พาร์ทเนอร์ (Dealer)</a>
-        <div class="nav-item active">🏗️ Framework</div>
-    </div>
 
     <div class="framework-container">
         <div class="panel" style="background: linear-gradient(135deg, #1e293b, #334155); color: white; border: none;">
@@ -97,7 +87,11 @@
                 classDef finalNode fill:#10b981,stroke:#047857,color:#fff
                 classDef platformNode fill:#f43f5e,stroke:#e11d48,color:#fff
 
-                Start["1. จัดหาสินทรัพย์ <br> (นักลงทุน / เจ้าของฟลีท)"]:::startNode --> Platform["2. เข้าสู่ศูนย์กลาง <br> Mobility Super App Platform"]:::platformNode
+                Start["1. จัดหาสินทรัพย์ <br> (นักลงทุน / เจ้าของฟลีท)"]:::startNode
+                External["1b. Car Platforms <br> (เช่น Haup / อื่นๆ)"]:::startNode
+                
+                Start --> Platform["2. เข้าสู่ศูนย์กลาง <br> Mobility Super App Platform"]:::platformNode
+                External -->|Asset-Light Connection| Platform
                 
                 Platform --> Release{"3. ช่องทางการปล่อยรถ"}:::midNode
                 
@@ -108,23 +102,25 @@
                 HOURLY --> Drive
                 
                 Drive --> Safety["5. ระบบ AI & Safety <br> ควบคุมความเสี่ยง"]:::finalNode
-                Safety --> Income["6. สร้างรายได้ & ปันผล <br> วนกลับสู่ระบบ"]:::finalNode
+                Safety --> Income["6. สร้างรายได้ & ฐานข้อมูล <br> (หลัง 2-3 เดือน)"]:::finalNode
                 
-                Income -.->|ลงทุนเพิ่ม/ขยายฟลีท| Start
+                Income --> ICO{{"7. ขยายฐานทุนผ่าน <br> Digital Asset Token (ICO)"}}:::platformNode
+                ICO -->|ระดมทุนมหาศาล| Scale["8. ขยาย Fleet รถยนต์ <br> แบบ Exponential Growth"]:::startNode
+                Scale -.-> Start
         </pre>
 
         <div class="desc-box">
             <div class="desc-item">
                 <h3>🛒 การจัดหาสินทรัพย์</h3>
-                <p>เปิดโอกาสให้นักลงทุนอิสระและบริษัทรถเช่า นำรถยนต์เข้าสู่แพลตฟอร์มเพื่อสร้างผลตอบแทนที่สูงกว่าการปล่อยเช่าปกติ โดยมีระบบคัดกรองที่มีประสิทธิภาพ</p>
+                <p>เปิดโอกาสให้นักลงทุนและ Car Platforms นำรถเข้าสู่ระบบเพื่อสร้างผลตอบแทน และระดมทุนต่อยอดผ่าน <b>Digital Asset Tokenization (ICO)</b> เพื่อขยายฟลีทรถยนต์ในสเกลใหญ่</p>
             </div>
             <div class="desc-item" style="border-top-color: #6366f1;">
-                <h3>📑 รูปแบบการเลือกรับงาน</h3>
-                <p>คนขับสามารถเลือกได้ตามไลฟ์สไตล์ ทั้งแบบเช่าซื้อรายวันเพื่อเป็นเจ้าของในอนาคต (RTO) หรือเช่ารายชั่วโมงเพื่อเน้นความคล่องตัวและอิสระ</p>
+                <h3>📑 ฐานข้อมูล & รายได้ (M1-M3)</h3>
+                <p>เมื่อระบบรันไป 2-3 เดือน ข้อมูล Utilization และรายได้ที่ชัดเจนจะถูกนำมาใช้เป็นฐานในการสร้างความเชื่อมั่นให้กับผู้ถือเหรียญ และขยายช่องทางธุรกิจ</p>
             </div>
             <div class="desc-item" style="border-top-color: #10b981;">
-                <h3>🛡️ ความปลอดภัยและยั่งยืน</h3>
-                <p>ใช้ AI ในการติดตามพฤติกรรมการขับขี่และควบคุมความเสี่ยง ช่วยรักษาทรัพย์สินให้ปลอดภัย และการันตีรายได้ที่สม่ำเสมอให้กับทุกภาคส่วน</p>
+                <h3>🛡️ การเติบโตแบบยั่งยืน</h3>
+                <p>การใช้ ICO ช่วยลดอุปสรรคเรื่องการกู้ยืมธนาคารแบบเดิมๆ ทำให้เราสามารถขยายจำนวนรถยนต์ในระบบได้อย่างรวดเร็ว (Exponential Growth) โดยมี AI ควบคุมความเสี่ยง</p>
             </div>
         </div>
     </div>

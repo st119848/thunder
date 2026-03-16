@@ -234,15 +234,37 @@ function updatePartnerFleetView() {
     const days = parseFloat(document.getElementById('p_fleet_days').value) || 0;
     const rate = parseFloat(document.getElementById('p_fleet_rate').value) || 0;
     const feePercent = parseFloat(document.getElementById('p_fleet_fee').value) || 0;
+    const model = document.getElementById('p_fleet_model').value;
+    
+    // Manage dynamic input visibility
+    const platformInputs = document.getElementById('fleet-platform-inputs');
+    if (platformInputs) {
+        platformInputs.style.display = model === 'platform' ? 'block' : 'none';
+    }
 
     const gross = v * days * rate;
     const platformFee = gross * (feePercent / 100);
-    const netPartner = gross - platformFee;
+    
+    let netPartner = 0;
+    if (model === 'owner') {
+        // Owner gets everything after our platform fee
+        netPartner = gross - platformFee;
+    } else {
+        // Platform (Asset-Light) gets a management cut (GP they charge their owners)
+        const mgmtGP = parseFloat(document.getElementById('p_fleet_mgmt_gp').value) || 0;
+        netPartner = gross * (mgmtGP / 100);
+    }
     
     document.getElementById('p_fleet_gross').innerText = '฿' + fmt(gross);
     document.getElementById('p_fleet_fee_val').innerText = '฿' + fmt(platformFee);
     document.getElementById('p_fleet_net').innerText = '฿' + fmt(netPartner);
     document.getElementById('p_fleet_year').innerText = '฿' + fmt(netPartner * 12);
+
+    // Update Label dynamically for clarity
+    const netLabel = document.querySelector('#view-p-fleet .card-profit h3');
+    if (netLabel) {
+        netLabel.innerText = model === 'owner' ? 'รายได้สุทธิเจ้าของ Fleet' : 'ค่าบริหารจัดการ (Platform GP)';
+    }
 }
 
 function updatePartnerDealerView() {

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICO Whitepaper & Tokenomics - Mobility Super App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .ico-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .tokenomics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .whitepaper-section {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .highlight-card {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 40px;
+            border-radius: 24px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .highlight-card::after {
+            content: "TOKEN";
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 120px;
+            font-weight: 900;
+            opacity: 0.05;
+            transform: rotate(-15deg);
+        }
+        .token-stat {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-box h4 { margin: 0; font-size: 0.9rem; opacity: 0.8; }
+        .stat-box p { margin: 10px 0 0 0; font-size: 1.5rem; font-weight: bold; color: #fbbf24; }
+        
+        .chart-container {
+            height: 350px;
+            position: relative;
+        }
+        
+        .allocation-list {
+            list-style: none;
+            padding: 0;
+        }
+        .allocation-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body style="background-color: #f1f5f9;">
+
+    <div class="header">
+        <div class="header-content">
+            <h1>📄 ICO Whitepaper & Tokenomics</h1>
+            <p style="color: #64748b; margin-top: 5px;">Mobility Digital Asset Tokenization Strategy</p>
+        </div>
+        <div class="anime-nav-container">
+            <a href="index.html" class="anime-nav-item">🏠 Home</a>
+            <a href="framework.html" class="anime-nav-item">🏗️ Framework</a>
+            <a href="ico.html" class="anime-nav-item active">📄 ICO Whitepaper</a>
+        </div>
+    </div>
+
+    <div class="ico-container">
+        
+        <div class="highlight-card">
+            <h1>🚀 MOBI Token Expansion</h1>
+            <p style="font-size: 1.1rem; opacity: 0.9; max-width: 800px;">
+                MOBI Token คือจุดเปลี่ยนของการลงทุนในอุตสาหกรรม Mobility โดยการเปลี่ยน "สินทรัพย์ที่เคลื่อนที่ได้" (Mobile Assets) และ "กระแสเงินสดรายวัน" (Real-time Cashflow) 
+                ให้เป็นเหรียญดิจิทัลที่ทุกคนสามารถเข้าถึงได้ โดยมีรถยนต์ไฟฟ้าจริง 100% ค้ำประกันมูลค่า
+            </p>
+            
+            <div class="token-stat">
+                <div class="stat-box">
+                    <h4>Token Identifier</h4>
+                    <p>$MOBI (BEP-20/ERC-20)</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Initial Market Cap</h4>
+                    <p>$2,500,000</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Launch Price</h4>
+                    <p>$0.025 / MOBI</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Staking Rewards</h4>
+                    <p>Up to 15% APY</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: RWA Mechanics -->
+        <div class="whitepaper-section">
+            <h2 style="color: var(--primary);">💎 Real World Asset (RWA) Tokenization</h2>
+            <p>แตกต่างจากโปรเจกต์ Memecoins ทั่วไป $MOBI ทำงานบนพื้นฐานของสินทรัพย์ที่มีอยู่จริง (Asset-Backed Token):</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+                <div style="background: #f8fafc; padding: 25px; border-radius: 15px;">
+                    <h3 style="margin-top:0;">📡 GPS-to-Chain Oracle</h3>
+                    <p style="font-size: 0.95rem;">เราติดตั้งอุปกรณ์ IoT ในรถยนต์ทุกคัน ข้อมูลการวิ่ง รายได้ในแต่ละวัน และตำแหน่งของรถจะถูก Upload ขึ้นสู่ Blockchain แบบ Real-time ผู้ถือเหรียญสามารถตรวจสอบสถานะของ "สินทรัพย์ค้ำประกัน" ได้ตลอด 24 ชั่วโมง</p>
+                </div>
+                <div style="background: #f8fafc; padding: 25px; border-radius: 15px;">
+                    <h3 style="margin-top:0;">🛡️ Smart Contract Escrow</h3>
+                    <p style="font-size: 0.95rem;">รายได้จากการเช่าซื้อ (RTO) และค่าธรรมเนียม Platform จะถูกโอนเข้า Smart Contract โดยอัตโนมัติ เพื่อกระจายผลตอบแทนให้ผู้ถือเหรียญ (Stakers) โดยไม่มีการแทรกแซงจากตัวกลาง</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tokenomics-grid">
+            <div class="whitepaper-section">
+                <h2 style="margin-top: 0;">📊 Token Allocation</h2>
+                <div class="chart-container">
+                    <canvas id="tokenChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="whitepaper-section">
+                <h2>⏳ Vesting & Lock-up Schedule</h2>
+                <p style="font-size: 0.9rem; margin-bottom: 20px;">เราให้ความสำคัญกับความมั่นใจของนักลงทุนในระยะยาว (Long-term Sustainability)</p>
+                <ul class="allocation-list">
+                    <li class="allocation-item">
+                        <div style="flex:1"><b>Seed/Private Round</b></div>
+                        <div style="text-align: right">Cliff 6 เดือน, ทยอยปลด 18 เดือน</div>
+                    </li>
+                    <li class="allocation-item">
+                        <div style="flex:1"><b>Team & Foundry</b></div>
+                        <div style="text-align: right">Cliff 12 เดือน, ทยอยปลด 24 เดือน</div>
+                    </li>
+                    <li class="allocation-item">
+                        <div style="flex:1"><b>Public Sale (IDO)</b></div>
+                        <div style="text-align: right">ปลดล็อก 100% ณ วันจดทะเบียน (TGE)</div>
+                    </li>
+                    <li class="allocation-item">
+                        <div style="flex:1"><b>Marketing & Ecosystem</b></div>
+                        <div style="text-align: right">ทยอยปลดตาม Milestone การตลาด</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 2: Use of Funds -->
+        <div class="whitepaper-section">
+            <h2>💰 Use of Funds (แผนการใช้เงินระดมทุน)</h2>
+            <div style="display: flex; gap: 10px; height: 30px; margin: 20px 0; border-radius: 15px; overflow: hidden;">
+                <div style="width: 60%; background: #3b82f6; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem;">Fleet Scaling (60%)</div>
+                <div style="width: 20%; background: #6366f1; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem;">Tech R&D (20%)</div>
+                <div style="width: 15%; background: #10b981; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem;">Mkt (15%)</div>
+                <div style="width: 5%; background: #fbbf24; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem;">Misc (5%)</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; font-size: 0.85rem;">
+                <div>• <b>Fleet (60%):</b> จัดซื้อรถยนต์ไฟฟ้าเพิ่ม 500-1,000 คันเพื่อขยายระบบ</div>
+                <div>• <b>Tech (20%):</b> พัฒนา AI Safety Platform และ Blockchain Gateway</div>
+                <div>• <b>Marketing (15%):</b> สร้างฐานผู้ใช้และคนขับใน 10 จังหวัดหลัก</div>
+                <div>• <b>Legal (5%):</b> ใบอนุญาตสินทรัพย์ดิจิทัลและการจัดการความเสี่ยง</div>
+            </div>
+        </div>
+
+        <div class="whitepaper-section">
+            <h2>💡 ทำไมต้อง MOBI Token?</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
+                <div style="padding: 15px; border-left: 4px solid #3b82f6; background: #eff6ff;">
+                    <h4 style="margin-top: 0; color: #1e40af;">Asset-Backed</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">ทุกๆ 1,000,000 เหรียญ จะมีรถยนต์ไฟฟ้าอย่างน้อย 1-2 คันค้ำประกันมูลค่า เป็น RWA ที่จับต้องได้จริง</p>
+                </div>
+                <div style="padding: 15px; border-left: 4px solid #10b981; background: #f0fdf4;">
+                    <h4 style="margin-top: 0; color: #166534;">Revenue Redistribution</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">กำไรจากค่าธรรมเนียมแพลตฟอร์ม 15-20% จะถูกนำมาซื้อคืน (Buy-back) และเบิร์นเหรียญทิ้งเพื่อสร้างสภาวะเงินฝืด</p>
+                </div>
+                <div style="padding: 15px; border-left: 4px solid #fbbf24; background: #fffbeb;">
+                    <h4 style="margin-top: 0; color: #92400e;">Sustainability Governance</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">ผู้ถือเหรียญมีส่วนร่วมในการตัดสินใจเลือกพาร์ทเนอร์ หรือรุ่นของรถไฟฟ้าที่จะนำเข้ามาในอนาคต</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Legal & Security -->
+        <div class="whitepaper-section" style="border: 2px solid #e2e8f0; background: #fdfdfd;">
+            <h2 style="color: #64748b;">⚖️ Compliance & Security</h2>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-top: 20px;">
+                <div style="font-size: 0.95rem; color: #475569;">
+                    <p>MOBI Token มุ่งมั่นที่จะดำเนินงานภายใต้กฎระเบียบของสำนักงาน ก.ล.ต. (หรือเทียบเท่าในแต่ละภูมิภาค) โดยเราใช้มาตรฐาน <b>ERC-3643 (T-REX Protocol)</b> เพื่อให้แน่ใจว่าการแลกเปลี่ยนเหรียญเป็นไปตามกฎหมาย มีระบบ KYC/AML สำหรับผู้ลงทุนทุกคน</p>
+                    <p><b>Security Audits:</b> Smart Contract ของเราจะถูกตรวจสอบโดยบริษัทชั้นนำ (CertiK / PeckShield) ก่อนการประกาศขาย และมีการทำประกันภัยสินทรัพย์กับพาร์ทเนอร์ระดับโลก</p>
+                </div>
+                <div style="background: #1e293b; color: white; padding: 20px; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🔒</div>
+                    <h4 style="margin:0;">Audit Pending</h4>
+                    <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.8;">Smart Contract is currently undergoing security audit</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="whitepaper-section" style="background: #f8fafc;">
+            <h2>📅 Roadmap to Tokenization (Detailed)</h2>
+            <div style="margin-top: 20px; position: relative; padding-left: 30px; border-left: 2px solid #cbd5e1;">
+                <div style="margin-bottom: 30px; position: relative;">
+                    <div style="position: absolute; left: -39px; top: 0; width: 16px; height: 16px; border-radius: 50%; background: #1e293b; border: 4px solid white;"></div>
+                    <h4 style="margin: 0; color: #1e293b;">Q1 2024: Infrastructure & MVP</h4>
+                    <p style="margin: 5px 0 0 0; color: #64748b; font-size: 0.9rem;">- พัฒนา AI Driver Monitoring System<br>- เริ่มรันรถ 100 คันแรกใน กทม.<br>- จดทะเบียนนิติบุคคลพิเศษ (SPV) สำหรับการทำ ICO</p>
+                </div>
+                <div style="margin-bottom: 30px; position: relative;">
+                    <div style="position: absolute; left: -39px; top: 0; width: 16px; height: 16px; border-radius: 50%; background: #3b82f6; border: 4px solid white;"></div>
+                    <h4 style="margin: 0; color: #1e40af;">Q2 2024: Public Offering & Listing</h4>
+                    <p style="margin: 5px 0 0 0; color: #64748b; font-size: 0.9rem;">- เปิดขาย ICO (Private & Public Round)<br>- จดทะเบียนเหรียญเข้ากระดานเทรด (DEX & CEX)<br>- เชื่อมต่อระบบ GPS-to-Chain Dashboard</p>
+                </div>
+                <div style="position: relative;">
+                    <div style="position: absolute; left: -39px; top: 0; width: 16px; height: 16px; border-radius: 50%; background: #10b981; border: 4px solid white;"></div>
+                    <h4 style="margin: 0; color: #166534;">Q3-Q4 2024: Hyper-Growth Phase</h4>
+                    <p style="margin: 5px 0 0 0; color: #64748b; font-size: 0.9rem;">- ขยายฟลีทรถสู่ 1,000 คัน<br>- ขยายขอบเขตการให้บริการสู่ เชียงใหม่ และ ภูเก็ต<br>- เปิดตัวฟีเจอร์ Token-as-Fare (ใช้เหรียญจ่ายค่าบริการ)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('tokenChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Public Sale', 'Ecosystem', 'Fleet Fund', 'Team', 'Reserve'],
+                datasets: [{
+                    data: [40, 25, 20, 10, 5],
+                    backgroundColor: ['#3b82f6', '#10b981', '#6366f1', '#f43f5e', '#fbbf24'],
+                    borderWidth: 0,
+                    hoverOffset: 15
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { font: { family: 'Sarabun' } }
+                    }
+                },
+                cutout: '70%'
+            }
+        });
+    </script>
+</body>
+</html>

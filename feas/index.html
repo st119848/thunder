@@ -26,6 +26,9 @@
             <a href="framework.html" class="anime-nav-item">
                 🏗️ Framework
             </a>
+            <a href="ico.html" class="anime-nav-item">
+                📄 ICO Whitepaper
+            </a>
             <a href="extend.html" class="anime-nav-item">
                 📈 Extended Feas
             </a>
@@ -621,8 +624,15 @@
                                 <option value="byd_seal">BYD Seal</option>
                             </select>
                         </div>
+                        <div class="input-group">
+                            <label>รูปแบบธุรกิจ (Business Model)</label>
+                            <select id="p_fleet_model" onchange="updatePartnerFleetView()" style="width:100%; padding:8px; border-radius:6px; border:1px solid var(--border); font-weight: bold; color: var(--accent);">
+                                <option value="owner">🚗 เจ้าของ Fleet (Own Assets)</option>
+                                <option value="platform">🤝 Car Platform (Asset-Light เช่น Haup)</option>
+                            </select>
+                        </div>
                     </div>
-                    <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;">สำหรับบริษัทรถเช่าที่ต้องการเพิ่ม Utilization ของรถในคลัง</p>
+                    <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;">สำหรับบริษัทรถเช่าที่ต้องการเพิ่ม Utilization ของรถในคลัง หรือแพลตฟอร์มที่ระบายรถเข้าสู่ระบบเรา</p>
                     <div class="input-pill">
                         <label>จำนวนรถที่ส่งเข้าระบบ (คัน)</label>
                         <input type="number" id="p_fleet_v" value="50" oninput="updatePartnerFleetView()">
@@ -635,6 +645,17 @@
                         <label>ค่าเช่ารายวันคาดการณ์ (บาท/วัน)</label>
                         <input type="number" id="p_fleet_rate" value="1200" oninput="updatePartnerFleetView()">
                     </div>
+                    
+                    <!-- Dynamic inputs for Car Platform model -->
+                    <div id="fleet-platform-inputs" style="display: none; border: 1px dashed var(--accent); padding: 15px; border-radius: 12px; margin-bottom: 20px; background: #f0f9ff;">
+                        <h4 style="margin: 0 0 10px 0; font-size: 0.9rem; color: var(--accent);">📊 ตั้งค่าโมเดล Platform</h4>
+                        <div class="input-group">
+                            <label> GP ที่เก็บจากเจ้าของรถ (%)</label>
+                            <input type="number" id="p_fleet_mgmt_gp" value="10" oninput="updatePartnerFleetView()" style="font-size: 1rem; color: var(--primary);">
+                        </div>
+                        <p style="font-size: 0.75rem; color: #64748b;">* ค่าบริหารจัดการที่คุณจะได้รับจากยอดเช่ารวม</p>
+                    </div>
+
                     <div class="input-pill">
                         <label>Platform Management Fee (%)</label>
                         <input type="number" id="p_fleet_fee" value="15" oninput="updatePartnerFleetView()">
